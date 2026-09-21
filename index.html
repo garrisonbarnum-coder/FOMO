@@ -189,7 +189,16 @@ footer {
   <div class="subtitle">
     Live market discovery • DEX Screener data
   </div>
+<div style="padding:15px 15px 0;">
+  <button id="enableAlerts" type="button">
+    🔔 Enable Signal Alerts
+  </button>
 
+  <div id="alertStatus"
+       style="color:#8d96a5;font-size:12px;margin-top:6px;">
+    Alerts are currently off
+  </div>
+</div>
   <div class="controls">
     <input id="search" placeholder="Search a token or contract...">
     <button onclick="searchToken()">Search</button>
@@ -241,6 +250,26 @@ footer {
 const API = "https://api.dexscreener.com";
 
 let tokens = [];
+let previousSignals = {};
+
+async function enableSignalAlerts() {
+
+  if (!("Notification" in window)) {
+    document.getElementById("alertStatus").textContent =
+      "This browser does not support notifications.";
+    return;
+  }
+
+  const permission = await Notification.requestPermission();
+
+  if (permission === "granted") {
+    document.getElementById("alertStatus").textContent =
+      "🔔 Signal alerts enabled";
+  } else {
+    document.getElementById("alertStatus").textContent =
+      "Notifications were not allowed.";
+  }
+}
 
 function money(value) {
   if (!value) return "$0";
@@ -421,6 +450,7 @@ function renderCoins(list) {
 
     const score = calculateScore(pair);
 const trade = getTradeSignal(pair);
+    sendSignalAlert(pair, trade);
     const currentPrice = Number(pair.priceUsd || 0);
 
 const entryLow = currentPrice * 0.98;
@@ -945,6 +975,11 @@ loadLiveData();
 setInterval(loadLiveData, 60000);
 
 </script>
-
+document
+  .getElementById("enableAlerts")
+  .addEventListener(
+    "click",
+    enableSignalAlerts
+  );
 </body>
 </html>
