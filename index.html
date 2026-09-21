@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fomo Signal Tracker</title>
+<style>
+body{margin:0;background:#0b0d12;color:#eef2f7;font-family:system-ui,sans-serif}header{padding:20px 24px;border-bottom:1px solid #242832;display:flex;justify-content:space-between;align-items:center}h1{margin:0;font-size:22px}.muted{color:#8992a3}.wrap{padding:22px;max-width:1300px;margin:auto}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.card{background:#12151c;border:1px solid #252a35;border-radius:14px;padding:16px}.big{font-size:25px;font-weight:700}.tabs{display:flex;gap:8px;margin:20px 0;flex-wrap:wrap}button{background:#171b24;color:#fff;border:1px solid #303746;border-radius:9px;padding:9px 13px;cursor:pointer}button.active{background:#fff;color:#0b0d12}.toolbar{display:flex;gap:10px;margin-bottom:14px}.toolbar input{flex:1;background:#12151c;border:1px solid #303746;color:#fff;padding:11px;border-radius:9px}table{width:100%;border-collapse:collapse}.card.table{overflow:auto}th,td{text-align:left;padding:12px;border-bottom:1px solid #252a35;white-space:nowrap}.score{font-weight:800}.green{color:#61e6a7}.red{color:#ff7373}.yellow{color:#ffd166}.tag{padding:4px 7px;border-radius:6px;background:#202633;font-size:12px}.footer{margin-top:20px;font-size:12px;color:#70798a}@media(max-width:800px){.grid{grid-template-columns:repeat(2,1fr)}header{padding:16px}.wrap{padding:14px}}
+</style></head>
+<body>
+<header><h1>Fomo Signal Tracker</h1><span class="muted" id="status">Demo data • connect API to go live</span></header>
+<div class="wrap">
+<div class="grid">
+<div class="card"><div class="muted">Coins scanned</div><div class="big" id="coins">0</div></div>
+<div class="card"><div class="muted">High-signal</div><div class="big green" id="signals">0</div></div>
+<div class="card"><div class="muted">Whale alerts</div><div class="big" id="whales">0</div></div>
+<div class="card"><div class="muted">Risk flags</div><div class="big red" id="risks">0</div></div>
+</div>
+<div class="tabs"><button class="active" onclick="show('discover',this)">🔥 Discover</button><button onclick="show('smart',this)">👑 Smart Money</button><button onclick="show('whales',this)">🐋 Whales</button><button onclick="show('risk',this)">🚨 Risk</button><button onclick="show('watch',this)">⭐ Watchlist</button></div>
+<div class="toolbar"><input id="search" placeholder="Search token, symbol, or address..." oninput="render()"><button onclick="refresh()">Refresh</button></div>
+<div class="card table"><table><thead><tr><th>Token</th><th>Score</th><th>MCap</th><th>24h</th><th>Volume</th><th>Liquidity</th><th>Smart Money</th><th>Risk</th></tr></thead><tbody id="rows"></tbody></table></div>
+<div class="footer">This starter dashboard is intentionally read-only. It does not place trades or request private wallet credentials.</div>
+</div>
+<script>
+let tab='discover';
+const data=[
+{name:'Example Coin',symbol:'EXM',score:91,mcap:'$420K',change:'+184%',vol:'+380%',liq:'$210K',smart:'🔥🔥🔥',risk:'Medium'},
+{name:'Momentum',symbol:'MOMO',score:84,mcap:'$1.2M',change:'+72%',vol:'+210%',liq:'$540K',smart:'🔥🔥',risk:'Low'},
+{name:'Early Bird',symbol:'BIRD',score:78,mcap:'$280K',change:'+116%',vol:'+510%',liq:'$95K',smart:'🔥🔥🔥',risk:'High'},
+{name:'Sample Token',symbol:'SAMP',score:67,mcap:'$3.4M',change:'+19%',vol:'+44%',liq:'$1.1M',smart:'🔥',risk:'Low'}
+];
+function render(){
+ const q=document.getElementById('search').value.toLowerCase();
+ let rows=data.filter(x=>(x.name+x.symbol).toLowerCase().includes(q));
+ if(tab==='risk') rows=rows.filter(x=>x.risk==='High');
+ if(tab==='watch') rows=rows.slice(0,2);
+ document.getElementById('rows').innerHTML=rows.map(x=>`<tr><td><b>${x.name}</b> <span class="tag">${x.symbol}</span></td><td class="score">${x.score}</td><td>${x.mcap}</td><td class="green">${x.change}</td><td>${x.vol}</td><td>${x.liq}</td><td>${x.smart}</td><td class="${x.risk==='High'?'red':'yellow'}">${x.risk}</td></tr>`).join('');
+ document.getElementById('coins').textContent=data.length;document.getElementById('signals').textContent=data.filter(x=>x.score>=80).length;document.getElementById('whales').textContent=3;document.getElementById('risks').textContent=data.filter(x=>x.risk==='High').length;
+}
+function show(t,b){tab=t;document.querySelectorAll('.tabs button').forEach(x=>x.classList.remove('active'));b.classList.add('active');render()}
+function refresh(){document.getElementById('status').textContent='Last refresh: '+new Date().toLocaleTimeString()+' • demo feed';render()}
+render();
+</script>
+</body></html>
