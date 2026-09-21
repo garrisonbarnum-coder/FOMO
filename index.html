@@ -1,43 +1,541 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Fomo Signal Tracker</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FOMO Coin Tracker</title>
+
 <style>
-body{margin:0;background:#0b0d12;color:#eef2f7;font-family:system-ui,sans-serif}header{padding:20px 24px;border-bottom:1px solid #242832;display:flex;justify-content:space-between;align-items:center}h1{margin:0;font-size:22px}.muted{color:#8992a3}.wrap{padding:22px;max-width:1300px;margin:auto}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.card{background:#12151c;border:1px solid #252a35;border-radius:14px;padding:16px}.big{font-size:25px;font-weight:700}.tabs{display:flex;gap:8px;margin:20px 0;flex-wrap:wrap}button{background:#171b24;color:#fff;border:1px solid #303746;border-radius:9px;padding:9px 13px;cursor:pointer}button.active{background:#fff;color:#0b0d12}.toolbar{display:flex;gap:10px;margin-bottom:14px}.toolbar input{flex:1;background:#12151c;border:1px solid #303746;color:#fff;padding:11px;border-radius:9px}table{width:100%;border-collapse:collapse}.card.table{overflow:auto}th,td{text-align:left;padding:12px;border-bottom:1px solid #252a35;white-space:nowrap}.score{font-weight:800}.green{color:#61e6a7}.red{color:#ff7373}.yellow{color:#ffd166}.tag{padding:4px 7px;border-radius:6px;background:#202633;font-size:12px}.footer{margin-top:20px;font-size:12px;color:#70798a}@media(max-width:800px){.grid{grid-template-columns:repeat(2,1fr)}header{padding:16px}.wrap{padding:14px}}
-</style></head>
-<body>
-<header><h1>Fomo Signal Tracker</h1><span class="muted" id="status">Demo data • connect API to go live</span></header>
-<div class="wrap">
-<div class="grid">
-<div class="card"><div class="muted">Coins scanned</div><div class="big" id="coins">0</div></div>
-<div class="card"><div class="muted">High-signal</div><div class="big green" id="signals">0</div></div>
-<div class="card"><div class="muted">Whale alerts</div><div class="big" id="whales">0</div></div>
-<div class="card"><div class="muted">Risk flags</div><div class="big red" id="risks">0</div></div>
-</div>
-<div class="tabs"><button class="active" onclick="show('discover',this)">🔥 Discover</button><button onclick="show('smart',this)">👑 Smart Money</button><button onclick="show('whales',this)">🐋 Whales</button><button onclick="show('risk',this)">🚨 Risk</button><button onclick="show('watch',this)">⭐ Watchlist</button></div>
-<div class="toolbar"><input id="search" placeholder="Search token, symbol, or address..." oninput="render()"><button onclick="refresh()">Refresh</button></div>
-<div class="card table"><table><thead><tr><th>Token</th><th>Score</th><th>MCap</th><th>24h</th><th>Volume</th><th>Liquidity</th><th>Smart Money</th><th>Risk</th></tr></thead><tbody id="rows"></tbody></table></div>
-<div class="footer">This starter dashboard is intentionally read-only. It does not place trades or request private wallet credentials.</div>
-</div>
-<script>
-let tab='discover';
-const data=[
-{name:'Example Coin',symbol:'EXM',score:91,mcap:'$420K',change:'+184%',vol:'+380%',liq:'$210K',smart:'🔥🔥🔥',risk:'Medium'},
-{name:'Momentum',symbol:'MOMO',score:84,mcap:'$1.2M',change:'+72%',vol:'+210%',liq:'$540K',smart:'🔥🔥',risk:'Low'},
-{name:'Early Bird',symbol:'BIRD',score:78,mcap:'$280K',change:'+116%',vol:'+510%',liq:'$95K',smart:'🔥🔥🔥',risk:'High'},
-{name:'Sample Token',symbol:'SAMP',score:67,mcap:'$3.4M',change:'+19%',vol:'+44%',liq:'$1.1M',smart:'🔥',risk:'Low'}
-];
-function render(){
- const q=document.getElementById('search').value.toLowerCase();
- let rows=data.filter(x=>(x.name+x.symbol).toLowerCase().includes(q));
- if(tab==='risk') rows=rows.filter(x=>x.risk==='High');
- if(tab==='watch') rows=rows.slice(0,2);
- document.getElementById('rows').innerHTML=rows.map(x=>`<tr><td><b>${x.name}</b> <span class="tag">${x.symbol}</span></td><td class="score">${x.score}</td><td>${x.mcap}</td><td class="green">${x.change}</td><td>${x.vol}</td><td>${x.liq}</td><td>${x.smart}</td><td class="${x.risk==='High'?'red':'yellow'}">${x.risk}</td></tr>`).join('');
- document.getElementById('coins').textContent=data.length;document.getElementById('signals').textContent=data.filter(x=>x.score>=80).length;document.getElementById('whales').textContent=3;document.getElementById('risks').textContent=data.filter(x=>x.risk==='High').length;
+* {
+  box-sizing: border-box;
 }
-function show(t,b){tab=t;document.querySelectorAll('.tabs button').forEach(x=>x.classList.remove('active'));b.classList.add('active');render()}
-function refresh(){document.getElementById('status').textContent='Last refresh: '+new Date().toLocaleTimeString()+' • demo feed';render()}
-render();
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #090b10;
+  color: #fff;
+}
+
+header {
+  padding: 18px;
+  background: #11151d;
+  border-bottom: 1px solid #252b36;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+h1 {
+  margin: 0 0 5px;
+  font-size: 25px;
+}
+
+.subtitle {
+  color: #8d96a5;
+  font-size: 13px;
+}
+
+.controls {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+input {
+  flex: 1;
+  padding: 12px;
+  border-radius: 9px;
+  border: 1px solid #303744;
+  background: #0a0d13;
+  color: white;
+  font-size: 15px;
+}
+
+button {
+  padding: 12px 15px;
+  border: 0;
+  border-radius: 9px;
+  background: #6c5ce7;
+  color: white;
+  font-weight: bold;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  padding: 15px;
+}
+
+.stat {
+  background: #11151d;
+  border: 1px solid #252b36;
+  border-radius: 10px;
+  padding: 14px;
+}
+
+.stat-title {
+  color: #8d96a5;
+  font-size: 12px;
+}
+
+.stat-value {
+  font-size: 21px;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+.status {
+  padding: 0 15px 10px;
+  color: #8d96a5;
+  font-size: 13px;
+}
+
+.coins {
+  padding: 0 15px 30px;
+}
+
+.coin {
+  background: #11151d;
+  border: 1px solid #252b36;
+  border-radius: 12px;
+  margin-bottom: 10px;
+  padding: 15px;
+}
+
+.coin-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.coin-name {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.symbol {
+  color: #8d96a5;
+  margin-left: 5px;
+}
+
+.chain {
+  font-size: 11px;
+  color: #8d96a5;
+  margin-top: 4px;
+}
+
+.score {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.metric {
+  background: #0a0d13;
+  border-radius: 8px;
+  padding: 9px;
+}
+
+.metric-title {
+  color: #737d8c;
+  font-size: 10px;
+}
+
+.metric-value {
+  margin-top: 3px;
+  font-weight: bold;
+  font-size: 13px;
+}
+
+.green {
+  color: #39d98a;
+}
+
+.red {
+  color: #ff6b6b;
+}
+
+footer {
+  padding: 20px;
+  text-align: center;
+  color: #687180;
+  font-size: 11px;
+}
+
+@media(max-width:700px) {
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>🔥 FOMO Coin Tracker</h1>
+  <div class="subtitle">
+    Live market discovery • DEX Screener data
+  </div>
+
+  <div class="controls">
+    <input id="search" placeholder="Search a token or contract...">
+    <button onclick="searchToken()">Search</button>
+  </div>
+</header>
+
+<section class="stats">
+  <div class="stat">
+    <div class="stat-title">LIVE TOKENS</div>
+    <div class="stat-value" id="tokenCount">0</div>
+  </div>
+
+  <div class="stat">
+    <div class="stat-title">GAINERS</div>
+    <div class="stat-value" id="gainers">0</div>
+  </div>
+
+  <div class="stat">
+    <div class="stat-title">HIGH VOLUME</div>
+    <div class="stat-value" id="highVolume">0</div>
+  </div>
+
+  <div class="stat">
+    <div class="stat-title">LAST UPDATE</div>
+    <div class="stat-value" id="updated">--</div>
+  </div>
+</section>
+
+<div class="status" id="status">
+  Loading live crypto data...
+</div>
+
+<section class="coins" id="coins"></section>
+
+<footer>
+  FOMO Tracker • Market data provided by DEX Screener
+</footer>
+
+<script>
+
+const API = "https://api.dexscreener.com";
+
+let tokens = [];
+
+function money(value) {
+  if (!value) return "$0";
+
+  if (value >= 1000000000)
+    return "$" + (value / 1000000000).toFixed(2) + "B";
+
+  if (value >= 1000000)
+    return "$" + (value / 1000000).toFixed(2) + "M";
+
+  if (value >= 1000)
+    return "$" + (value / 1000).toFixed(1) + "K";
+
+  return "$" + Number(value).toFixed(2);
+}
+
+function price(value) {
+  if (!value) return "$0";
+
+  const n = Number(value);
+
+  if (n < 0.000001)
+    return "$" + n.toExponential(2);
+
+  if (n < 0.01)
+    return "$" + n.toFixed(6);
+
+  return "$" + n.toFixed(4);
+}
+
+function calculateScore(pair) {
+
+  let score = 50;
+
+  const change = pair.priceChange?.h24 || 0;
+  const volume = pair.volume?.h24 || 0;
+  const liquidity = pair.liquidity?.usd || 0;
+
+  if (change > 10) score += 10;
+  if (change > 25) score += 10;
+  if (change > 50) score += 10;
+
+  if (volume > 10000) score += 5;
+  if (volume > 100000) score += 5;
+  if (volume > 1000000) score += 5;
+
+  if (liquidity > 10000) score += 5;
+  if (liquidity > 100000) score += 5;
+
+  if (score > 99) score = 99;
+
+  return score;
+}
+
+function renderCoins(list) {
+
+  const container = document.getElementById("coins");
+
+  container.innerHTML = "";
+
+  let gainers = 0;
+  let highVolume = 0;
+
+  list.forEach(pair => {
+
+    const change = pair.priceChange?.h24 || 0;
+    const volume = pair.volume?.h24 || 0;
+
+    if (change > 20) gainers++;
+    if (volume > 100000) highVolume++;
+
+    const score = calculateScore(pair);
+
+    const div = document.createElement("div");
+
+    div.className = "coin";
+
+    div.innerHTML = `
+
+      <div class="coin-top">
+
+        <div>
+          <div class="coin-name">
+            ${pair.baseToken?.name || "Unknown"}
+            <span class="symbol">
+              ${pair.baseToken?.symbol || ""}
+            </span>
+          </div>
+
+          <div class="chain">
+            ${pair.chainId || ""}
+            • ${pair.dexId || ""}
+          </div>
+        </div>
+
+        <div class="score">
+          🔥 ${score}
+        </div>
+
+      </div>
+
+      <div class="grid">
+
+        <div class="metric">
+          <div class="metric-title">PRICE</div>
+          <div class="metric-value">
+            ${price(pair.priceUsd)}
+          </div>
+        </div>
+
+        <div class="metric">
+          <div class="metric-title">24H</div>
+          <div class="metric-value ${change >= 0 ? "green" : "red"}">
+            ${change >= 0 ? "+" : ""}${change.toFixed(2)}%
+          </div>
+        </div>
+
+        <div class="metric">
+          <div class="metric-title">VOLUME</div>
+          <div class="metric-value">
+            ${money(volume)}
+          </div>
+        </div>
+
+        <div class="metric">
+          <div class="metric-title">LIQUIDITY</div>
+          <div class="metric-value">
+            ${money(pair.liquidity?.usd)}
+          </div>
+        </div>
+
+        <div class="metric">
+          <div class="metric-title">MARKET CAP</div>
+          <div class="metric-value">
+            ${money(pair.marketCap || pair.fdv)}
+          </div>
+        </div>
+
+        <div class="metric">
+          <div class="metric-title">BUYS</div>
+          <div class="metric-value">
+            ${pair.txns?.h24?.buys || 0}
+          </div>
+        </div>
+
+        <div class="metric">
+          <div class="metric-title">SELLS</div>
+          <div class="metric-value">
+            ${pair.txns?.h24?.sells || 0}
+          </div>
+        </div>
+
+        <div class="metric">
+          <div class="metric-title">PAIR</div>
+          <div class="metric-value">
+            ${pair.pairAddress
+              ? pair.pairAddress.slice(0,6) + "..."
+              : "N/A"}
+          </div>
+        </div>
+
+      </div>
+    `;
+
+    container.appendChild(div);
+  });
+
+  document.getElementById("tokenCount").textContent = list.length;
+  document.getElementById("gainers").textContent = gainers;
+  document.getElementById("highVolume").textContent = highVolume;
+}
+
+async function loadLiveData() {
+
+  const status = document.getElementById("status");
+
+  status.textContent = "Loading live tokens...";
+
+  try {
+
+    const profileResponse =
+      await fetch(API + "/token-profiles/latest/v1");
+
+    if (!profileResponse.ok)
+      throw new Error("Could not load token profiles");
+
+    const profiles = await profileResponse.json();
+
+    const addresses = profiles
+      .slice(0, 20)
+      .map(x => x.tokenAddress)
+      .filter(Boolean);
+
+    if (!addresses.length)
+      throw new Error("No tokens returned");
+
+    const pairsResponse =
+      await fetch(
+        API + "/latest/dex/tokens/" +
+        addresses.join(",")
+      );
+
+    if (!pairsResponse.ok)
+      throw new Error("Could not load token data");
+
+    const data = await pairsResponse.json();
+
+    const pairs = data.pairs || [];
+
+    const bestPairs = {};
+
+    pairs.forEach(pair => {
+
+      const address = pair.baseToken?.address;
+
+      if (!address) return;
+
+      if (
+        !bestPairs[address] ||
+        (pair.liquidity?.usd || 0) >
+        (bestPairs[address].liquidity?.usd || 0)
+      ) {
+        bestPairs[address] = pair;
+      }
+    });
+
+    tokens = Object.values(bestPairs);
+
+    tokens.sort((a,b) =>
+      calculateScore(b) - calculateScore(a)
+    );
+
+    renderCoins(tokens);
+
+    document.getElementById("updated").textContent =
+      new Date().toLocaleTimeString();
+
+    status.textContent =
+      "Live data • Automatically refreshing every 60 seconds";
+
+  } catch(error) {
+
+    console.error(error);
+
+    status.textContent =
+      "Unable to load live data. Tap refresh or try again.";
+
+  }
+}
+
+async function searchToken() {
+
+  const query =
+    document.getElementById("search").value.trim();
+
+  if (!query) {
+    loadLiveData();
+    return;
+  }
+
+  const status = document.getElementById("status");
+
+  status.textContent = "Searching...";
+
+  try {
+
+    const response =
+      await fetch(
+        API + "/latest/dex/search?q=" +
+        encodeURIComponent(query)
+      );
+
+    if (!response.ok)
+      throw new Error("Search failed");
+
+    const data = await response.json();
+
+    const results = data.pairs || [];
+
+    results.sort((a,b) =>
+      calculateScore(b) - calculateScore(a)
+    );
+
+    renderCoins(results.slice(0,30));
+
+    status.textContent =
+      "Search results • " + results.length + " pairs";
+
+  } catch(error) {
+
+    console.error(error);
+
+    status.textContent =
+      "Search failed. Try a token name, symbol, or contract address.";
+
+  }
+}
+
+loadLiveData();
+
+setInterval(loadLiveData, 60000);
+
 </script>
-</body></html>
+
+</body>
+</html>
