@@ -412,7 +412,232 @@ function renderCoins(list) {
   document.getElementById("gainers").textContent = gainers;
   document.getElementById("highVolume").textContent = highVolume;
 }
+function formatAge(timestamp) {
+  if (!timestamp) return "Unknown";
 
+  const ageMs = Date.now() - timestamp;
+  const minutes = Math.floor(ageMs / 60000);
+
+  if (minutes < 1) return "Just now";
+  if (minutes < 60) return `${minutes}m ago`;
+
+  const hours = Math.floor(minutes / 60);
+
+  if (hours < 24) return `${hours}h ago`;
+
+  const days = Math.floor(hours / 24);
+
+  return `${days}d ago`;
+}
+
+
+function renderNewTokens(pairs) {
+
+  const container = document.getElementById("newTokens");
+
+  if (!container) return;
+
+  container.innerHTML = "";
+
+  const now = Date.now();
+
+  // Keep only pairs with a valid creation time.
+  // Only show pairs created within the last 24 hours.
+  const newest = pairs
+    .filter(pair =>
+      pair.pairCreatedAt &&
+      (now - pair.pairCreatedAt) <= 24 * 60 * 60 * 1000
+    )
+    .sort((a, b) =>
+      b.pairCreatedAt - a.pairCreatedAt
+    )
+    .slice(0, 20);
+
+
+  if (!newest.length) {
+
+    container.innerHTML = `
+      <div class="coin">
+        <div class="coin-name">
+          No newly created pairs found
+        </div>
+
+        <div class="chain">
+          The current discovery feed did not return pairs
+          created within the last 24 hours.
+        </div>
+      </div>
+    `;
+
+    return;
+  }
+
+
+  newest.forEach(pair => {
+
+    const change = pair.priceChange?.h24 || 0;
+    const volume = pair.volume?.h24 || 0;
+    const liquidity = pair.liquidity?.usd || 0;
+
+    const score = calculateScore(pair);
+
+    const div = document.createElement("div");
+
+    div.className = "coin";
+
+    div.innerHTML = `
+
+      <div class="coin-top">
+
+        <div>
+
+          <div class="coin-name">
+
+            ${pair.baseToken?.name || "Unknown"}
+
+            <span class="symbol">
+              ${pair.baseToken?.symbol || ""}
+            </span>
+
+          </div>
+
+          <div class="chain">
+
+            🆕 ${formatAge(pair.pairCreatedAt)}
+            • ${pair.chainId || "Unknown"}
+            • ${pair.dexId || "DEX"}
+
+          </div>
+
+        </div>
+
+
+        <div class="score">
+
+          🔥 ${score}
+
+        </div>
+
+      </div>
+
+
+      <div class="grid">
+
+        <div class="metric">
+
+          <div class="metric-title">
+            PRICE
+          </div>
+
+          <div class="metric-value">
+            ${price(pair.priceUsd)}
+          </div>
+
+        </div>
+
+
+        <div class="metric">
+
+          <div class="metric-title">
+            24H
+          </div>
+
+          <div class="metric-value ${
+            change >= 0 ? "green" : "red"
+          }">
+
+            ${change >= 0 ? "+" : ""}
+            ${change.toFixed(2)}%
+
+          </div>
+
+        </div>
+
+
+        <div class="metric">
+
+          <div class="metric-title">
+            VOLUME
+          </div>
+
+          <div class="metric-value">
+            ${money(volume)}
+          </div>
+
+        </div>
+
+
+        <div class="metric">
+
+          <div class="metric-title">
+            LIQUIDITY
+          </div>
+
+          <div class="metric-value">
+            ${money(liquidity)}
+          </div>
+
+        </div>
+
+
+        <div class="metric">
+
+          <div class="metric-title">
+            CREATED
+          </div>
+
+          <div class="metric-value">
+            ${formatAge(pair.pairCreatedAt)}
+          </div>
+
+        </div>
+
+
+        <div class="metric">
+
+          <div class="metric-title">
+            BUYS
+          </div>
+
+          <div class="metric-value">
+            ${pair.txns?.h24?.buys || 0}
+          </div>
+
+        </div>
+
+
+        <div class="metric">
+
+          <div class="metric-title">
+            SELLS
+          </div>
+
+          <div class="metric-value">
+            ${pair.txns?.h24?.sells || 0}
+          </div>
+
+        </div>
+
+
+        <div class="metric">
+
+          <div class="metric-title">
+            MARKET CAP
+          </div>
+
+          <div class="metric-value">
+            ${money(pair.marketCap || pair.fdv)}
+          </div>
+
+        </div>
+
+      </div>
+    `;
+
+    container.appendChild(div);
+
+  });
+}
 async function loadLiveData() {
 
   const status = document.getElementById("status");
@@ -467,13 +692,18 @@ async function loadLiveData() {
       }
     });
 
-    tokens = Object.values(bestPairs);
+   tokens = Object.values(bestPairs);
 
-    tokens.sort((a,b) =>
-      calculateScore(b) - calculateScore(a)
-    );
+// Existing main dashboard
+tokens.sort((a, b) =>
+  calculateScore(b) - calculateScore(a)
+);
 
-    renderCoins(tokens);
+renderCoins(tokens);
+
+// New-token panel
+renderNewTokens(tokens);
+
 
     document.getElementById("updated").textContent =
       new Date().toLocaleTimeString();
