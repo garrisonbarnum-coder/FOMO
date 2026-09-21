@@ -270,6 +270,113 @@ function price(value) {
 
   return "$" + n.toFixed(4);
 }
+function getTradeSignal(pair) {
+
+  const change = pair.priceChange?.h24 || 0;
+  const volume = pair.volume?.h24 || 0;
+  const liquidity = pair.liquidity?.usd || 0;
+
+  const buys = pair.txns?.h24?.buys || 0;
+  const sells = pair.txns?.h24?.sells || 0;
+
+  const totalTxns = buys + sells;
+
+  if (!totalTxns) {
+    return {
+      signal: "WAIT",
+      color: "yellow",
+      reason: "Not enough trading activity"
+    };
+  }
+
+  const buyRatio = buys / totalTxns;
+
+  let points = 0;
+  let reasons = [];
+
+  // Momentum
+  if (change > 5) {
+    points += 15;
+    reasons.push("positive momentum");
+  }
+
+  if (change > 20) {
+    points += 10;
+    reasons.push("strong momentum");
+  }
+
+  // Buy pressure
+  if (buyRatio > 0.55) {
+    points += 15;
+    reasons.push("buy pressure");
+  }
+
+  if (buyRatio > 0.65) {
+    points += 10;
+    reasons.push("heavy buying");
+  }
+
+  // Liquidity
+  if (liquidity > 10000) {
+    points += 10;
+    reasons.push("adequate liquidity");
+  }
+
+  if (liquidity > 100000) {
+    points += 5;
+  }
+
+  // Volume
+  if (volume > 10000) {
+    points += 10;
+    reasons.push("active volume");
+  }
+
+  if (volume > 100000) {
+    points += 10;
+    reasons.push("high volume");
+  }
+
+  // Negative conditions
+  if (change < -10) {
+    points -= 20;
+    reasons.push("negative momentum");
+  }
+
+  if (buyRatio < 0.40) {
+    points -= 20;
+    reasons.push("heavy selling");
+  }
+
+  if (liquidity < 5000) {
+    points -= 20;
+    reasons.push("low liquidity");
+  }
+
+  // Keep score between 0 and 100
+  points = Math.max(0, Math.min(100, points));
+
+  let signal;
+  let color;
+
+  if (points >= 60) {
+    signal = "BUY SETUP";
+    color = "green";
+  } else if (points <= 25) {
+    signal = "EXIT / AVOID";
+    color = "red";
+  } else {
+    signal = "WAIT";
+    color = "yellow";
+  }
+
+  return {
+    signal,
+    color,
+    points,
+    reason: reasons.slice(0, 3).join(" • ")
+  };
+}
 
 function calculateScore(pair) {
 
@@ -313,7 +420,16 @@ function renderCoins(list) {
     if (volume > 100000) highVolume++;
 
     const score = calculateScore(pair);
+const trade = getTradeSignal(pair);
+    const currentPrice = Number(pair.priceUsd || 0);
 
+const entryLow = currentPrice * 0.98;
+const entryHigh = currentPrice * 1.02;
+
+const stopPrice = currentPrice * 0.92;
+
+const target1 = currentPrice * 1.15;
+const target2 = currentPrice * 1.30;
     const div = document.createElement("div");
 
     div.className = "coin";
@@ -336,12 +452,67 @@ function renderCoins(list) {
           </div>
         </div>
 
-        <div class="score">
-          🔥 ${score}
-        </div>
+      <div style="
+  text-align:right;
+  min-width:110px;
+">
+
+  <div class="score">
+    🔥 ${score}
+  </div>
+
+  <div style="
+    margin-top:6px;
+    padding:5px 8px;
+    border-radius:6px;
+    font-size:11px;
+    font-weight:bold;
+    background:${
+      trade.color === "green"
+        ? "#123d2a"
+        : trade.color === "red"
+        ? "#451b1b"
+        : "#403817"
+    };
+    color:${
+      trade.color === "green"
+        ? "#39d98a"
+        : trade.color === "red"
+        ? "#ff6b6b"
+        : "#ffd166"
+    };
+  ">
+    ${trade.signal}
+  </div>
+
+</div>
 
       </div>
+<div style="
+  margin-top:12px;
+  padding:9px;
+  background:#0a0d13;
+  border-radius:8px;
+  color:#8d96a5;
+  font-size:12px;
+">
+  ${trade.reason || "Waiting for more data"}
+</div>
+<div style="
+  margin-top:12px;
+  padding:9px;
+  background:#0a0d13;
+  border-radius:8px;
+  color:#8d96a5;
+  font-size:12px;
+">
+  ${trade.reason || "Waiting for more data"}
+</div>
 
+<div class="grid">
+
+  <div class="metric">
+    <div class="metric-title">PRICE</div>
       <div class="grid">
 
         <div class="metric">
