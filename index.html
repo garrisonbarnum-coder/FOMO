@@ -673,7 +673,7 @@ const target2 = currentPrice * 1.30;
 
     const dexUrl =
   pair.url ||
-  `https://dexscreener.com/${pair.chainId}/${pair.pairAddress}`;
+  "https://dexscreener.com/" + pair.chainId + "/" + pair.pairAddress;
 
 const dexLink = document.createElement("a");
 
