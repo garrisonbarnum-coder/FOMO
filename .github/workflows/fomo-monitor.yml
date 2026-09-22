@@ -2,6 +2,12 @@ name: FOMO 24/7 Monitor
 
 on:
   workflow_dispatch:
+    inputs:
+      test_notification:
+        description: "Send a test push notification to the configured phone"
+        required: false
+        default: false
+        type: boolean
   schedule:
     - cron: "7/5 * * * *"
 
@@ -11,6 +17,10 @@ permissions:
 jobs:
   monitor:
     runs-on: ubuntu-latest
+
+    env:
+      FOMO_NTFY_TOPIC: ${{ secrets.FOMO_NTFY_TOPIC }}
+      FOMO_TEST_NOTIFICATION: ${{ github.event_name == 'workflow_dispatch' && inputs.test_notification || false }}
 
     steps:
       - name: Checkout repository
