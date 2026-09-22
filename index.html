@@ -2504,6 +2504,254 @@ document.getElementById("bubbleModal")?.addEventListener("click", e => {
 document.addEventListener("keydown", e => {
   if (e.key === "Escape") closeBubbleMap();
 });
+  <!-- FOMO BACKGROUND MONITOR -->
+<section id="backgroundMonitor" style="margin:15px;padding:14px;background:#11151d;border:1px solid #252b36;border-radius:12px;">
+  <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;">
+    <div>
+      <div style="font-size:15px;font-weight:800;">🛰️ Background Monitor</div>
+      <div id="bgMonitorStatus" style="font-size:11px;color:#8d96a5;margin-top:3px;">
+        Connecting…
+      </div>
+    </div>
+
+    <div id="bgMonitorBadge"
+         style="padding:5px 8px;border-radius:6px;font-size:10px;font-weight:800;background:#403817;color:#ffd166;">
+      LOADING
+    </div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:10px;">
+
+    <div style="background:#0a0d13;border-radius:8px;padding:9px;text-align:center;">
+      <b id="bgTokenCount">—</b>
+      <div style="font-size:9px;color:#737d8c;margin-top:3px;">SCANNED</div>
+    </div>
+
+    <div style="background:#0a0d13;border-radius:8px;padding:9px;text-align:center;">
+      <b id="bgAlertCount">—</b>
+      <div style="font-size:9px;color:#737d8c;margin-top:3px;">ALERTS</div>
+    </div>
+
+    <div style="background:#0a0d13;border-radius:8px;padding:9px;text-align:center;">
+      <b id="bgLastUpdate">—</b>
+      <div style="font-size:9px;color:#737d8c;margin-top:3px;">LAST SCAN</div>
+    </div>
+
+  </div>
+
+  <div id="bgAlerts" style="margin-top:10px;"></div>
+
+  <div style="margin-top:8px;color:#687180;font-size:10px;">
+    Background scans run independently through GitHub Actions.
+    Risk scores are heuristics and do not prove that a token is or is not a rug pull.
+  </div>
+</section>
+
+<script>
+(function () {
+
+  const BG_URL = "./data/latest.json";
+
+  function bgTime(iso) {
+    if (!iso) return "—";
+
+    const d = new Date(iso);
+
+    if (Number.isNaN(d.getTime())) return "—";
+
+    return d.toLocaleTimeString([], {
+      hour: "numeric",
+      minute: "2-digit"
+    });
+  }
+
+  function bgEscape(value) {
+    return String(value ?? "").replace(/[&<>"']/g, function (c) {
+      return {
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#39;"
+      }[c];
+    });
+  }
+
+  async function loadBackgroundMonitor() {
+
+    try {
+
+      const response = await fetch(
+        BG_URL + "?t=" + Date.now(),
+        { cache: "no-store" }
+      );
+
+      if (!response.ok) {
+        throw new Error("HTTP " + response.status);
+      }
+
+      const data = await response.json();
+
+      const monitor = data.monitor || {};
+      const alerts = Array.isArray(data.alerts)
+        ? data.alerts
+        : [];
+
+      const tokens = Array.isArray(data.tokens)
+        ? data.tokens
+        : [];
+
+      const status =
+        document.getElementById("bgMonitorStatus");
+
+      const badge =
+        document.getElementById("bgMonitorBadge");
+
+      const tokenCount =
+        document.getElementById("bgTokenCount");
+
+      const alertCount =
+        document.getElementById("bgAlertCount");
+
+      const lastUpdate =
+        document.getElementById("bgLastUpdate");
+
+      const alertBox =
+        document.getElementById("bgAlerts");
+
+      const online =
+        monitor.status === "online";
+
+      status.textContent = online
+        ? "Online • scanning every " +
+          (monitor.interval || "5 minutes")
+        : "Monitor status: " +
+          (monitor.status || "unknown");
+
+      badge.textContent =
+        online ? "ONLINE" : "CHECK";
+
+      badge.style.background =
+        online ? "#123d2a" : "#403817";
+
+      badge.style.color =
+        online ? "#39d98a" : "#ffd166";
+
+      tokenCount.textContent =
+        monitor.tokenCount ?? tokens.length;
+
+      alertCount.textContent =
+        alerts.length;
+
+      lastUpdate.textContent =
+        bgTime(data.generatedAt);
+
+      const visibleAlerts =
+        alerts
+          .filter(a => a.type === "RUG_RISK")
+          .slice(0, 5);
+
+      if (!visibleAlerts.length) {
+
+        alertBox.innerHTML =
+          '<div style="padding:9px;background:#0a0d13;border-radius:8px;color:#39d98a;font-size:11px;">' +
+          '✓ No background risk alerts in the latest scan.' +
+          '</div>';
+
+      } else {
+
+        alertBox.innerHTML =
+          visibleAlerts.map(function (a) {
+
+            const score =
+              Number(a.riskScore);
+
+            const unknown =
+              (a.reasons || []).some(function (r) {
+                return /no dex pair|no pair|no data/i.test(r);
+              });
+
+            const label =
+              unknown
+                ? "⚠️ DATA UNAVAILABLE"
+                : "🚨 RISK ALERT";
+
+            const color =
+              unknown
+                ? "#ffd166"
+                : score >= 90
+                  ? "#ff6b6b"
+                  : "#ffd166";
+
+            return (
+              '<div style="padding:9px;margin-top:6px;background:#0a0d13;border-radius:8px;border-left:3px solid ' +
+              color +
+              ';">' +
+
+              '<div style="display:flex;justify-content:space-between;gap:8px;font-size:11px;">' +
+
+              '<b>' +
+              label +
+              ' • ' +
+              bgEscape(a.symbol || "UNKNOWN") +
+              '</b>' +
+
+              '<b style="color:' +
+              color +
+              ';">' +
+              (Number.isFinite(score) ? score : "—") +
+              '/100' +
+              '</b>' +
+
+              '</div>' +
+
+              '<div style="color:#8d96a5;font-size:10px;margin-top:4px;">' +
+              bgEscape((a.reasons || []).join(" • ")) +
+              '</div>' +
+
+              '</div>'
+            );
+
+          }).join("");
+
+      }
+
+    } catch (error) {
+
+      const status =
+        document.getElementById("bgMonitorStatus");
+
+      const badge =
+        document.getElementById("bgMonitorBadge");
+
+      if (status) {
+        status.textContent =
+          "Unable to read latest background scan";
+      }
+
+      if (badge) {
+
+        badge.textContent =
+          "OFFLINE";
+
+        badge.style.background =
+          "#451b1b";
+
+        badge.style.color =
+          "#ff6b6b";
+      }
+    }
+  }
+
+  loadBackgroundMonitor();
+
+  setInterval(
+    loadBackgroundMonitor,
+    60000
+  );
+
+})();
+</script>
 </script>
 </body>
 </html>
