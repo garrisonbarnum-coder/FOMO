@@ -343,7 +343,7 @@ def main():
         "tokens": results,
     }
 
-        save_json(OUT, snapshot)
+    save_json(OUT, snapshot)
     save_json(STATE, next_state)
 
     if TEST_NOTIFICATION:
