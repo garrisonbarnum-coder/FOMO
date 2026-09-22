@@ -1,0 +1,33 @@
+name: FOMO 24/7 Monitor
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "7/5 * * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Run FOMO monitor
+        run: python monitor.py
+
+      - name: Commit monitoring data
+        run: |
+          git config user.name "FOMO Monitor"
+          git config user.email "fomo-monitor@users.noreply.github.com"
+          git add data/
+          git diff --cached --quiet || git commit -m "Update FOMO monitoring data"
+          git push
