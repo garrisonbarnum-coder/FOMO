@@ -670,8 +670,28 @@ const target2 = currentPrice * 1.30;
       </div>
     `;
 
+ `;
+
+    const dexUrl =
+      pair.url ||
+      `https://dexscreener.com/${pair.chainId}/${pair.pairAddress}`;
+
+    const dexLink = document.createElement("a");
+
+    dexLink.href = dexUrl;
+    dexLink.target = "_blank";
+    dexLink.rel = "noopener noreferrer";
+    dexLink.textContent = "📈 DEX Screener";
+
+    dexLink.style.display = "inline-block";
+    dexLink.style.marginTop = "10px";
+    dexLink.style.fontSize = "12px";
+    dexLink.style.color = "#8d96a5";
+    dexLink.style.textDecoration = "underline";
+
+    div.appendChild(dexLink);
+    
     container.appendChild(div);
-  });
 
   document.getElementById("tokenCount").textContent = list.length;
   document.getElementById("gainers").textContent = gainers;
