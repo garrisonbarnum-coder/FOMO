@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FOMO Coin Tracker</title>
+
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;background:#090b10;color:#fff;font-family:Arial,sans-serif}
+body{font-size:13px;overflow-x:hidden}
+button,input,select{font:inherit}
+button{cursor:pointer}
+header{padding:11px;background:#11151d;border-bottom:1px solid #252b36;position:sticky;top:0;z-index:20}
+h1{margin:0;font-size:20px}
+.subtitle{margin-top:3px;color:#8d96a5;font-size:10px}
+.alert-row{display:flex;align-items:center;gap:6px;margin-top:7px}
+#enableAlerts{padding:7px 9px;border:1px solid #303744;border-radius:7px;background:#151b2a;color:#fff;font-weight:700;font-size:10px}
+#alertStatus{color:#8d96a5;font-size:9px}
+.controls{display:flex;gap:5px;margin-top:8px}
+input{min-width:0;flex:1;padding:8px 9px;background:#0a0d13;color:#fff;border:1px solid #303744;border-radius:7px;font-size:11px}
+.controls button,.toolbar button,.secondary{padding:8px 9px;background:#151b2a;color:#fff;border:1px solid #303744;border-radius:7px;font-size:10px;font-weight:700}
+.controls button{background:#6c5ce7;border-color:#6c5ce7}
+.smart{padding:7px 9px 0}
+.row{display:flex;gap:4px;margin-bottom:4px}
+select,.secondary{flex:1;min-width:0;padding:7px;background:#11151d;color:#fff;border:1px solid #303744;border-radius:7px;font-size:9px}
+.note{color:#687180;font-size:8px;line-height:1.35;margin:3px 1px 6px}
+.panel{margin:6px 9px;padding:8px;background:#11151d;border:1px solid #252b36;border-radius:8px}
+.title{font-weight:800;font-size:11px;margin-bottom:5px}
+.rank-list{display:grid;gap:3px}
+.rank{display:grid;grid-template-columns:20px 1fr auto;gap:5px;align-items:center;padding:5px;background:#0a0d13;border-radius:6px}
+.rank-num{color:#737d8c;font-size:9px}.rank-name{font-size:9px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rank-meta{color:#737d8c;font-size:7px;margin-top:2px}.rank-score{font-size:11px;font-weight:900}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;padding:6px 9px}
+.stat{padding:7px;background:#11151d;border:1px solid #252b36;border-radius:7px}
+.stat-title{color:#737d8c;font-size:7px}.stat-value{font-size:15px;font-weight:900;margin-top:1px}
+.toolbar{display:flex;gap:4px;flex-wrap:wrap;margin:5px 9px}
+.toolbar button{padding:6px 7px}
+.radar{display:grid;grid-template-columns:repeat(4,1fr);gap:4px}
+.radar>div{background:#0a0d13;border-radius:6px;padding:6px;text-align:center}
+.radar b{display:block;font-size:14px}.radar span{display:block;color:#737d8c;font-size:7px;margin-top:2px}
+#status{padding:0 9px 5px;color:#8d96a5;font-size:8px}
+.coins{padding:0 9px 10px}
+.coin{background:#11151d;border:1px solid #252b36;border-radius:8px;margin-bottom:5px;padding:8px}
+.coin-top{display:flex;justify-content:space-between;gap:5px}
+.coin-name{font-size:13px;font-weight:800}.symbol{color:#8d96a5;font-size:10px;margin-left:2px}
+.chain{color:#737d8c;font-size:7px;margin-top:2px}.score{font-size:15px;font-weight:900}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:3px;margin-top:6px}
+.metric{background:#0a0d13;border-radius:5px;padding:5px}.metric-title{color:#737d8c;font-size:6px}.metric-value{font-size:9px;font-weight:800;margin-top:1px}
+.green{color:#39d98a}.red{color:#ff6b6b}.yellow{color:#ffd166}
+.risk{margin-top:5px;padding:6px;border-radius:6px;font-size:8px}
+.fomo{margin-top:5px;padding:6px;background:#0a0d13;border-radius:6px}.fomo-title{color:#8d96a5;font-size:7px}.fomo-number{font-size:15px;font-weight:900}.chips{display:flex;flex-wrap:wrap;gap:2px;margin-top:3px}.chip{padding:2px 3px;background:#11151d;border:1px solid #252b36;border-radius:4px;font-size:7px;color:#8d96a5}
+.bubble-actions{display:flex;gap:3px;margin-top:5px}.bubble-btn{padding:5px 7px;background:#151b2a;color:#8fd3ff;border:1px solid #34405a;border-radius:5px;font-size:8px}
+#backgroundMonitor .small-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin-top:6px}
+.bgstat{background:#0a0d13;border-radius:6px;padding:6px;text-align:center}.bgstat b{font-size:11px}.bgstat div{font-size:7px;color:#737d8c;margin-top:2px}
+.bg-alert{padding:6px;margin-top:4px;background:#0a0d13;border-left:2px solid #ff6b6b;border-radius:5px;font-size:8px}
+footer{padding:10px;text-align:center;color:#687180;font-size:7px}
+#bubbleModal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:1000;padding:10px}
+#bubbleModal.open{display:flex;flex-direction:column}
+.modal-top{display:flex;justify-content:space-between;align-items:center;padding:4px 0 7px}
+#bubbleFrame{width:100%;flex:1;border:0;border-radius:8px;background:#0b0e14}
+@media(max-width:700px){
+ .stats{grid-template-columns:repeat(2,1fr)}
+ .radar{grid-template-columns:repeat(2,1fr)}
+ .grid{grid-template-columns:repeat(4,1fr)}
+ .row{flex-wrap:wrap}.row select,.row .secondary{flex:1 1 30%}
+}
+@media(max-width:420px){
+ h1{font-size:18px}.coin{padding:7px}.coin-name{font-size:12px}.score{font-size:14px}
+ .metric{padding:4px}.metric-title{font-size:5px}.metric-value{font-size:8px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>🔥 FOMO Coin Tracker</h1>
+  <div class="subtitle">Live market discovery • DEX Screener • Security screening • 24/7 Jarvis monitor</div>
+  <div class="alert-row">
+    <button id="enableAlerts">🔔 Enable Signal Alerts</button>
+    <span id="alertStatus">Browser alerts are off</span>
+  </div>
+  <div class="controls">
+    <input id="search" placeholder="Search token, symbol, or contract...">
+    <button id="searchBtn">Search</button>
+  </div>
+</header>
+
+<section class="smart">
+  <div class="row">
+    <select id="sortMode">
+      <option value="fomo">🔥 FOMO Score</option>
+      <option value="change">📈 24H Momentum</option>
+      <option value="volume">💰 Volume</option>
+      <option value="liquidity">💧 Liquidity</option>
+      <option value="newest">🆕 Newest</option>
+    </select>
+    <select id="riskFilter">
+      <option value="all">All Risk</option>
+      <option value="low">Low Risk</option>
+      <option value="medium">Medium Risk</option>
+      <option value="high">High Risk</option>
+    </select>
+    <select id="signalFilter">
+      <option value="all">All Signals</option>
+      <option value="buy">BUY SETUP</option>
+      <option value="wait">WAIT</option>
+      <option value="avoid">EXIT / AVOID</option>
+    </select>
+  </div>
+  <div class="row">
+    <button id="watchOnly" class="secondary">☆ Watchlist Only</button>
+    <button id="refresh" class="secondary">↻ Refresh</button>
+    <button id="clearHistory" class="secondary">Clear History</button>
+  </div>
+  <div class="note"><b>Smart ranking:</b> combines market momentum, liquidity, rug indicators and available monitor data. It is a screening tool, not a guarantee.</div>
+</section>
+
+<section class="panel">
+  <div class="title">🏆 Smart Ranked Coins</div>
+  <div id="rankList" class="rank-list"><div class="note">Loading…</div></div>
+</section>
+
+<section class="stats">
+  <div class="stat"><div class="stat-title">LIVE TOKENS</div><div id="tokenCount" class="stat-value">0</div></div>
+  <div class="stat"><div class="stat-title">GAINERS</div><div id="gainers" class="stat-value">0</div></div>
+  <div class="stat"><div class="stat-title">HIGH VOLUME</div><div id="highVolume" class="stat-value">0</div></div>
+  <div class="stat"><div class="stat-title">UPDATED</div><div id="updated" class="stat-value">--</div></div>
+</section>
+
+<div class="toolbar">
+  <button id="securityBtn">🛡️ Recheck Security</button>
+  <button id="exportBtn">⬇ Export Watchlist</button>
+</div>
+
+<section class="panel">
+  <div class="title">🧠 FOMO Risk Radar</div>
+  <div class="radar">
+    <div><b id="radarHigh">0</b><span>High Risk</span></div>
+    <div><b id="radarWatch">0</b><span>Watchlist</span></div>
+    <div><b id="radarRising">0</b><span>Rising</span></div>
+    <div><b id="radarLimited">0</b><span>Limited Data</span></div>
+  </div>
+</section>
+
+<div id="status">Loading live crypto data...</div>
+<section id="coins" class="coins"></section>
+
+<section id="backgroundMonitor" class="panel">
+  <div style="display:flex;justify-content:space-between;gap:8px;align-items:center">
+    <div>
+      <div class="title" style="margin:0">🛰️ Background Monitor</div>
+      <div id="bgStatus" class="note" style="margin:2px 0 0">Connecting…</div>
+    </div>
+    <b id="bgBadge" class="yellow">LOADING</b>
+  </div>
+  <div class="small-grid">
+    <div class="bgstat"><b id="bgTokens">—</b><div>SCANNED</div></div>
+    <div class="bgstat"><b id="bgAlerts">—</b><div>ALERTS</div></div>
+    <div class="bgstat"><b id="bgTime">—</b><div>LAST SCAN</div></div>
+  </div>
+  <div id="bgAlertList"></div>
+  <div class="note">GitHub Actions scans independently. Risk scores are heuristics and do not prove that a token is or is not a rug pull.</div>
+</section>
+
+<footer>FOMO Tracker • DEX Screener market data • Security signals are indicative</footer>
+
+<div id="bubbleModal" aria-hidden="true">
+  <div class="modal-top">
+    <b id="bubbleTitle">Bubble Map</b>
+    <div>
+      <button id="bubbleExternal" class="bubble-btn">↗ Open</button>
+      <button id="bubbleClose" class="bubble-btn">✕ Close</button>
+    </div>
+  </div>
+  <iframe id="bubbleFrame" title="Bubblemaps"></iframe>
+</div>
+
+<script>
+const API="https://api.dexscreener.com";
+let tokens=[];
+let monitor=null;
+let watchlist=JSON.parse(localStorage.getItem("fomoWatchlist")||"[]");
+let alertsEnabled=false;
+
+const $=id=>document.getElementById(id);
+const money=n=>{
+  n=Number(n);
+  if(!Number.isFinite(n)) return "—";
+  if(n>=1e9)return "$"+(n/1e9).toFixed(2)+"B";
+  if(n>=1e6)return "$"+(n/1e6).toFixed(2)+"M";
+  if(n>=1e3)return "$"+(n/1e3).toFixed(1)+"K";
+  return "$"+n.toFixed(2);
+};
+const price=n=>{
+  n=Number(n);
+  if(!Number.isFinite(n))return "—";
+  if(n<.000001)return "$"+n.toExponential(2);
+  if(n<1)return "$"+n.toFixed(6);
+  return "$"+n.toFixed(2);
+};
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const liq=p=>Number(p?.liquidity?.usd)||0;
+
+function score(p){
+  const l=liq(p), v=Number(p?.volume?.h24)||0, ch=Number(p?.priceChange?.h24)||0;
+  const sells=Number(p?.txns?.h24?.sells)||0, buys=Number(p?.txns?.h24?.buys)||0;
+  let s=35;
+  if(l>=100000)s+=20; else if(l>=25000)s+=12; else if(l>=5000)s+=5; else s-=10;
+  if(ch>50)s+=10; else if(ch>15)s+=6; else if(ch< -30)s-=15; else if(ch< -10)s-=7;
+  if(v>500000)s+=12; else if(v>100000)s+=7; else if(v<5000)s-=5;
+  if(buys+sells>0 && sells/(buys+sells)>.7)s-=12;
+  if(p._monitorRiskScore!=null)s-=Math.round(p._monitorRiskScore*.25);
+  return Math.max(0,Math.min(100,Math.round(s)));
+}
+function risk(p){
+  const s=score(p);
+  if(s<30)return ["HIGH","🚨 HIGH RUG RISK"];
+  if(s<55)return ["MEDIUM","⚠️ MEDIUM RISK"];
+  return ["LOW","🛡️ LOWER RISK"];
+}
+function signal(p){
+  const s=score(p), ch=Number(p?.priceChange?.h24)||0;
+  if(s<30)return "avoid";
+  if(s>=70 && ch>0)return "buy";
+  return "wait";
+}
+function bubbleUrl(p){
+  const map={solana:"solana",ethereum:"eth",eth:"eth",bsc:"bsc",base:"base",tron:"tron"};
+  const c=map[String(p?.chainId||"").toLowerCase()], a=p?.baseToken?.address;
+  return c&&a?`https://v2.bubblemaps.io/map?address=${encodeURIComponent(a)}&chain=${encodeURIComponent(c)}&partnerId=regular`:null;
+}
+function watched(p){return watchlist.includes(String(p?.baseToken?.address||""))}
+function toggleWatch(p){
+  const a=String(p?.baseToken?.address||"");
+  if(!a)return;
+  watchlist=watched(p)?watchlist.filter(x=>x!==a):[...watchlist,a];
+  localStorage.setItem("fomoWatchlist",JSON.stringify(watchlist));
+  render();
+}
+function applyMonitor(p){
+  const m=(monitor?.tokens||[]).find(x=>String(x.tokenAddress||"").toLowerCase()===String(p?.baseToken?.address||"").toLowerCase());
+  if(m)p._monitorRiskScore=Number(m.riskScore);
+  return p;
+}
+
+async function loadMonitor(){
+  try{
+    const r=await fetch("./data/latest.json?ts="+Date.now(),{cache:"no-store"});
+    if(!r.ok)throw Error(r.status);
+    monitor=await r.json();
+  }catch(e){monitor=null}
+}
+async function loadData(search=""){
+  $("status").textContent=search?"Searching…":"Loading live tokens…";
+  try{
+    await loadMonitor();
+    let pairs=[];
+    if(search){
+      const r=await fetch(API+"/latest/dex/search?q="+encodeURIComponent(search));
+      if(!r.ok)throw Error("search");
+      pairs=(await r.json()).pairs||[];
+    }else{
+      const pr=await fetch(API+"/token-profiles/latest/v1");
+      if(!pr.ok)throw Error("profiles");
+      const profiles=(await pr.json()).slice(0,25);
+      const addresses=profiles.map(x=>x.tokenAddress).filter(Boolean);
+      const r=await fetch(API+"/latest/dex/tokens/"+addresses.join(","));
+      if(!r.ok)throw Error("tokens");
+      pairs=(await r.json()).pairs||[];
+    }
+    const best={};
+    for(const p of pairs){
+      const a=p?.baseToken?.address;if(!a)continue;
+      if(!best[a]||liq(p)>liq(best[a]))best[a]=p;
+    }
+    tokens=Object.values(best).map(applyMonitor);
+    render();
+    updateStats();
+    $("updated").textContent=new Date().toLocaleTimeString([], {hour:"numeric",minute:"2-digit"});
+    $("status").textContent=(search?"Search results":"Live data")+" • "+tokens.length+" tokens • refreshes every 60 seconds";
+    updateBackground();
+  }catch(e){
+    console.error(e);
+    $("status").textContent="Unable to load live data. Tap Refresh and try again.";
+  }
+}
+function filtered(){
+  let a=[...tokens];
+  const rf=$("riskFilter").value,sf=$("signalFilter").value;
+  if(rf!=="all")a=a.filter(p=>risk(p)[0].toLowerCase()===rf);
+  if(sf!=="all")a=a.filter(p=>signal(p)===sf);
+  if($("watchOnly").classList.contains("active"))a=a.filter(watched);
+  const s=$("sortMode").value;
+  a.sort((x,y)=>{
+    if(s==="change")return (Number(y.priceChange?.h24)||0)-(Number(x.priceChange?.h24)||0);
+    if(s==="volume")return (Number(y.volume?.h24)||0)-(Number(x.volume?.h24)||0);
+    if(s==="liquidity")return liq(y)-liq(x);
+    if(s==="newest")return (y.pairCreatedAt||0)-(x.pairCreatedAt||0);
+    return score(y)-score(x);
+  });
+  return a;
+}
+function renderRank(a){
+  $("rankList").innerHTML=a.slice(0,5).map((p,i)=>`
+    <div class="rank">
+      <div class="rank-num">#${i+1}</div>
+      <div><div class="rank-name">${esc(p.baseToken?.name||"Unknown")} <span style="color:#737d8c">${esc(p.baseToken?.symbol||"")}</span></div>
+      <div class="rank-meta">${esc(p.chainId||"unknown")} • ${money(liq(p))} liq</div></div>
+      <div class="rank-score">${score(p)}</div>
+    </div>`).join("")||'<div class="note">No tokens match the current filters.</div>';
+}
+function render(){
+  const a=filtered(); renderRank(a);
+  $("coins").innerHTML=a.map((p,i)=>{
+    const s=score(p), [level,label]=risk(p), sig=signal(p), ch=Number(p.priceChange?.h24)||0;
+    const buys=p.txns?.h24?.buys||0,sells=p.txns?.h24?.sells||0;
+    const watch=watched(p), bu=bubbleUrl(p);
+    return `<article class="coin">
+      <div class="coin-top">
+        <div><div class="coin-name">${esc(p.baseToken?.name||"Unknown")} <span class="symbol">${esc(p.baseToken?.symbol||"")}</span></div>
+        <div class="chain">${esc(p.chainId||"Unknown")} • ${esc(p.dexId||"DEX")}</div></div>
+        <div class="score">🔥 ${s}</div>
+      </div>
+      <div class="grid">
+        <div class="metric"><div class="metric-title">PRICE</div><div class="metric-value">${price(p.priceUsd)}</div></div>
+        <div class="metric"><div class="metric-title">24H</div><div class="metric-value ${ch>=0?"green":"red"}">${ch>=0?"+":""}${ch.toFixed(2)}%</div></div>
+        <div class="metric"><div class="metric-title">VOLUME</div><div class="metric-value">${money(p.volume?.h24)}</div></div>
+        <div class="metric"><div class="metric-title">LIQUIDITY</div><div class="metric-value">${money(liq(p))}</div></div>
+        <div class="metric"><div class="metric-title">BUYS</div><div class="metric-value">${buys}</div></div>
+        <div class="metric"><div class="metric-title">SELLS</div><div class="metric-value">${sells}</div></div>
+        <div class="metric"><div class="metric-title">MARKET CAP</div><div class="metric-value">${money(p.marketCap||p.fdv)}</div></div>
+        <div class="metric"><div class="metric-title">SIGNAL</div><div class="metric-value ${sig==="buy"?"green":sig==="avoid"?"red":"yellow"}">${sig.toUpperCase()}</div></div>
+      </div>
+      <div class="risk" style="background:${level==="HIGH"?"#451b1b":level==="MEDIUM"?"#403817":"#123d2a"}">${label} • screening score ${100-s}/100</div>
+      ${p._monitorRiskScore!=null?`<div class="fomo"><div class="fomo-title">24/7 JARVIS MONITOR</div><div class="fomo-number">${p._monitorRiskScore}/100 risk</div></div>`:""}
+      <div class="bubble-actions">
+        ${bu?`<button class="bubble-btn" onclick="openBubble(${JSON.stringify(p).replace(/"/g,"&quot;")})">🫧 Bubble Map</button>`:""}
+        <button class="bubble-btn" onclick="toggleWatch(${JSON.stringify(p).replace(/"/g,"&quot;")})">${watch?"★ Watching":"☆ Watch"}</button>
+      </div>
+    </article>`;
+  }).join("")||'<div class="coin">No tokens match the current filters.</div>';
+  updateRadar(a);
+}
+function updateStats(){
+  $("tokenCount").textContent=tokens.length;
+  $("gainers").textContent=tokens.filter(p=>(Number(p.priceChange?.h24)||0)>0).length;
+  $("highVolume").textContent=tokens.filter(p=>(Number(p.volume?.h24)||0)>=100000).length;
+}
+function updateRadar(a){
+  $("radarHigh").textContent=a.filter(p=>risk(p)[0]==="HIGH").length;
+  $("radarWatch").textContent=a.filter(watched).length;
+  $("radarRising").textContent=a.filter(p=>(Number(p.priceChange?.h24)||0)>10).length;
+  $("radarLimited").textContent=a.filter(p=>liq(p)<=0).length;
+}
+async function updateBackground(){
+  try{
+    const d=await (await fetch("./data/latest.json?ts="+Date.now(),{cache:"no-store"})).json();
+    const m=d.monitor||{}, alerts=Array.isArray(d.alerts)?d.alerts:[];
+    $("bgStatus").textContent=m.status==="online"?"Online • scanning every "+(m.interval||"5 minutes"):"Monitor: "+(m.status||"unknown");
+    $("bgBadge").textContent=m.status==="online"?"ONLINE":"CHECK";
+    $("bgBadge").className=m.status==="online"?"green":"yellow";
+    $("bgTokens").textContent=m.tokenCount??(d.tokens||[]).length;
+    $("bgAlerts").textContent=alerts.length;
+    $("bgTime").textContent=d.generatedAt?new Date(d.generatedAt).toLocaleTimeString([],{hour:"numeric",minute:"2-digit"}):"—";
+    $("bgAlertList").innerHTML=alerts.slice(0,5).map(a=>`<div class="bg-alert"><b>🚨 ${esc(a.symbol||"UNKNOWN")} • ${a.riskScore??"—"}/100</b><div style="color:#8d96a5;margin-top:2px">${esc((a.reasons||[]).join(" • "))}</div></div>`).join("");
+  }catch(e){
+    $("bgStatus").textContent="Unable to read latest background scan";
+    $("bgBadge").textContent="OFFLINE";
+    $("bgBadge").className="red";
+  }
+}
+async function enableAlerts(){
+  if(!("Notification"in window)){ $("alertStatus").textContent="Browser notifications unavailable"; return; }
+  const p=await Notification.requestPermission();
+  alertsEnabled=p==="granted";
+  $("alertStatus").textContent=alertsEnabled?"Browser alerts enabled":"Browser alerts denied";
+  if(alertsEnabled)new Notification("🔥 FOMO Alerts",{body:"Signal alerts are enabled."});
+}
+function openBubble(p){
+  const url=bubbleUrl(p);if(!url)return;
+  $("bubbleTitle").textContent="Bubble Map • "+(p.baseToken?.symbol||"Token");
+  $("bubbleFrame").src=url;$("bubbleExternal").onclick=()=>window.open(url,"_blank","noopener,noreferrer");
+  $("bubbleModal").classList.add("open");
+}
+function exportWatch(){
+  const rows=watchlist.map(a=>tokens.find(p=>String(p.baseToken?.address||"")===a)).filter(Boolean);
+  if(!rows.length){alert("Watchlist is empty.");return}
+  const csv="name,symbol,chain,address,score\n"+rows.map(p=>[p.baseToken?.name,p.baseToken?.symbol,p.chainId,p.baseToken?.address,score(p)].map(x=>`"${String(x??"").replace(/"/g,'""')}"`).join(",")).join("\n");
+  const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([csv],{type:"text/csv"}));a.download="fomo-watchlist.csv";a.click();
+}
+$("enableAlerts").onclick=enableAlerts;
+$("searchBtn").onclick=()=>loadData($("search").value.trim());
+$("search").addEventListener("keydown",e=>{if(e.key==="Enter")loadData($("search").value.trim())});
+$("refresh").onclick=()=>loadData();
+$("securityBtn").onclick=()=>{localStorage.removeItem("fomoWatchlistCache");loadData()};
+$("exportBtn").onclick=exportWatch;
+$("watchOnly").onclick=()=>{$("watchOnly").classList.toggle("active");$("watchOnly").textContent=$("watchOnly").classList.contains("active")?"★ Watchlist Only":"☆ Watchlist Only";render()};
+$("sortMode").onchange=$("riskFilter").onchange=$("signalFilter").onchange=render;
+$("clearHistory").onclick=()=>{localStorage.removeItem("fomoWatchlistCache");alert("Local score history cleared.")};
+$("bubbleClose").onclick=()=>{$("bubbleFrame").src="about:blank";$("bubbleModal").classList.remove("open")};
+$("bubbleModal").onclick=e=>{if(e.target.id==="bubbleModal")$("bubbleClose").click()};
+document.addEventListener("keydown",e=>{if(e.key==="Escape")$("bubbleClose").click()});
+loadData();
+updateBackground();
+setInterval(loadData,60000);
+setInterval(updateBackground,60000);
+</script>
+</body>
+</html>
