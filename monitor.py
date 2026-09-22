@@ -24,39 +24,7 @@ STATE = "data/state.json"
 MAX_PROFILES = 30
 TIMEOUT = 15
 
-NTFY_URL = "https://ntfy.sh"
-NTFY_TOPIC = os.getenv("FOMO_NTFY_TOPIC", "").strip()
-TEST_NOTIFICATION = os.getenv("FOMO_TEST_NOTIFICATION", "").strip().lower() in {"1", "true", "yes", "on"}
 
-def send_push(title, message, priority=5, tags="warning"):
-    if not NTFY_TOPIC:
-        return False
-
-    try:
-        payload = json.dumps({
-            "topic": NTFY_TOPIC,
-            "title": title,
-            "message": message,
-            "priority": priority,
-            "tags": tags,
-        }).encode("utf-8")
-
-        req = Request(
-            NTFY_URL,
-            data=payload,
-            headers={
-                "Content-Type": "application/json; charset=utf-8",
-                "User-Agent": "FOMO-Coin-Tracker/1.0",
-            },
-            method="POST",
-        )
-
-        with urlopen(req, timeout=TIMEOUT) as response:
-            return 200 <= response.status < 300
-
-    except (HTTPError, URLError, TimeoutError, ValueError, OSError) as exc:
-        print(f"Push notification failed: {exc}")
-        return False
 def get_json(url, retries=3):
     last = None
     for attempt in range(retries):
@@ -125,7 +93,7 @@ def choose_pair(pairs, chain_id):
 
 def risk_for(pair, previous):
     if not pair:
-        return 0, ["No DEX pair/data returned"], "UNKNOWN"
+        return 100, ["No DEX pair/data returned"], "UNKNOWN"
 
     liq = num((pair.get("liquidity") or {}).get("usd"))
     pc = pair.get("priceChange") or {}
@@ -216,7 +184,7 @@ def inspect_profile(profile, previous):
             return {
                 "chainId": chain, "tokenAddress": token,
                 "name": "Unknown", "symbol": "UNKNOWN",
-                "riskScore": None, "riskLevel": "UNKNOWN",
+                "riskScore": 100, "riskLevel": "UNKNOWN",
                 "riskReasons": reasons, "dataStatus": "NO_PAIR",
                 "dexUrl": profile.get("url"),
             }
@@ -256,7 +224,7 @@ def inspect_profile(profile, previous):
         return {
             "chainId": chain, "tokenAddress": token,
             "name": "Unknown", "symbol": "UNKNOWN",
-            "riskScore": None, "riskLevel": "ERROR",
+            "riskScore": 100, "riskLevel": "ERROR",
             "riskReasons": ["monitor request failed"],
             "dataStatus": "ERROR",
             "error": str(exc)[:180],
@@ -289,13 +257,7 @@ def main():
             if item:
                 results.append(item)
 
-    results.sort(
-    key=lambda x: (
-        x.get("riskScore") if isinstance(x.get("riskScore"), (int, float)) else -1,
-        x.get("liquidityUsd", 0)
-    ),
-    reverse=True
-    )
+    results.sort(key=lambda x: (x.get("riskScore", 100), x.get("liquidityUsd", 0)), reverse=True)
 
     now = datetime.now(timezone.utc).isoformat()
     alerts = []
@@ -306,20 +268,10 @@ def main():
         next_state["pairs"][key] = {
             "liquidityUsd": item.get("liquidityUsd", 0),
             "priceUsd": item.get("priceUsd", 0),
-            "riskScore": item.get("riskScore"),
+            "riskScore": item.get("riskScore", 100),
         }
         old = previous.get(key, {})
-        current_score = item.get("riskScore")
-        old_score = old.get("riskScore")
-        if (
-            item.get("dataStatus") == "OK"
-            and isinstance(current_score, (int, float))
-            and current_score >= 75
-            and (
-                not isinstance(old_score, (int, float))
-                or old_score < 75
-            )
-        ):
+        if item.get("riskScore", 0) >= 75 and old.get("riskScore", 0) < 75:
             alerts.append({
                 "type": "RUG_RISK",
                 "chainId": item.get("chainId"),
@@ -337,7 +289,7 @@ def main():
             "status": "online",
             "tokenCount": len(results),
             "interval": "5 minutes",
-            "warning": "Risk scores are heuristics. They do not prove that a token is or is not a rug pull. Missing/error data is reported separately and is not treated as proof of a rug.",
+            "warning": "Risk scores are heuristics. They do not prove that a token is or is not a rug pull.",
         },
         "alerts": alerts,
         "tokens": results,
@@ -345,29 +297,7 @@ def main():
 
     save_json(OUT, snapshot)
     save_json(STATE, next_state)
-
-    if TEST_NOTIFICATION:
-        send_push(
-            "🔥 FOMO Test Alert",
-            "Jarvis 24/7 push notifications are working. You can close the website.",
-            priority=4,
-            tags="white_check_mark,rocket",
-        )
-
-    for alert in alerts:
-        reasons = ", ".join(alert.get("reasons", [])[:4]) or "High-risk signals detected"
-
-        send_push(
-            f"🚨 FOMO RUG RISK • {alert.get('symbol', 'UNKNOWN')}",
-            f"Risk score: {alert.get('riskScore', '?')}/100\n{reasons}",
-            priority=5,
-            tags="rotating_light,warning",
-        )
-
-    print(
-        f"Wrote {OUT}: {len(results)} tokens, {len(alerts)} new alerts; "
-        f"push={'on' if NTFY_TOPIC else 'off'}"
-    )
+    print(f"Wrote {OUT}: {len(results)} tokens, {len(alerts)} new alerts")
 
 
 if __name__ == "__main__":
