@@ -30,7 +30,23 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-
+      - name: Test ntfy connection
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.test_notification }}
+        env:
+          FOMO_NTFY_TOPIC: ${{ secrets.FOMO_NTFY_TOPIC }}
+        run: |
+          if [ -z "$FOMO_NTFY_TOPIC" ]; then
+            echo "FOMO_NTFY_TOPIC is not configured."
+            exit 1
+          fi
+          echo "Sending direct ntfy test."
+          curl --fail --silent --show-error \
+            -X POST \
+            -H "Title: FOMO GitHub Test" \
+            -H "Priority: 5" \
+            -H "Tags: white_check_mark,rocket" \
+            --data "GitHub Actions can reach ntfy. Jarvis push path is working." \
+            "https://ntfy.sh/$FOMO_NTFY_TOPIC"
       - name: Run FOMO monitor
         run: python monitor.py
 
