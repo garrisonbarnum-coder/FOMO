@@ -257,7 +257,13 @@ def main():
             if item:
                 results.append(item)
 
-    results.sort(key=lambda x: (x.get("riskScore", 100), x.get("liquidityUsd", 0)), reverse=True)
+    results.sort(
+    key=lambda x: (
+        x.get("riskScore") if isinstance(x.get("riskScore"), (int, float)) else -1,
+        x.get("liquidityUsd", 0)
+    ),
+    reverse=True
+    )
 
     now = datetime.now(timezone.utc).isoformat()
     alerts = []
