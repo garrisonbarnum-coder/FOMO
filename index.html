@@ -252,6 +252,8 @@ const API = "https://api.dexscreener.com";
 let tokens = [];
 let previousSignals = {};
 
+let alertsEnabled = false;
+
 async function enableSignalAlerts() {
 
   if (!("Notification" in window)) {
@@ -263,11 +265,74 @@ async function enableSignalAlerts() {
   const permission = await Notification.requestPermission();
 
   if (permission === "granted") {
+    alertsEnabled = true;
+
     document.getElementById("alertStatus").textContent =
       "🔔 Signal alerts enabled";
+
+    previousSignals = {};
+
+    tokens.forEach(pair => {
+      if (!pair.baseToken?.address) return;
+
+      const trade = getTradeSignal(pair);
+
+      previousSignals[pair.baseToken.address] = trade.signal;
+    });
+
   } else {
+    alertsEnabled = false;
+
     document.getElementById("alertStatus").textContent =
       "Notifications were not allowed.";
+  }
+}
+
+function sendSignalAlert(pair, trade) {
+
+  if (!alertsEnabled) return;
+  if (!("Notification" in window)) return;
+  if (Notification.permission !== "granted") return;
+
+  const address = pair.baseToken?.address;
+
+  if (!address) return;
+
+  const oldSignal = previousSignals[address];
+
+  if (!oldSignal) {
+    previousSignals[address] = trade.signal;
+    return;
+  }
+
+  if (oldSignal === trade.signal) return;
+
+  previousSignals[address] = trade.signal;
+
+  if (
+    oldSignal === "WAIT" &&
+    trade.signal === "BUY SETUP"
+  ) {
+    new Notification("🟢 FOMO BUY SETUP", {
+      body:
+        `${pair.baseToken?.symbol || "Token"}\n` +
+        `WAIT → BUY SETUP\n` +
+        `Score: ${trade.points}/100\n` +
+        `${trade.reason || "Conditions strengthened"}`
+    });
+  }
+
+  if (
+    oldSignal === "BUY SETUP" &&
+    trade.signal === "EXIT / AVOID"
+  ) {
+    new Notification("🔴 FOMO EXIT SIGNAL", {
+      body:
+        `${pair.baseToken?.symbol || "Token"}\n` +
+        `BUY SETUP → EXIT / AVOID\n` +
+        `Score: ${trade.points}/100\n` +
+        `${trade.reason || "Conditions weakened"}`
+    });
   }
 }
 
