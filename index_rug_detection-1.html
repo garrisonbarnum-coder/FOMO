@@ -1,0 +1,1208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FOMO Coin Tracker</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #090b10;
+  color: #fff;
+}
+
+header {
+  padding: 18px;
+  background: #11151d;
+  border-bottom: 1px solid #252b36;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+h1 {
+  margin: 0 0 5px;
+  font-size: 25px;
+}
+
+.subtitle {
+  color: #8d96a5;
+  font-size: 13px;
+}
+
+.controls {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+input {
+  flex: 1;
+  padding: 12px;
+  border-radius: 9px;
+  border: 1px solid #303744;
+  background: #0a0d13;
+  color: white;
+  font-size: 15px;
+}
+
+button {
+  padding: 12px 15px;
+  border: 0;
+  border-radius: 9px;
+  background: #6c5ce7;
+  color: white;
+  font-weight: bold;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  padding: 15px;
+}
+
+.stat {
+  background: #11151d;
+  border: 1px solid #252b36;
+  border-radius: 10px;
+  padding: 14px;
+}
+
+.stat-title {
+  color: #8d96a5;
+  font-size: 12px;
+}
+
+.stat-value {
+  font-size: 21px;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+.status {
+  padding: 0 15px 10px;
+  color: #8d96a5;
+  font-size: 13px;
+}
+
+.coins {
+  padding: 0 15px 30px;
+}
+
+.coin {
+  background: #11151d;
+  border: 1px solid #252b36;
+  border-radius: 12px;
+  margin-bottom: 10px;
+  padding: 15px;
+}
+
+.coin-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.coin-name {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.symbol {
+  color: #8d96a5;
+  margin-left: 5px;
+}
+
+.chain {
+  font-size: 11px;
+  color: #8d96a5;
+  margin-top: 4px;
+}
+
+.score {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.metric {
+  background: #0a0d13;
+  border-radius: 8px;
+  padding: 9px;
+}
+
+.metric-title {
+  color: #737d8c;
+  font-size: 10px;
+}
+
+.metric-value {
+  margin-top: 3px;
+  font-weight: bold;
+  font-size: 13px;
+}
+
+.green {
+  color: #39d98a;
+}
+
+.red {
+  color: #ff6b6b;
+}
+
+footer {
+  padding: 20px;
+  text-align: center;
+  color: #687180;
+  font-size: 11px;
+}
+
+@media(max-width:700px) {
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>🔥 FOMO Coin Tracker</h1>
+  <div class="subtitle">
+    Live market discovery • DEX Screener data
+  </div>
+<div style="padding:15px 15px 0;">
+  <button id="enableAlerts" type="button">
+    🔔 Enable Signal Alerts
+  </button>
+
+  <div id="alertStatus"
+       style="color:#8d96a5;font-size:12px;margin-top:6px;">
+    Alerts are currently off
+  </div>
+</div>
+  <div class="controls">
+    <input id="search" placeholder="Search a token or contract...">
+    <button onclick="searchToken()">Search</button>
+  </div>
+</header>
+
+<section class="new-tokens">
+  <div style="padding:15px 15px 5px;">
+    <h2 style="margin:0;">🆕 New Tokens</h2>
+    <div style="color:#8d96a5;font-size:13px;margin-top:4px;">
+      Recently created trading pairs
+    </div>
+  </div>
+<div class="coins" id="newTokens"></div>
+</section><section class="stats">
+  <div class="stat">
+    <div class="stat-title">LIVE TOKENS</div>
+    <div class="stat-value" id="tokenCount">0</div>
+  </div>
+
+  <div class="stat">
+    <div class="stat-title">GAINERS</div>
+    <div class="stat-value" id="gainers">0</div>
+  </div>
+
+  <div class="stat">
+    <div class="stat-title">HIGH VOLUME</div>
+    <div class="stat-value" id="highVolume">0</div>
+  </div>
+
+  <div class="stat">
+    <div class="stat-title">LAST UPDATE</div>
+    <div class="stat-value" id="updated">--</div>
+  </div>
+</section>
+
+<div class="status" id="status">
+  Loading live crypto data...
+</div>
+
+<section class="coins" id="coins"></section>
+
+<footer>
+  FOMO Tracker • Market data provided by DEX Screener
+</footer>
+
+<script>
+
+const API = "https://api.dexscreener.com";
+
+let tokens = [];
+let previousSignals = {};
+
+let alertsEnabled = false;
+let notificationRegistration = null;
+
+async function setupNotifications() {
+  if (!("Notification" in window)) {
+    document.getElementById("alertStatus").textContent =
+      "This browser does not support notifications.";
+    return;
+  }
+
+  if (!("serviceWorker" in navigator)) {
+    document.getElementById("alertStatus").textContent =
+      "Background notifications are not supported.";
+    return;
+  }
+
+  try {
+    notificationRegistration =
+      await navigator.serviceWorker.register("./sw.js");
+
+    await navigator.serviceWorker.ready;
+
+    console.log("Notification service worker registered.");
+  } catch (error) {
+    console.error("Service worker registration failed:", error);
+    document.getElementById("alertStatus").textContent =
+      "Could not start background notifications.";
+  }
+}
+
+async function enableSignalAlerts() {
+  if (!("Notification" in window)) {
+    document.getElementById("alertStatus").textContent =
+      "This browser does not support notifications.";
+    return;
+  }
+
+  if (!notificationRegistration) {
+    await setupNotifications();
+  }
+
+  if (!notificationRegistration) return;
+
+  const permission = await Notification.requestPermission();
+
+  if (permission === "granted") {
+    alertsEnabled = true;
+
+    document.getElementById("alertStatus").textContent =
+      "🔔 Signal alerts enabled";
+
+    previousSignals = {};
+
+    tokens.forEach(pair => {
+      if (!pair.baseToken?.address) return;
+
+      const trade = getTradeSignal(pair);
+      previousSignals[pair.baseToken.address] = trade.signal;
+    });
+
+    await notificationRegistration.showNotification(
+      "🔥 FOMO Alerts Enabled",
+      {
+        body: "Background signal notifications are now active.",
+        tag: "fomo-test"
+      }
+    );
+  } else {
+    alertsEnabled = false;
+
+    document.getElementById("alertStatus").textContent =
+      "Notifications were not allowed.";
+  }
+}
+
+function sendSignalAlert(pair, trade) {
+  if (!alertsEnabled) return;
+  if (!notificationRegistration) return;
+  if (Notification.permission !== "granted") return;
+
+  const address = pair.baseToken?.address;
+  if (!address) return;
+
+  const oldSignal = previousSignals[address];
+
+  if (!oldSignal) {
+    previousSignals[address] = trade.signal;
+    return;
+  }
+
+  if (oldSignal === trade.signal) return;
+
+  previousSignals[address] = trade.signal;
+
+  if (oldSignal === "WAIT" && trade.signal === "BUY SETUP") {
+    notificationRegistration.showNotification("🟢 FOMO BUY SETUP", {
+      body:
+        `${pair.baseToken?.symbol || "Token"}\n` +
+        `WAIT → BUY SETUP\n` +
+        `Score: ${trade.points}/100\n` +
+        `${trade.reason || "Conditions strengthened"}`,
+      tag: "buy-" + address,
+      renotify: true
+    });
+  }
+
+  if (oldSignal === "BUY SETUP" && trade.signal === "EXIT / AVOID") {
+    notificationRegistration.showNotification("🔴 FOMO EXIT SIGNAL", {
+      body:
+        `${pair.baseToken?.symbol || "Token"}\n` +
+        `BUY SETUP → EXIT / AVOID\n` +
+        `Score: ${trade.points}/100\n` +
+        `${trade.reason || "Conditions weakened"}`,
+      tag: "exit-" + address,
+      renotify: true
+    });
+  }
+}
+
+function money(value) {
+  if (!value) return "$0";
+
+  if (value >= 1000000000)
+    return "$" + (value / 1000000000).toFixed(2) + "B";
+
+  if (value >= 1000000)
+    return "$" + (value / 1000000).toFixed(2) + "M";
+
+  if (value >= 1000)
+    return "$" + (value / 1000).toFixed(1) + "K";
+
+  return "$" + Number(value).toFixed(2);
+}
+
+function price(value) {
+  if (!value) return "$0";
+
+  const n = Number(value);
+
+  if (n < 0.000001)
+    return "$" + n.toExponential(2);
+
+  if (n < 0.01)
+    return "$" + n.toFixed(6);
+
+  return "$" + n.toFixed(4);
+}
+function getTradeSignal(pair) {
+
+  const change = pair.priceChange?.h24 || 0;
+  const volume = pair.volume?.h24 || 0;
+  const liquidity = pair.liquidity?.usd || 0;
+
+  const buys = pair.txns?.h24?.buys || 0;
+  const sells = pair.txns?.h24?.sells || 0;
+
+  const totalTxns = buys + sells;
+
+  if (!totalTxns) {
+    return {
+      signal: "WAIT",
+      color: "yellow",
+      reason: "Not enough trading activity"
+    };
+  }
+
+  const buyRatio = buys / totalTxns;
+
+  let points = 0;
+  let reasons = [];
+
+  // Momentum
+  if (change > 5) {
+    points += 15;
+    reasons.push("positive momentum");
+  }
+
+  if (change > 20) {
+    points += 10;
+    reasons.push("strong momentum");
+  }
+
+  // Buy pressure
+  if (buyRatio > 0.55) {
+    points += 15;
+    reasons.push("buy pressure");
+  }
+
+  if (buyRatio > 0.65) {
+    points += 10;
+    reasons.push("heavy buying");
+  }
+
+  // Liquidity
+  if (liquidity > 10000) {
+    points += 10;
+    reasons.push("adequate liquidity");
+  }
+
+  if (liquidity > 100000) {
+    points += 5;
+  }
+
+  // Volume
+  if (volume > 10000) {
+    points += 10;
+    reasons.push("active volume");
+  }
+
+  if (volume > 100000) {
+    points += 10;
+    reasons.push("high volume");
+  }
+
+  // Negative conditions
+  if (change < -10) {
+    points -= 20;
+    reasons.push("negative momentum");
+  }
+
+  if (buyRatio < 0.40) {
+    points -= 20;
+    reasons.push("heavy selling");
+  }
+
+  if (liquidity < 5000) {
+    points -= 20;
+    reasons.push("low liquidity");
+  }
+
+  // Keep score between 0 and 100
+  points = Math.max(0, Math.min(100, points));
+
+  let signal;
+  let color;
+
+  if (points >= 60) {
+    signal = "BUY SETUP";
+    color = "green";
+  } else if (points <= 25) {
+    signal = "EXIT / AVOID";
+    color = "red";
+  } else {
+    signal = "WAIT";
+    color = "yellow";
+  }
+
+  return {
+    signal,
+    color,
+    points,
+    reason: reasons.slice(0, 3).join(" • ")
+  };
+}
+
+function calculateScore(pair) {
+
+  let score = 50;
+
+  const change = pair.priceChange?.h24 || 0;
+  const volume = pair.volume?.h24 || 0;
+  const liquidity = pair.liquidity?.usd || 0;
+
+  if (change > 10) score += 10;
+  if (change > 25) score += 10;
+  if (change > 50) score += 10;
+
+  if (volume > 10000) score += 5;
+  if (volume > 100000) score += 5;
+  if (volume > 1000000) score += 5;
+
+  if (liquidity > 10000) score += 5;
+  if (liquidity > 100000) score += 5;
+
+  if (score > 99) score = 99;
+
+  return score;
+}
+
+
+function getRugRisk(pair) {
+  const liquidity = Number(pair.liquidity?.usd || 0);
+  const volume = Number(pair.volume?.h24 || 0);
+  const buys = Number(pair.txns?.h24?.buys || 0);
+  const sells = Number(pair.txns?.h24?.sells || 0);
+  const total = buys + sells;
+  const change = Number(pair.priceChange?.h24 || 0);
+
+  let risk = 0;
+  const reasons = [];
+
+  if (liquidity < 2000) {
+    risk += 35;
+    reasons.push("Very low liquidity");
+  } else if (liquidity < 10000) {
+    risk += 20;
+    reasons.push("Low liquidity");
+  }
+
+  if (total > 0 && sells / total > 0.70) {
+    risk += 20;
+    reasons.push("Heavy selling");
+  }
+
+  if (volume > 0 && liquidity > 0 && volume / liquidity > 25) {
+    risk += 15;
+    reasons.push("Extreme volume/liquidity ratio");
+  }
+
+  if (change > 100 && liquidity < 25000) {
+    risk += 20;
+    reasons.push("Large price spike with limited liquidity");
+  }
+
+  if (total < 10) {
+    risk += 10;
+    reasons.push("Very little trading history");
+  }
+
+  risk = Math.min(100, risk);
+
+  let level = "LOW";
+  if (risk >= 60) level = "HIGH";
+  else if (risk >= 30) level = "MEDIUM";
+
+  return {
+    risk,
+    level,
+    reasons: reasons.length ? reasons : ["No major market-data warning detected"]
+  };
+}
+
+function renderCoins(list) {
+
+  const container = document.getElementById("coins");
+
+  container.innerHTML = "";
+
+  let gainers = 0;
+  let highVolume = 0;
+
+  list.forEach(pair => {
+
+    const change = pair.priceChange?.h24 || 0;
+    const volume = pair.volume?.h24 || 0;
+
+    if (change > 20) gainers++;
+    if (volume > 100000) highVolume++;
+
+    const score = calculateScore(pair);
+const trade = getTradeSignal(pair);
+    const currentPrice = Number(pair.priceUsd || 0);
+
+const entryLow = currentPrice * 0.98;
+const entryHigh = currentPrice * 1.02;
+
+const stopPrice = currentPrice * 0.92;
+
+const target1 = currentPrice * 1.15;
+const target2 = currentPrice * 1.30;
+    const div = document.createElement("div");
+
+    div.className = "coin";
+
+    div.innerHTML = `
+
+      <div class="coin-top">
+
+        <div>
+          <div class="coin-name">
+            ${pair.baseToken?.name || "Unknown"}
+            <span class="symbol">
+              ${pair.baseToken?.symbol || ""}
+            </span>
+          </div>
+
+          <div class="chain">
+            ${pair.chainId || ""}
+            • ${pair.dexId || ""}
+          </div>
+        </div>
+
+      <div style="
+  text-align:right;
+  min-width:110px;
+">
+
+  <div class="score">
+    🔥 ${score}
+  </div>
+
+  <div style="
+    margin-top:6px;
+    padding:5px 8px;
+    border-radius:6px;
+    font-size:11px;
+    font-weight:bold;
+    background:${
+      trade.color === "green"
+        ? "#123d2a"
+        : trade.color === "red"
+        ? "#451b1b"
+        : "#403817"
+    };
+    color:${
+      trade.color === "green"
+        ? "#39d98a"
+        : trade.color === "red"
+        ? "#ff6b6b"
+        : "#ffd166"
+    };
+  ">
+    ${trade.signal}
+  </div>
+
+</div>
+
+      </div>
+<div style="
+  margin-top:12px;
+  padding:9px;
+  background:#0a0d13;
+  border-radius:8px;
+  color:#8d96a5;
+  font-size:12px;
+">
+  ${trade.reason || "Waiting for more data"}
+</div>
+<div style="
+  margin-top:12px;
+  padding:9px;
+  background:#0a0d13;
+  border-radius:8px;
+  color:#8d96a5;
+  font-size:12px;
+">
+  ${trade.reason || "Waiting for more data"}
+</div>
+
+<div class="grid">
+
+  <div class="metric">
+    <div class="metric-title">PRICE</div>
+      <div class="grid">
+
+        <div class="metric">
+          <div class="metric-title">PRICE</div>
+          <div class="metric-value">
+            ${price(pair.priceUsd)}
+          </div>
+        </div>
+
+        <div class="metric">
+          <div class="metric-title">24H</div>
+          <div class="metric-value ${change >= 0 ? "green" : "red"}">
+            ${change >= 0 ? "+" : ""}${change.toFixed(2)}%
+          </div>
+        </div>
+
+        <div class="metric">
+          <div class="metric-title">VOLUME</div>
+          <div class="metric-value">
+            ${money(volume)}
+          </div>
+        </div>
+
+        <div class="metric">
+          <div class="metric-title">LIQUIDITY</div>
+          <div class="metric-value">
+            ${money(pair.liquidity?.usd)}
+          </div>
+        </div>
+
+        <div class="metric">
+          <div class="metric-title">MARKET CAP</div>
+          <div class="metric-value">
+            ${money(pair.marketCap || pair.fdv)}
+          </div>
+        </div>
+
+        <div class="metric">
+          <div class="metric-title">BUYS</div>
+          <div class="metric-value">
+            ${pair.txns?.h24?.buys || 0}
+          </div>
+        </div>
+
+        <div class="metric">
+          <div class="metric-title">SELLS</div>
+          <div class="metric-value">
+            ${pair.txns?.h24?.sells || 0}
+          </div>
+        </div>
+
+        <div class="metric">
+          <div class="metric-title">PAIR</div>
+          <div class="metric-value">
+            ${pair.pairAddress
+              ? pair.pairAddress.slice(0,6) + "..."
+              : "N/A"}
+          </div>
+        </div>
+
+      </div>
+    `;
+
+
+    const rug = getRugRisk(pair);
+
+    const rugBox = document.createElement("div");
+    rugBox.style.marginTop = "12px";
+    rugBox.style.padding = "10px";
+    rugBox.style.borderRadius = "8px";
+    rugBox.style.background =
+      rug.level === "HIGH" ? "#451b1b" :
+      rug.level === "MEDIUM" ? "#403817" : "#123d2a";
+    rugBox.style.border =
+      "1px solid " +
+      (rug.level === "HIGH" ? "#ff6b6b" :
+       rug.level === "MEDIUM" ? "#ffd166" : "#39d98a");
+
+    rugBox.innerHTML = `
+      <div style="font-weight:bold;">
+        ${rug.level === "HIGH" ? "🚨 HIGH RUG RISK" :
+          rug.level === "MEDIUM" ? "⚠️ MEDIUM RUG RISK" :
+          "🛡️ LOW RUG RISK"}
+      </div>
+      <div style="font-size:12px;color:#8d96a5;margin-top:5px;">
+        Risk indicators: ${rug.risk}/100
+      </div>
+      <div style="font-size:12px;margin-top:5px;">
+        ${rug.reasons.join(" • ")}
+      </div>
+    `;
+
+    div.appendChild(rugBox);
+
+    const dexUrl =
+  pair.url ||
+  "https://dexscreener.com/" + pair.chainId + "/" + pair.pairAddress;
+
+const dexLink = document.createElement("a");
+
+dexLink.href = dexUrl;
+dexLink.target = "_blank";
+dexLink.rel = "noopener noreferrer";
+dexLink.textContent = "📈 DEX Screener";
+
+dexLink.style.display = "inline-block";
+dexLink.style.marginTop = "10px";
+dexLink.style.fontSize = "12px";
+dexLink.style.color = "#8d96a5";
+dexLink.style.textDecoration = "underline";
+
+div.appendChild(dexLink);
+    
+    container.appendChild(div);
+
+  });
+
+  document.getElementById("tokenCount").textContent = list.length;
+  document.getElementById("gainers").textContent = gainers;
+  document.getElementById("highVolume").textContent = highVolume;
+}
+function formatAge(timestamp) {
+  if (!timestamp) return "Unknown";
+
+  const ageMs = Date.now() - timestamp;
+  const minutes = Math.floor(ageMs / 60000);
+
+  if (minutes < 1) return "Just now";
+  if (minutes < 60) return `${minutes}m ago`;
+
+  const hours = Math.floor(minutes / 60);
+
+  if (hours < 24) return `${hours}h ago`;
+
+  const days = Math.floor(hours / 24);
+
+  return `${days}d ago`;
+}
+
+
+function renderNewTokens(pairs) {
+
+  const container = document.getElementById("newTokens");
+
+  if (!container) return;
+
+  container.innerHTML = "";
+
+  const now = Date.now();
+
+  // Keep only pairs with a valid creation time.
+  // Only show pairs created within the last 24 hours.
+  const newest = pairs
+    .filter(pair =>
+      pair.pairCreatedAt &&
+      (now - pair.pairCreatedAt) <= 24 * 60 * 60 * 1000
+    )
+    .sort((a, b) =>
+      b.pairCreatedAt - a.pairCreatedAt
+    )
+    .slice(0, 20);
+
+
+  if (!newest.length) {
+
+    container.innerHTML = `
+      <div class="coin">
+        <div class="coin-name">
+          No newly created pairs found
+        </div>
+
+        <div class="chain">
+          The current discovery feed did not return pairs
+          created within the last 24 hours.
+        </div>
+      </div>
+    `;
+
+    return;
+  }
+
+
+  newest.forEach(pair => {
+
+    const change = pair.priceChange?.h24 || 0;
+    const volume = pair.volume?.h24 || 0;
+    const liquidity = pair.liquidity?.usd || 0;
+
+    const score = calculateScore(pair);
+
+    const div = document.createElement("div");
+
+    div.className = "coin";
+
+    div.innerHTML = `
+
+      <div class="coin-top">
+
+        <div>
+
+          <div class="coin-name">
+
+            ${pair.baseToken?.name || "Unknown"}
+
+            <span class="symbol">
+              ${pair.baseToken?.symbol || ""}
+            </span>
+
+          </div>
+
+          <div class="chain">
+
+            🆕 ${formatAge(pair.pairCreatedAt)}
+            • ${pair.chainId || "Unknown"}
+            • ${pair.dexId || "DEX"}
+
+          </div>
+
+        </div>
+
+
+        <div class="score">
+
+          🔥 ${score}
+
+        </div>
+
+      </div>
+
+
+      <div class="grid">
+
+        <div class="metric">
+
+          <div class="metric-title">
+            PRICE
+          </div>
+
+          <div class="metric-value">
+            ${price(pair.priceUsd)}
+          </div>
+
+        </div>
+
+
+        <div class="metric">
+
+          <div class="metric-title">
+            24H
+          </div>
+
+          <div class="metric-value ${
+            change >= 0 ? "green" : "red"
+          }">
+
+            ${change >= 0 ? "+" : ""}
+            ${change.toFixed(2)}%
+
+          </div>
+
+        </div>
+
+
+        <div class="metric">
+
+          <div class="metric-title">
+            VOLUME
+          </div>
+
+          <div class="metric-value">
+            ${money(volume)}
+          </div>
+
+        </div>
+
+
+        <div class="metric">
+
+          <div class="metric-title">
+            LIQUIDITY
+          </div>
+
+          <div class="metric-value">
+            ${money(liquidity)}
+          </div>
+
+        </div>
+
+
+        <div class="metric">
+
+          <div class="metric-title">
+            CREATED
+          </div>
+
+          <div class="metric-value">
+            ${formatAge(pair.pairCreatedAt)}
+          </div>
+
+        </div>
+
+
+        <div class="metric">
+
+          <div class="metric-title">
+            BUYS
+          </div>
+
+          <div class="metric-value">
+            ${pair.txns?.h24?.buys || 0}
+          </div>
+
+        </div>
+
+
+        <div class="metric">
+
+          <div class="metric-title">
+            SELLS
+          </div>
+
+          <div class="metric-value">
+            ${pair.txns?.h24?.sells || 0}
+          </div>
+
+        </div>
+
+
+        <div class="metric">
+
+          <div class="metric-title">
+            MARKET CAP
+          </div>
+
+          <div class="metric-value">
+            ${money(pair.marketCap || pair.fdv)}
+          </div>
+
+        </div>
+
+      </div>
+    `;
+
+
+    const rug = getRugRisk(pair);
+    const rugBox = document.createElement("div");
+    rugBox.style.marginTop = "10px";
+    rugBox.style.padding = "8px";
+    rugBox.style.borderRadius = "8px";
+    rugBox.style.background =
+      rug.level === "HIGH" ? "#451b1b" :
+      rug.level === "MEDIUM" ? "#403817" : "#123d2a";
+    rugBox.innerHTML = `
+      <b>${rug.level === "HIGH" ? "🚨 HIGH RUG RISK" :
+          rug.level === "MEDIUM" ? "⚠️ MEDIUM RUG RISK" : "🛡️ LOW RUG RISK"}</b>
+      <div style="font-size:11px;color:#8d96a5;margin-top:4px;">
+        ${rug.reasons.join(" • ")}
+      </div>
+    `;
+    div.appendChild(rugBox);
+
+    container.appendChild(div);
+
+  });
+}
+async function loadLiveData() {
+
+  const status = document.getElementById("status");
+
+  status.textContent = "Loading live tokens...";
+
+  try {
+
+    const profileResponse =
+      await fetch(API + "/token-profiles/latest/v1");
+
+    if (!profileResponse.ok)
+      throw new Error("Could not load token profiles");
+
+    const profiles = await profileResponse.json();
+
+    const addresses = profiles
+      .slice(0, 20)
+      .map(x => x.tokenAddress)
+      .filter(Boolean);
+
+    if (!addresses.length)
+      throw new Error("No tokens returned");
+
+    const pairsResponse =
+      await fetch(
+        API + "/latest/dex/tokens/" +
+        addresses.join(",")
+      );
+
+    if (!pairsResponse.ok)
+      throw new Error("Could not load token data");
+
+    const data = await pairsResponse.json();
+
+    const pairs = data.pairs || [];
+
+    const bestPairs = {};
+
+    pairs.forEach(pair => {
+
+      const address = pair.baseToken?.address;
+
+      if (!address) return;
+
+      if (
+        !bestPairs[address] ||
+        (pair.liquidity?.usd || 0) >
+        (bestPairs[address].liquidity?.usd || 0)
+      ) {
+        bestPairs[address] = pair;
+      }
+    });
+
+   tokens = Object.values(bestPairs);
+
+// Existing main dashboard
+tokens.sort((a, b) =>
+  calculateScore(b) - calculateScore(a)
+);
+
+renderCoins(tokens);
+
+// New-token panel
+renderNewTokens(tokens);
+
+
+    document.getElementById("updated").textContent =
+      new Date().toLocaleTimeString();
+
+    status.textContent =
+      "Live data • Automatically refreshing every 60 seconds";
+
+  } catch(error) {
+
+    console.error(error);
+
+    status.textContent =
+      "Unable to load live data. Tap refresh or try again.";
+
+  }
+}
+
+async function searchToken() {
+
+  const query =
+    document.getElementById("search").value.trim();
+
+  if (!query) {
+    loadLiveData();
+    return;
+  }
+
+  const status = document.getElementById("status");
+
+  status.textContent = "Searching...";
+
+  try {
+
+    const response =
+      await fetch(
+        API + "/latest/dex/search?q=" +
+        encodeURIComponent(query)
+      );
+
+    if (!response.ok)
+      throw new Error("Search failed");
+
+    const data = await response.json();
+
+    const results = data.pairs || [];
+
+    results.sort((a,b) =>
+      calculateScore(b) - calculateScore(a)
+    );
+
+    renderCoins(results.slice(0,30));
+
+    status.textContent =
+      "Search results • " + results.length + " pairs";
+
+  } catch(error) {
+
+    console.error(error);
+
+    status.textContent =
+      "Search failed. Try a token name, symbol, or contract address.";
+
+  }
+}
+
+setupNotifications();
+
+loadLiveData();
+
+setInterval(loadLiveData, 60000);
+document
+  .getElementById("enableAlerts")
+  .addEventListener(
+    "click",
+    enableSignalAlerts
+  );
+</script>
+
+</body>
+</html>
