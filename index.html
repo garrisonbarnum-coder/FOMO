@@ -450,7 +450,6 @@ function renderCoins(list) {
 
     const score = calculateScore(pair);
 const trade = getTradeSignal(pair);
-    sendSignalAlert(pair, trade);
     const currentPrice = Number(pair.priceUsd || 0);
 
 const entryLow = currentPrice * 0.98;
