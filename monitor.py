@@ -24,7 +24,39 @@ STATE = "data/state.json"
 MAX_PROFILES = 30
 TIMEOUT = 15
 
+NTFY_URL = "https://ntfy.sh"
+NTFY_TOPIC = os.getenv("FOMO_NTFY_TOPIC", "").strip()
+TEST_NOTIFICATION = os.getenv("FOMO_TEST_NOTIFICATION", "").strip().lower() in {"1", "true", "yes", "on"}
 
+def send_push(title, message, priority=5, tags="warning"):
+    if not NTFY_TOPIC:
+        return False
+
+    try:
+        payload = json.dumps({
+            "topic": NTFY_TOPIC,
+            "title": title,
+            "message": message,
+            "priority": priority,
+            "tags": tags,
+        }).encode("utf-8")
+
+        req = Request(
+            NTFY_URL,
+            data=payload,
+            headers={
+                "Content-Type": "application/json; charset=utf-8",
+                "User-Agent": "FOMO-Coin-Tracker/1.0",
+            },
+            method="POST",
+        )
+
+        with urlopen(req, timeout=TIMEOUT) as response:
+            return 200 <= response.status < 300
+
+    except (HTTPError, URLError, TimeoutError, ValueError, OSError) as exc:
+        print(f"Push notification failed: {exc}")
+        return False
 def get_json(url, retries=3):
     last = None
     for attempt in range(retries):
@@ -311,9 +343,31 @@ def main():
         "tokens": results,
     }
 
-    save_json(OUT, snapshot)
+        save_json(OUT, snapshot)
     save_json(STATE, next_state)
-    print(f"Wrote {OUT}: {len(results)} tokens, {len(alerts)} new alerts")
+
+    if TEST_NOTIFICATION:
+        send_push(
+            "🔥 FOMO Test Alert",
+            "Jarvis 24/7 push notifications are working. You can close the website.",
+            priority=4,
+            tags="white_check_mark,rocket",
+        )
+
+    for alert in alerts:
+        reasons = ", ".join(alert.get("reasons", [])[:4]) or "High-risk signals detected"
+
+        send_push(
+            f"🚨 FOMO RUG RISK • {alert.get('symbol', 'UNKNOWN')}",
+            f"Risk score: {alert.get('riskScore', '?')}/100\n{reasons}",
+            priority=5,
+            tags="rotating_light,warning",
+        )
+
+    print(
+        f"Wrote {OUT}: {len(results)} tokens, {len(alerts)} new alerts; "
+        f"push={'on' if NTFY_TOPIC else 'off'}"
+    )
 
 
 if __name__ == "__main__":
