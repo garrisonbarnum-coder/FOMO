@@ -1,6 +1,6 @@
 {
   "version":5,
-  "generatedAt":"2026-09-23T15:09:15.457056+00:00",
+  "generatedAt":"2026-09-23T15:15:21.085995+00:00",
   "source":"DEX Screener + GoPlus",
   "monitor":{
     "status":"online",
@@ -17,7 +17,7 @@
       "unscanned":35,
       "total":50
     },
-    "securityRotationCursor":5,
+    "securityRotationCursor":10,
     "securityRotationBatch":15,
     "warning":"Opportunity scores are rule-based market indicators. Security verification is not a guarantee and BUY alerts are suppressed unless the security gate passes. UNKNOWN security never passes the BUY gate.",
     "universe":"Established + emerging + new-token discovery feeds; not literally every token on every exchange."
@@ -25,89 +25,15 @@
   "alerts":[
     {
       "type":"ABOUT_TO_MOVE",
-      "symbol":"PIPEJEAN",
+      "symbol":"XCAT",
       "chainId":"solana",
-      "tokenAddress":"JA2GsWfRHF59aaxCy7wyp54VYc1eidNgV4MRMFZdpump",
-      "score":92,
+      "tokenAddress":"77xuWiXF7PKZRW2jDD4Tkyw3M3qQkZADYNnG7h3xrndj",
+      "score":70,
       "signals":[
-        "buy pressure 84%",
-        "1h price +101.0%"
+        "buy pressure 69%",
+        "1h price +25.0%"
       ],
       "securityStatus":"VERIFIED"
-    },
-    {
-      "type":"BUY_SIGNAL",
-      "symbol":"PIPEJEAN",
-      "topic":"fomo-buy-SVTWArdm9aTNFjG9XXo2MIrA",
-      "score":92
-    },
-    {
-      "type":"ABOUT_TO_DROP",
-      "symbol":"Agrippa",
-      "chainId":"robinhood",
-      "tokenAddress":"0xFa1824e750f9a5bc7D253342935471B8F2709d70",
-      "score":85,
-      "signals":[
-        "liquidity -21%",
-        "1h price -48.7%"
-      ]
-    },
-    {
-      "type":"ABOUT_TO_DROP",
-      "symbol":"SPIKE",
-      "chainId":"base",
-      "tokenAddress":"0x1685981068dC0ec45Ee1D5a28EF051059e42a0f3",
-      "score":79,
-      "signals":[
-        "liquidity -17%",
-        "sell pressure 64%"
-      ]
-    },
-    {
-      "type":"BUY_SIGNAL",
-      "symbol":"UPTOBER",
-      "topic":"fomo-buy-Tnn16ZdbXeKTjCF1aj5XLzwr",
-      "score":79
-    },
-    {
-      "type":"ABOUT_TO_MOVE",
-      "symbol":"GO",
-      "chainId":"solana",
-      "tokenAddress":"D1YZZg9dBZ7AbfknZVbaeVLto36eySwoFYEVhZrD4F4n",
-      "score":77,
-      "signals":[
-        "liquidity +12%",
-        "1h price +139.0%"
-      ],
-      "securityStatus":"VERIFIED"
-    },
-    {
-      "type":"BUY_SIGNAL",
-      "symbol":"suit",
-      "topic":"fomo-buy-1sbtrzBCEXu6IRkZKROn0L",
-      "score":75
-    },
-    {
-      "type":"ABOUT_TO_DROP",
-      "symbol":"GIGACAT",
-      "chainId":"solana",
-      "tokenAddress":"2jcvq8QcJ8TzEYJKYMCjR61kXVSzib4mEkz89tQxpump",
-      "score":69,
-      "signals":[
-        "liquidity -19%",
-        "1h price -53.8%"
-      ]
-    },
-    {
-      "type":"ABOUT_TO_DROP",
-      "symbol":"FEATHER",
-      "chainId":"robinhood",
-      "tokenAddress":"0xbDCE38bb1759AeaF798568d4a238691dFD2F63Bd",
-      "score":58,
-      "signals":[
-        "Snipe score -34",
-        "liquidity -79%"
-      ]
     }
   ],
   "alertTopics":{
@@ -482,6 +408,14 @@
     "0x55a3ee6721c8cd3cc4ebb991ad89324149b63e5c37b8753d655016a44ce67050":{
       "buy":"fomo-buy-i4XBsxYOR78eedh6ftAXZM",
       "sell":"fomo-sell-5bSH1Db04fYPSSxpss6TvJ"
+    },
+    "H6rEMTxg14N1pVU2JQfh8vKzBRLrF3ePai9s8C2D78F3":{
+      "buy":"fomo-buy-rNBzxrMHpujDQBfYifFzZd",
+      "sell":"fomo-sell-TNUixw3X3Wh9Fgtg3wnTCL0"
+    },
+    "4zmty9M5x1c9VEpJurq8k5uH6UeTQsQ7wf4AmrU245nf":{
+      "buy":"fomo-buy-HKDGCl0gzO69p6XmgoUsKgxt",
+      "sell":"fomo-sell-EdlhGDy1QOnkb0VhNEZHhvi"
     }
   },
   "tokens":[
@@ -490,18 +424,18 @@
       "tokenAddress":"0xc3ba8a6F8D011881CeCA8AD6e2b524232a40AA26",
       "name":"Gigacat",
       "symbol":"GIGACAT",
-      "priceUsd":0.0006743,
-      "liquidityUsd":76426.96,
-      "volume24h":777990.8,
-      "marketCap":674399.0,
-      "priceChange5m":24.86,
-      "priceChange1h":23676.0,
-      "priceChange24h":23676.0,
-      "buys1h":903,
-      "sells1h":289,
-      "buys24h":903,
-      "sells24h":289,
-      "pairAgeMinutes":52.0,
+      "priceUsd":0.0006444,
+      "liquidityUsd":74822.52,
+      "volume24h":862674.53,
+      "marketCap":644498.0,
+      "priceChange5m":13.46,
+      "priceChange1h":22622.0,
+      "priceChange24h":22622.0,
+      "buys1h":1002,
+      "sells1h":341,
+      "buys24h":1002,
+      "sells24h":341,
+      "pairAgeMinutes":58.0,
       "pairAddress":"0x418f85C50c33De4426d2445C8Ff2cb8D9E213a5f",
       "dexId":"uniswap",
       "dexUrl":"https://dexscreener.com/robinhood/0x418f85c50c33de4426d2445c8ff2cb8d9e213a5f",
@@ -534,13 +468,13 @@
         "aboutToMove":true,
         "aboutToDrop":false,
         "positive":[
-          "buy pressure 76%",
-          "1h price +23676.0%"
+          "buy pressure 75%",
+          "1h price +22622.0%"
         ],
         "negative":[],
-        "scoreDelta":0,
-        "volumeDelta":0,
-        "liquidityDelta":0
+        "scoreDelta":0.0,
+        "volumeDelta":0.10884926916873564,
+        "liquidityDelta":-0.020993115518398248
       }
     },
     {
@@ -548,18 +482,18 @@
       "tokenAddress":"JA2GsWfRHF59aaxCy7wyp54VYc1eidNgV4MRMFZdpump",
       "name":"PIPEJEAN",
       "symbol":"PIPEJEAN",
-      "priceUsd":0.0001607,
-      "liquidityUsd":34729.61,
-      "volume24h":285856.89,
-      "marketCap":160791.0,
-      "priceChange5m":-2.73,
-      "priceChange1h":101.0,
-      "priceChange24h":101.0,
-      "buys1h":2873,
-      "sells1h":528,
-      "buys24h":2873,
-      "sells24h":528,
-      "pairAgeMinutes":21.7,
+      "priceUsd":0.0001513,
+      "liquidityUsd":33776.62,
+      "volume24h":321865.88,
+      "marketCap":151316.0,
+      "priceChange5m":-7.44,
+      "priceChange1h":89.15,
+      "priceChange24h":89.15,
+      "buys1h":4055,
+      "sells1h":650,
+      "buys24h":4055,
+      "sells24h":650,
+      "pairAgeMinutes":27.8,
       "pairAddress":"G96tK3juAUNkDPsikwL2qBFCAcYrdYUYU3NxaWEZGGPj",
       "dexId":"pumpswap",
       "dexUrl":"https://dexscreener.com/solana/g96tk3juaunkdpsikwl2qbfcacyrdyuyu3nxawezggpj",
@@ -592,13 +526,13 @@
         "aboutToMove":true,
         "aboutToDrop":false,
         "positive":[
-          "buy pressure 84%",
-          "1h price +101.0%"
+          "buy pressure 86%",
+          "1h price +89.2%"
         ],
         "negative":[],
-        "scoreDelta":0,
-        "volumeDelta":0,
-        "liquidityDelta":0
+        "scoreDelta":0.0,
+        "volumeDelta":0.12596859218611098,
+        "liquidityDelta":-0.027440273587869195
       }
     },
     {
@@ -606,18 +540,18 @@
       "tokenAddress":"GMsatc3SK9Y1GWeS9Brt1PutMYkbwb1fSc4V7NMoaRt",
       "name":"GOWF",
       "symbol":"GOWF",
-      "priceUsd":0.0004127,
-      "liquidityUsd":76697.6,
-      "volume24h":997562.23,
-      "marketCap":412800.0,
-      "priceChange5m":28.38,
-      "priceChange1h":674.0,
-      "priceChange24h":674.0,
-      "buys1h":9662,
-      "sells1h":7165,
-      "buys24h":9662,
-      "sells24h":7165,
-      "pairAgeMinutes":43.2,
+      "priceUsd":0.0004839,
+      "liquidityUsd":86234.84,
+      "volume24h":1062780.18,
+      "marketCap":483969.0,
+      "priceChange5m":-0.46,
+      "priceChange1h":808.0,
+      "priceChange24h":808.0,
+      "buys1h":10361,
+      "sells1h":7794,
+      "buys24h":10361,
+      "sells24h":7794,
+      "pairAgeMinutes":49.3,
       "pairAddress":"EAz5gf9pgMjWq1DZBjshvkKBR3SrJxNfiZPb35Nut1YY",
       "dexId":"raydium",
       "dexUrl":"https://dexscreener.com/solana/eaz5gf9pgmjwq1dzbjshvkkbr3srjxnfizpb35nut1yy",
@@ -650,14 +584,72 @@
         "aboutToMove":true,
         "aboutToDrop":false,
         "positive":[
-          "24h volume +26%",
-          "liquidity +23%",
-          "1h price +674.0%"
+          "liquidity +12%",
+          "1h price +808.0%"
+        ],
+        "negative":[],
+        "scoreDelta":0.0,
+        "volumeDelta":0.06537732488127579,
+        "liquidityDelta":0.1243486106475299
+      }
+    },
+    {
+      "chainId":"robinhood",
+      "tokenAddress":"0x0F2D2A9092eA78f96c30014777080d8BeC587C67",
+      "name":"The Cybertruck Parrot",
+      "symbol":"Kenny",
+      "priceUsd":0.0002298,
+      "liquidityUsd":97559.87,
+      "volume24h":379851.05,
+      "marketCap":229818.0,
+      "priceChange5m":43.99,
+      "priceChange1h":1616.0,
+      "priceChange24h":1616.0,
+      "buys1h":684,
+      "sells1h":489,
+      "buys24h":684,
+      "sells24h":489,
+      "pairAgeMinutes":42.7,
+      "pairAddress":"0xfe19e7c25672fb06d0723ce63c502f33e2f9ef72a80005fba8df65278233647f",
+      "dexId":"uniswap",
+      "dexUrl":"https://dexscreener.com/robinhood/0xfe19e7c25672fb06d0723ce63c502f33e2f9ef72a80005fba8df65278233647f",
+      "opportunityScore":91,
+      "opportunityReasons":[
+        "1h momentum",
+        "strong 1h momentum",
+        "24h momentum",
+        "strong 24h momentum",
+        "volume accelerating",
+        "buyers leading"
+      ],
+      "fomoScore":91,
+      "dataStatus":"OK",
+      "marketCapSource":"DEX Screener",
+      "securityStatus":"UNKNOWN",
+      "securityVerified":false,
+      "securityBlocked":false,
+      "securityRisk":null,
+      "securityReasons":[
+        "Unsupported security chain: robinhood"
+      ],
+      "securitySource":"GoPlus",
+      "securityScanned":true,
+      "securityGate":"UNKNOWN",
+      "tradeSignal":"WAIT",
+      "tradePoints":91,
+      "tradeReason":"Security gate not passed",
+      "acceleration":{
+        "aboutToMove":true,
+        "aboutToDrop":false,
+        "positive":[
+          "24h volume +29%",
+          "liquidity +30%",
+          "1h price +1616.0%"
         ],
         "negative":[],
         "scoreDelta":5.0,
-        "volumeDelta":0.2554974362579665,
-        "liquidityDelta":0.22798896984832512
+        "volumeDelta":0.2899012101742617,
+        "liquidityDelta":0.3042866247207029
       }
     },
     {
@@ -665,18 +657,18 @@
       "tokenAddress":"0x6E5ba5dEB888785BFC41eaeFB41608E811c284aa",
       "name":"COOLCAT",
       "symbol":"COOLCAT",
-      "priceUsd":0.0003504,
-      "liquidityUsd":56517.61,
-      "volume24h":457512.02,
-      "marketCap":350418.0,
-      "priceChange5m":4.55,
-      "priceChange1h":31.54,
-      "priceChange24h":14024.0,
-      "buys1h":1774,
-      "sells1h":436,
-      "buys24h":5072,
-      "sells24h":993,
-      "pairAgeMinutes":159.0,
+      "priceUsd":0.000321,
+      "liquidityUsd":53993.17,
+      "volume24h":462372.99,
+      "marketCap":321057.0,
+      "priceChange5m":-7.07,
+      "priceChange1h":22.74,
+      "priceChange24h":12841.0,
+      "buys1h":1778,
+      "sells1h":455,
+      "buys24h":5222,
+      "sells24h":1037,
+      "pairAgeMinutes":165.1,
       "pairAddress":"0xd07a256ba3dc7688ad068fe868b4a250173ae57091bdc8cfc782688b52cd53ef",
       "dexId":"uniswap",
       "dexUrl":"https://dexscreener.com/arc/0xd07a256ba3dc7688ad068fe868b4a250173ae57091bdc8cfc782688b52cd53ef",
@@ -710,70 +702,12 @@
         "aboutToDrop":false,
         "positive":[
           "buy pressure 80%",
-          "1h price +31.5%"
+          "1h price +22.7%"
         ],
         "negative":[],
         "scoreDelta":0.0,
-        "volumeDelta":0.03241597178435028,
-        "liquidityDelta":0.030975633870696465
-      }
-    },
-    {
-      "chainId":"robinhood",
-      "tokenAddress":"0x0F2D2A9092eA78f96c30014777080d8BeC587C67",
-      "name":"The Cybertruck Parrot",
-      "symbol":"Kenny",
-      "priceUsd":0.000145,
-      "liquidityUsd":74799.41,
-      "volume24h":294480.73,
-      "marketCap":145086.0,
-      "priceChange5m":-23.15,
-      "priceChange1h":983.0,
-      "priceChange24h":983.0,
-      "buys1h":558,
-      "sells1h":385,
-      "buys24h":558,
-      "sells24h":385,
-      "pairAgeMinutes":36.6,
-      "pairAddress":"0xfe19e7c25672fb06d0723ce63c502f33e2f9ef72a80005fba8df65278233647f",
-      "dexId":"uniswap",
-      "dexUrl":"https://dexscreener.com/robinhood/0xfe19e7c25672fb06d0723ce63c502f33e2f9ef72a80005fba8df65278233647f",
-      "opportunityScore":86,
-      "opportunityReasons":[
-        "1h momentum",
-        "strong 1h momentum",
-        "24h momentum",
-        "strong 24h momentum",
-        "volume accelerating",
-        "buyers leading"
-      ],
-      "fomoScore":86,
-      "dataStatus":"OK",
-      "marketCapSource":"DEX Screener",
-      "securityStatus":"UNKNOWN",
-      "securityVerified":false,
-      "securityBlocked":false,
-      "securityRisk":null,
-      "securityReasons":[
-        "Unsupported security chain: robinhood"
-      ],
-      "securitySource":"GoPlus",
-      "securityScanned":true,
-      "securityGate":"UNKNOWN",
-      "tradeSignal":"WAIT",
-      "tradePoints":86,
-      "tradeReason":"Security gate not passed",
-      "acceleration":{
-        "aboutToMove":true,
-        "aboutToDrop":false,
-        "positive":[
-          "24h volume +69%",
-          "1h price +983.0%"
-        ],
-        "negative":[],
-        "scoreDelta":0.0,
-        "volumeDelta":0.6934594660773847,
-        "liquidityDelta":-0.004512336292226416
+        "volumeDelta":0.010624791890713543,
+        "liquidityDelta":-0.04466643228544169
       }
     },
     {
@@ -781,18 +715,18 @@
       "tokenAddress":"0xFa1824e750f9a5bc7D253342935471B8F2709d70",
       "name":"Agrippa",
       "symbol":"Agrippa",
-      "priceUsd":0.002921,
-      "liquidityUsd":147208.1,
-      "volume24h":6176988.66,
-      "marketCap":2921354.0,
-      "priceChange5m":-29.57,
-      "priceChange1h":-48.69,
-      "priceChange24h":106393.0,
-      "buys1h":1340,
-      "sells1h":662,
-      "buys24h":6880,
-      "sells24h":3007,
-      "pairAgeMinutes":260.4,
+      "priceUsd":0.001779,
+      "liquidityUsd":119359.66,
+      "volume24h":6331820.46,
+      "marketCap":1779854.0,
+      "priceChange5m":-42.48,
+      "priceChange1h":-63.74,
+      "priceChange24h":64782.0,
+      "buys1h":1324,
+      "sells1h":658,
+      "buys24h":7013,
+      "sells24h":3071,
+      "pairAgeMinutes":266.5,
       "pairAddress":"0xD958EF2cc262fdBE3b670aEC434d8b9102F5Ad34",
       "dexId":"uniswap",
       "dexUrl":"https://dexscreener.com/robinhood/0xd958ef2cc262fdbe3b670aec434d8b9102f5ad34",
@@ -828,12 +762,12 @@
           "buy pressure 67%"
         ],
         "negative":[
-          "liquidity -21%",
-          "1h price -48.7%"
+          "liquidity -19%",
+          "1h price -63.7%"
         ],
         "scoreDelta":0.0,
-        "volumeDelta":0.049751065786495706,
-        "liquidityDelta":-0.21360917607764063
+        "volumeDelta":0.02506590322929293,
+        "liquidityDelta":-0.18917736184353987
       }
     },
     {
@@ -841,18 +775,18 @@
       "tokenAddress":"0x2153b6E2E40c2D511a383f2536BcB256698F4be2",
       "name":"Fly Inu",
       "symbol":"FLY",
-      "priceUsd":0.05685,
-      "liquidityUsd":29808.8,
-      "volume24h":62312.67,
-      "marketCap":44790.0,
-      "priceChange5m":-5.1,
-      "priceChange1h":53.71,
-      "priceChange24h":38.74,
-      "buys1h":548,
-      "sells1h":192,
-      "buys24h":628,
-      "sells24h":232,
-      "pairAgeMinutes":69.2,
+      "priceUsd":0.05328,
+      "liquidityUsd":28863.75,
+      "volume24h":63841.86,
+      "marketCap":41982.0,
+      "priceChange5m":0.04,
+      "priceChange1h":39.56,
+      "priceChange24h":30.04,
+      "buys1h":586,
+      "sells1h":196,
+      "buys24h":710,
+      "sells24h":251,
+      "pairAgeMinutes":75.3,
       "pairAddress":"0x979cf760e7d0118b6f735d6e0bc9c3a3e65b39c79553a1e6a581f168847d9163",
       "dexId":"uniswap",
       "dexUrl":"https://dexscreener.com/robinhood/0x979cf760e7d0118b6f735d6e0bc9c3a3e65b39c79553a1e6a581f168847d9163",
@@ -885,13 +819,13 @@
         "aboutToMove":true,
         "aboutToDrop":false,
         "positive":[
-          "buy pressure 74%",
-          "1h price +53.7%"
+          "buy pressure 75%",
+          "1h price +39.6%"
         ],
         "negative":[],
-        "scoreDelta":-2.0,
-        "volumeDelta":0.04792817282354838,
-        "liquidityDelta":-0.022097676724167632
+        "scoreDelta":0.0,
+        "volumeDelta":0.0245405950346856,
+        "liquidityDelta":-0.03170372507447463
       }
     },
     {
@@ -899,18 +833,18 @@
       "tokenAddress":"0x1685981068dC0ec45Ee1D5a28EF051059e42a0f3",
       "name":"Brian's Iguana",
       "symbol":"SPIKE",
-      "priceUsd":0.0009091,
-      "liquidityUsd":188121.24,
-      "volume24h":2440800.65,
-      "marketCap":909109.0,
-      "priceChange5m":-27.68,
-      "priceChange1h":45.99,
-      "priceChange24h":13278.0,
-      "buys1h":1942,
-      "sells1h":3452,
-      "buys24h":8111,
-      "sells24h":14525,
-      "pairAgeMinutes":178.4,
+      "priceUsd":0.0007562,
+      "liquidityUsd":163705.39,
+      "volume24h":2504621.23,
+      "marketCap":756267.0,
+      "priceChange5m":-27.63,
+      "priceChange1h":115.0,
+      "priceChange24h":11029.0,
+      "buys1h":1763,
+      "sells1h":3173,
+      "buys24h":8274,
+      "sells24h":14814,
+      "pairAgeMinutes":184.5,
       "pairAddress":"0xdb366ce311055bc3e275de10dbc320b4ade74c3ebc0179dd3fbb8efbcdb1b096",
       "dexId":"uniswap",
       "dexUrl":"https://dexscreener.com/base/0xdb366ce311055bc3e275de10dbc320b4ade74c3ebc0179dd3fbb8efbcdb1b096",
@@ -942,17 +876,16 @@
       "tradeReason":"Security gate not passed",
       "acceleration":{
         "aboutToMove":false,
-        "aboutToDrop":true,
+        "aboutToDrop":false,
         "positive":[
-          "1h price +46.0%"
+          "1h price +115.0%"
         ],
         "negative":[
-          "liquidity -17%",
           "sell pressure 64%"
         ],
         "scoreDelta":0.0,
-        "volumeDelta":0.08006247244642246,
-        "liquidityDelta":-0.17439648877687816
+        "volumeDelta":0.026147395527774904,
+        "liquidityDelta":-0.12978784320154374
       }
     },
     {
@@ -960,18 +893,18 @@
       "tokenAddress":"8Vte25yt28L8BfLXm8DrzjSYEyaKX8yry6hRKRmX7FGd",
       "name":"Uptober",
       "symbol":"UPTOBER",
-      "priceUsd":0.0002082,
-      "liquidityUsd":40556.32,
-      "volume24h":585319.65,
-      "marketCap":202566.0,
-      "priceChange5m":2.81,
-      "priceChange1h":15.09,
-      "priceChange24h":289.0,
-      "buys1h":405,
-      "sells1h":271,
-      "buys24h":19806,
-      "sells24h":5640,
-      "pairAgeMinutes":1407.7,
+      "priceUsd":0.0002147,
+      "liquidityUsd":41309.22,
+      "volume24h":586693.7,
+      "marketCap":208855.0,
+      "priceChange5m":4.75,
+      "priceChange1h":17.25,
+      "priceChange24h":301.0,
+      "buys1h":400,
+      "sells1h":269,
+      "buys24h":19850,
+      "sells24h":5670,
+      "pairAgeMinutes":1413.8,
       "pairAddress":"HJHA6AFiUQVR4nUScs7ZAR775427PJtVFqj3kmLgP9WL",
       "dexId":"pumpswap",
       "dexUrl":"https://dexscreener.com/solana/hjha6afiuqvr4nuscs7zar775427pjtvfqj3kmlgp9wl",
@@ -1004,12 +937,73 @@
         "aboutToMove":false,
         "aboutToDrop":false,
         "positive":[
-          "1h price +15.1%"
+          "1h price +17.2%"
         ],
         "negative":[],
-        "scoreDelta":7.0,
-        "volumeDelta":0.009366008884364476,
-        "liquidityDelta":0.024630502046288805
+        "scoreDelta":0.0,
+        "volumeDelta":0.002347520709410542,
+        "liquidityDelta":0.018564307609763447
+      }
+    },
+    {
+      "chainId":"robinhood",
+      "tokenAddress":"0xbDCE38bb1759AeaF798568d4a238691dFD2F63Bd",
+      "name":"Robinhood\u2019s Official Mascot",
+      "symbol":"FEATHER",
+      "priceUsd":7.544e-06,
+      "liquidityUsd":6111.24,
+      "volume24h":677664.81,
+      "marketCap":7545.0,
+      "priceChange5m":-26.28,
+      "priceChange1h":211.0,
+      "priceChange24h":211.0,
+      "buys1h":978,
+      "sells1h":610,
+      "buys24h":978,
+      "sells24h":610,
+      "pairAgeMinutes":33.2,
+      "pairAddress":"0x349881cfabeeb190109bbd3d3743083e03c859f86759f969f59dfaf8bb6fa23f",
+      "dexId":"uniswap",
+      "dexUrl":"https://dexscreener.com/robinhood/0x349881cfabeeb190109bbd3d3743083e03c859f86759f969f59dfaf8bb6fa23f",
+      "opportunityScore":78,
+      "opportunityReasons":[
+        "1h momentum",
+        "strong 1h momentum",
+        "24h momentum",
+        "strong 24h momentum",
+        "volume accelerating",
+        "buyers leading"
+      ],
+      "fomoScore":78,
+      "dataStatus":"OK",
+      "marketCapSource":"DEX Screener",
+      "securityStatus":"UNKNOWN",
+      "securityVerified":false,
+      "securityBlocked":false,
+      "securityRisk":null,
+      "securityReasons":[
+        "Unsupported security chain: robinhood",
+        "liquidity below $25,000 BUY threshold"
+      ],
+      "securitySource":"GoPlus",
+      "securityScanned":true,
+      "securityGate":"BLOCKED",
+      "tradeSignal":"WAIT",
+      "tradePoints":78,
+      "tradeReason":"Security gate not passed",
+      "acceleration":{
+        "aboutToMove":true,
+        "aboutToDrop":false,
+        "positive":[
+          "Snipe score +20",
+          "1h price +211.0%"
+        ],
+        "negative":[
+          "liquidity -23%"
+        ],
+        "scoreDelta":20.0,
+        "volumeDelta":0.04184891001140422,
+        "liquidityDelta":-0.2270495473276013
       }
     },
     {
@@ -1017,18 +1011,18 @@
       "tokenAddress":"0x70A64707a7260365Ab8e90dDd565B8c00247a289",
       "name":"PONS ARMY",
       "symbol":"ARMY",
-      "priceUsd":0.0001553,
-      "liquidityUsd":37765.49,
-      "volume24h":157847.31,
-      "marketCap":155380.0,
-      "priceChange5m":-0.12,
-      "priceChange1h":3.01,
-      "priceChange24h":159.0,
-      "buys1h":67,
-      "sells1h":27,
-      "buys24h":1486,
-      "sells24h":1732,
-      "pairAgeMinutes":1215.4,
+      "priceUsd":0.0001562,
+      "liquidityUsd":37872.23,
+      "volume24h":157921.19,
+      "marketCap":156213.0,
+      "priceChange5m":0.41,
+      "priceChange1h":3.96,
+      "priceChange24h":161.0,
+      "buys1h":69,
+      "sells1h":28,
+      "buys24h":1494,
+      "sells24h":1734,
+      "pairAgeMinutes":1221.5,
       "pairAddress":"0xf318353b387fc819b57ecb8af1889882c8b544b450c42514d3da43a225e983e9",
       "dexId":"uniswap",
       "dexUrl":"https://dexscreener.com/robinhood/0xf318353b387fc819b57ecb8af1889882c8b544b450c42514d3da43a225e983e9",
@@ -1058,16 +1052,15 @@
       "tradePoints":78,
       "tradeReason":"Security gate not passed",
       "acceleration":{
-        "aboutToMove":true,
+        "aboutToMove":false,
         "aboutToDrop":false,
         "positive":[
-          "Snipe score +8",
           "buy pressure 71%"
         ],
         "negative":[],
-        "scoreDelta":8.0,
-        "volumeDelta":0.004039634829936495,
-        "liquidityDelta":0.014134049783628156
+        "scoreDelta":0.0,
+        "volumeDelta":0.0004680472540203863,
+        "liquidityDelta":0.0028263899131192325
       }
     },
     {
@@ -1075,18 +1068,18 @@
       "tokenAddress":"D1YZZg9dBZ7AbfknZVbaeVLto36eySwoFYEVhZrD4F4n",
       "name":"LESGO",
       "symbol":"GO",
-      "priceUsd":0.0001722,
-      "liquidityUsd":37424.85,
-      "volume24h":137617.7,
-      "marketCap":170308.0,
-      "priceChange5m":9.54,
-      "priceChange1h":139.0,
-      "priceChange24h":259.0,
-      "buys1h":567,
-      "sells1h":533,
-      "buys24h":836,
-      "sells24h":1090,
-      "pairAgeMinutes":79.3,
+      "priceUsd":0.0002163,
+      "liquidityUsd":42212.37,
+      "volume24h":152972.71,
+      "marketCap":214014.0,
+      "priceChange5m":4.1,
+      "priceChange1h":351.0,
+      "priceChange24h":351.0,
+      "buys1h":575,
+      "sells1h":529,
+      "buys24h":889,
+      "sells24h":1140,
+      "pairAgeMinutes":85.4,
       "pairAddress":"CheJUxVQrmpeb4UFWHZ72afQPTKM7AEb8giyzNR7cPvH",
       "dexId":"raydium",
       "dexUrl":"https://dexscreener.com/solana/chejuxvqrmpeb4ufwhz72afqptkm7aeb8giyznr7cpvh",
@@ -1102,30 +1095,86 @@
       "fomoScore":77,
       "dataStatus":"OK",
       "marketCapSource":"DEX Screener",
-      "securityStatus":"VERIFIED",
-      "securityVerified":true,
+      "securityStatus":"UNKNOWN",
+      "securityVerified":false,
       "securityBlocked":false,
-      "securityRisk":0,
+      "securityRisk":null,
       "securityReasons":[
-        "No configured hard security blockers detected"
+        "Not selected for security scan yet"
       ],
       "securitySource":"GoPlus",
-      "securityScanned":true,
-      "securityGate":"PASSED",
-      "tradeSignal":"BUY SETUP",
+      "securityScanned":false,
+      "securityGate":"UNKNOWN",
+      "tradeSignal":"WAIT",
       "tradePoints":77,
-      "tradeReason":"Security verified \u2022 momentum/liquidity conditions aligned",
+      "tradeReason":"Security gate not passed",
       "acceleration":{
         "aboutToMove":true,
         "aboutToDrop":false,
         "positive":[
-          "liquidity +12%",
-          "1h price +139.0%"
+          "liquidity +13%",
+          "1h price +351.0%"
         ],
         "negative":[],
         "scoreDelta":0.0,
-        "volumeDelta":0.03780041155258123,
-        "liquidityDelta":0.12390750797249263
+        "volumeDelta":0.1115772898398969,
+        "liquidityDelta":0.12792355881185907
+      }
+    },
+    {
+      "chainId":"near",
+      "tokenAddress":"nearly-993927.nearlytrade.near",
+      "name":"NEARLY",
+      "symbol":"NEARLY",
+      "priceUsd":0.0003473,
+      "liquidityUsd":76829.05,
+      "volume24h":187355.49,
+      "marketCap":347397.0,
+      "priceChange5m":0.22,
+      "priceChange1h":3.29,
+      "priceChange24h":1489.0,
+      "buys1h":78,
+      "sells1h":30,
+      "buys24h":687,
+      "sells24h":348,
+      "pairAgeMinutes":2318.1,
+      "pairAddress":"refv2-nearly-993927.nearlytrade.near:wrap.near:10000",
+      "dexId":"rhea-finance",
+      "dexUrl":"https://dexscreener.com/near/refv2-nearly-993927.nearlytrade.near:wrap.near:10000",
+      "opportunityScore":76,
+      "opportunityReasons":[
+        "1h momentum",
+        "24h momentum",
+        "strong 24h momentum",
+        "buyers leading",
+        "strong buy pressure"
+      ],
+      "fomoScore":76,
+      "dataStatus":"OK",
+      "marketCapSource":"DEX Screener",
+      "securityStatus":"UNKNOWN",
+      "securityVerified":false,
+      "securityBlocked":false,
+      "securityRisk":null,
+      "securityReasons":[
+        "Not selected for security scan yet"
+      ],
+      "securitySource":"GoPlus",
+      "securityScanned":false,
+      "securityGate":"UNKNOWN",
+      "tradeSignal":"WAIT",
+      "tradePoints":76,
+      "tradeReason":"Security gate not passed",
+      "acceleration":{
+        "aboutToMove":false,
+        "aboutToDrop":false,
+        "positive":[
+          "buy pressure 72%"
+        ],
+        "negative":[],
+        "scoreDelta":3.0,
+        "volumeDelta":0.006107730010377053,
+        "liquidityDelta":-0.00757856121008964
       }
     },
     {
@@ -1133,18 +1182,18 @@
       "tokenAddress":"AVXPQqxd32ABAP5F7shHKNeWBpos9miktdH3uKqgXYJZ",
       "name":"suit",
       "symbol":"suit",
-      "priceUsd":0.0008358,
-      "liquidityUsd":91418.99,
-      "volume24h":1318994.3,
-      "marketCap":835857.0,
-      "priceChange5m":-12.29,
-      "priceChange1h":42.74,
-      "priceChange24h":43.61,
-      "buys1h":258,
-      "sells1h":241,
-      "buys24h":6205,
-      "sells24h":5027,
-      "pairAgeMinutes":2338.0,
+      "priceUsd":0.0008498,
+      "liquidityUsd":92201.84,
+      "volume24h":1310508.97,
+      "marketCap":849861.0,
+      "priceChange5m":8.69,
+      "priceChange1h":51.61,
+      "priceChange24h":82.91,
+      "buys1h":280,
+      "sells1h":247,
+      "buys24h":6113,
+      "sells24h":4974,
+      "pairAgeMinutes":2344.0,
       "pairAddress":"FrCvbU6p7CmvRxxuGca9t14Bu3LGk9wKFzJyZQHVjLrC",
       "dexId":"raydium",
       "dexUrl":"https://dexscreener.com/solana/frcvbu6p7cmvrxxugca9t14bu3lgk9wkfzjyzqhvjlrc",
@@ -1158,85 +1207,88 @@
       "fomoScore":75,
       "dataStatus":"OK",
       "marketCapSource":"DEX Screener",
-      "securityStatus":"VERIFIED",
-      "securityVerified":true,
-      "securityBlocked":false,
-      "securityRisk":0,
-      "securityReasons":[
-        "No configured hard security blockers detected"
-      ],
-      "securitySource":"GoPlus",
-      "securityScanned":true,
-      "securityGate":"PASSED",
-      "tradeSignal":"BUY SETUP",
-      "tradePoints":75,
-      "tradeReason":"Security verified \u2022 momentum/liquidity conditions aligned",
-      "acceleration":{
-        "aboutToMove":false,
-        "aboutToDrop":false,
-        "positive":[
-          "1h price +42.7%"
-        ],
-        "negative":[],
-        "scoreDelta":-7.0,
-        "volumeDelta":-0.012783018237733763,
-        "liquidityDelta":-0.021245795924817238
-      }
-    },
-    {
-      "chainId":"near",
-      "tokenAddress":"nearly-993927.nearlytrade.near",
-      "name":"NEARLY",
-      "symbol":"NEARLY",
-      "priceUsd":0.0003525,
-      "liquidityUsd":77415.75,
-      "volume24h":186218.12,
-      "marketCap":352591.0,
-      "priceChange5m":-1.58,
-      "priceChange1h":1.2,
-      "priceChange24h":1512.0,
-      "buys1h":90,
-      "sells1h":37,
-      "buys24h":685,
-      "sells24h":344,
-      "pairAgeMinutes":2312.0,
-      "pairAddress":"refv2-nearly-993927.nearlytrade.near:wrap.near:10000",
-      "dexId":"rhea-finance",
-      "dexUrl":"https://dexscreener.com/near/refv2-nearly-993927.nearlytrade.near:wrap.near:10000",
-      "opportunityScore":73,
-      "opportunityReasons":[
-        "24h momentum",
-        "strong 24h momentum",
-        "volume accelerating",
-        "buyers leading",
-        "strong buy pressure"
-      ],
-      "fomoScore":73,
-      "dataStatus":"OK",
-      "marketCapSource":"DEX Screener",
       "securityStatus":"UNKNOWN",
       "securityVerified":false,
       "securityBlocked":false,
       "securityRisk":null,
       "securityReasons":[
-        "Unsupported security chain: near"
+        "Not selected for security scan yet"
       ],
       "securitySource":"GoPlus",
-      "securityScanned":true,
+      "securityScanned":false,
       "securityGate":"UNKNOWN",
       "tradeSignal":"WAIT",
-      "tradePoints":73,
+      "tradePoints":75,
       "tradeReason":"Security gate not passed",
       "acceleration":{
         "aboutToMove":false,
         "aboutToDrop":false,
         "positive":[
-          "buy pressure 71%"
+          "1h price +51.6%"
         ],
         "negative":[],
-        "scoreDelta":6.0,
-        "volumeDelta":0.011133439794274369,
-        "liquidityDelta":0.028730969026880302
+        "scoreDelta":0.0,
+        "volumeDelta":-0.006433181705182558,
+        "liquidityDelta":0.008563319284100505
+      }
+    },
+    {
+      "chainId":"solana",
+      "tokenAddress":"6yPP1vB1t9whewmZvREQ6SAtLy6ts2MYmgdqcBNRpump",
+      "name":"Dibs",
+      "symbol":"DIBS",
+      "priceUsd":1.017e-05,
+      "liquidityUsd":0.0,
+      "volume24h":112291.88,
+      "marketCap":10172.97,
+      "priceChange5m":33.54,
+      "priceChange1h":82.62,
+      "priceChange24h":185.0,
+      "buys1h":62,
+      "sells1h":34,
+      "buys24h":1342,
+      "sells24h":1070,
+      "pairAgeMinutes":928.0,
+      "pairAddress":"H6rEMTxg14N1pVU2JQfh8vKzBRLrF3ePai9s8C2D78F3",
+      "dexId":"pumpfun",
+      "dexUrl":"https://dexscreener.com/solana/h6remtxg14n1pvu2jqfh8vkzbrlrf3epai9s8c2d78f3",
+      "opportunityScore":71,
+      "opportunityReasons":[
+        "1h momentum",
+        "strong 1h momentum",
+        "24h momentum",
+        "strong 24h momentum",
+        "buyers leading",
+        "emerging token"
+      ],
+      "fomoScore":71,
+      "dataStatus":"OK",
+      "marketCapSource":"DEX Screener",
+      "securityStatus":"VERIFIED",
+      "securityVerified":true,
+      "securityBlocked":false,
+      "securityRisk":0,
+      "securityReasons":[
+        "No configured hard security blockers detected",
+        "liquidity below $25,000 BUY threshold"
+      ],
+      "securitySource":"GoPlus",
+      "securityScanned":true,
+      "securityGate":"BLOCKED",
+      "tradeSignal":"WAIT",
+      "tradePoints":71,
+      "tradeReason":"Liquidity below BUY threshold",
+      "acceleration":{
+        "aboutToMove":true,
+        "aboutToDrop":false,
+        "positive":[
+          "buy pressure 65%",
+          "1h price +82.6%"
+        ],
+        "negative":[],
+        "scoreDelta":0,
+        "volumeDelta":0,
+        "liquidityDelta":0
       }
     },
     {
@@ -1244,18 +1296,18 @@
       "tokenAddress":"0xb22A893a4afDCE12871e61229130490F9422B5B6",
       "name":"Spiral Stake",
       "symbol":"SPRL",
-      "priceUsd":0.0002239,
-      "liquidityUsd":45568.49,
-      "volume24h":40588.37,
-      "marketCap":192577.0,
-      "priceChange5m":-0.49,
-      "priceChange1h":11.46,
-      "priceChange24h":84.68,
-      "buys1h":20,
-      "sells1h":16,
-      "buys24h":101,
-      "sells24h":123,
-      "pairAgeMinutes":21386.3,
+      "priceUsd":0.0002467,
+      "liquidityUsd":47865.71,
+      "volume24h":42289.67,
+      "marketCap":212184.0,
+      "priceChange5m":10.18,
+      "priceChange1h":30.15,
+      "priceChange24h":103.0,
+      "buys1h":24,
+      "sells1h":18,
+      "buys24h":105,
+      "sells24h":127,
+      "pairAgeMinutes":21392.4,
       "pairAddress":"0xadbe28c40e4548059348e58c470022d0b81caad920b18b258d864dcfcdfd5418",
       "dexId":"uniswap",
       "dexUrl":"https://dexscreener.com/robinhood/0xadbe28c40e4548059348e58c470022d0b81caad920b18b258d864dcfcdfd5418",
@@ -1275,55 +1327,54 @@
       "securityBlocked":false,
       "securityRisk":null,
       "securityReasons":[
-        "Unsupported security chain: robinhood"
+        "Not selected for security scan yet"
       ],
       "securitySource":"GoPlus",
-      "securityScanned":true,
+      "securityScanned":false,
       "securityGate":"UNKNOWN",
       "tradeSignal":"WAIT",
       "tradePoints":71,
       "tradeReason":"Security gate not passed",
       "acceleration":{
-        "aboutToMove":true,
+        "aboutToMove":false,
         "aboutToDrop":false,
         "positive":[
-          "Snipe score +10",
-          "1h price +11.5%"
+          "1h price +30.1%"
         ],
         "negative":[],
-        "scoreDelta":10.0,
-        "volumeDelta":0.003000225369041892,
-        "liquidityDelta":-0.003891879886846082
+        "scoreDelta":0.0,
+        "volumeDelta":0.041915947844172984,
+        "liquidityDelta":0.05041246703588381
       }
     },
     {
       "chainId":"solana",
-      "tokenAddress":"2jcvq8QcJ8TzEYJKYMCjR61kXVSzib4mEkz89tQxpump",
-      "name":"Gigacat",
-      "symbol":"GIGACAT",
-      "priceUsd":0.0002512,
-      "liquidityUsd":46878.82,
-      "volume24h":1823275.42,
-      "marketCap":243787.0,
-      "priceChange5m":-19.44,
-      "priceChange1h":-53.76,
-      "priceChange24h":415.0,
-      "buys1h":1508,
-      "sells1h":1046,
-      "buys24h":18712,
-      "sells24h":13251,
-      "pairAgeMinutes":396.9,
-      "pairAddress":"72tZoSAHAutvD7dP2fNC56aASLxbPXro9jBPohZ8aAvY",
-      "dexId":"pumpswap",
-      "dexUrl":"https://dexscreener.com/solana/72tzosahautvd7dp2fnc56aaslxbpxro9jbpohz8aavy",
-      "opportunityScore":69,
+      "tokenAddress":"77xuWiXF7PKZRW2jDD4Tkyw3M3qQkZADYNnG7h3xrndj",
+      "name":"XRP Cat",
+      "symbol":"XCAT",
+      "priceUsd":0.0002748,
+      "liquidityUsd":52474.18,
+      "volume24h":228550.78,
+      "marketCap":274816.0,
+      "priceChange5m":8.7,
+      "priceChange1h":25.0,
+      "priceChange24h":-30.16,
+      "buys1h":70,
+      "sells1h":31,
+      "buys24h":1164,
+      "sells24h":933,
+      "pairAgeMinutes":3020.1,
+      "pairAddress":"7bsKU8gNH4L2r2HwcXjxJcWgKip1n7fham7ZPMGsTBAK",
+      "dexId":"raydium",
+      "dexUrl":"https://dexscreener.com/solana/7bsku8gnh4l2r2hwcxjxjcwgkip1n7fham7zpmgstbak",
+      "opportunityScore":70,
       "opportunityReasons":[
-        "24h momentum",
-        "strong 24h momentum",
+        "1h momentum",
+        "strong 1h momentum",
         "buyers leading",
-        "emerging token"
+        "strong buy pressure"
       ],
-      "fomoScore":69,
+      "fomoScore":70,
       "dataStatus":"OK",
       "marketCapSource":"DEX Screener",
       "securityStatus":"VERIFIED",
@@ -1337,19 +1388,74 @@
       "securityScanned":true,
       "securityGate":"PASSED",
       "tradeSignal":"WAIT",
-      "tradePoints":69,
+      "tradePoints":70,
       "tradeReason":"Mixed opportunity conditions",
       "acceleration":{
+        "aboutToMove":true,
+        "aboutToDrop":false,
+        "positive":[
+          "buy pressure 69%",
+          "1h price +25.0%"
+        ],
+        "negative":[],
+        "scoreDelta":7.0,
+        "volumeDelta":-0.002354008724778364,
+        "liquidityDelta":0.05342001993047613
+      }
+    },
+    {
+      "chainId":"solana",
+      "tokenAddress":"2jcvq8QcJ8TzEYJKYMCjR61kXVSzib4mEkz89tQxpump",
+      "name":"Gigacat",
+      "symbol":"GIGACAT",
+      "priceUsd":0.0002436,
+      "liquidityUsd":46264.46,
+      "volume24h":1834849.18,
+      "marketCap":236435.0,
+      "priceChange5m":-1.66,
+      "priceChange1h":-49.06,
+      "priceChange24h":399.0,
+      "buys1h":1429,
+      "sells1h":1029,
+      "buys24h":18818,
+      "sells24h":13334,
+      "pairAgeMinutes":403.0,
+      "pairAddress":"72tZoSAHAutvD7dP2fNC56aASLxbPXro9jBPohZ8aAvY",
+      "dexId":"pumpswap",
+      "dexUrl":"https://dexscreener.com/solana/72tzosahautvd7dp2fnc56aaslxbpxro9jbpohz8aavy",
+      "opportunityScore":69,
+      "opportunityReasons":[
+        "24h momentum",
+        "strong 24h momentum",
+        "buyers leading",
+        "emerging token"
+      ],
+      "fomoScore":69,
+      "dataStatus":"OK",
+      "marketCapSource":"DEX Screener",
+      "securityStatus":"UNKNOWN",
+      "securityVerified":false,
+      "securityBlocked":false,
+      "securityRisk":null,
+      "securityReasons":[
+        "Not selected for security scan yet"
+      ],
+      "securitySource":"GoPlus",
+      "securityScanned":false,
+      "securityGate":"UNKNOWN",
+      "tradeSignal":"WAIT",
+      "tradePoints":69,
+      "tradeReason":"Security gate not passed",
+      "acceleration":{
         "aboutToMove":false,
-        "aboutToDrop":true,
+        "aboutToDrop":false,
         "positive":[],
         "negative":[
-          "liquidity -19%",
-          "1h price -53.8%"
+          "1h price -49.1%"
         ],
         "scoreDelta":0.0,
-        "volumeDelta":0.03506324728736303,
-        "liquidityDelta":-0.18666379585996598
+        "volumeDelta":0.006347784801486552,
+        "liquidityDelta":-0.013105278673823287
       }
     },
     {
@@ -1357,18 +1463,18 @@
       "tokenAddress":"0xf6c53734FB24CA414Bf1549530f0C8E447eE24e0",
       "name":"Hatch",
       "symbol":"HATCH",
-      "priceUsd":0.000196,
-      "liquidityUsd":40330.82,
-      "volume24h":241243.65,
-      "marketCap":196037.0,
-      "priceChange5m":-8.44,
-      "priceChange1h":61.82,
-      "priceChange24h":294.0,
-      "buys1h":269,
-      "sells1h":308,
-      "buys24h":1011,
-      "sells24h":1011,
-      "pairAgeMinutes":134.9,
+      "priceUsd":0.0002644,
+      "liquidityUsd":46841.4,
+      "volume24h":248499.66,
+      "marketCap":264464.0,
+      "priceChange5m":36.34,
+      "priceChange1h":113.0,
+      "priceChange24h":432.0,
+      "buys1h":290,
+      "sells1h":306,
+      "buys24h":1049,
+      "sells24h":1036,
+      "pairAgeMinutes":141.0,
       "pairAddress":"0x5dc5eaed06c906180f7b317e41ffde5bde0f04a8a94658d6579193f5dc1d00f3",
       "dexId":"uniswap",
       "dexUrl":"https://dexscreener.com/robinhood/0x5dc5eaed06c906180f7b317e41ffde5bde0f04a8a94658d6579193f5dc1d00f3",
@@ -1389,80 +1495,25 @@
       "securityBlocked":false,
       "securityRisk":null,
       "securityReasons":[
-        "Not selected for security scan yet"
+        "Unsupported security chain: robinhood"
       ],
       "securitySource":"GoPlus",
-      "securityScanned":false,
+      "securityScanned":true,
       "securityGate":"UNKNOWN",
       "tradeSignal":"WAIT",
       "tradePoints":69,
       "tradeReason":"Security gate not passed",
       "acceleration":{
-        "aboutToMove":false,
+        "aboutToMove":true,
         "aboutToDrop":false,
         "positive":[
-          "1h price +61.8%"
+          "liquidity +16%",
+          "1h price +113.0%"
         ],
         "negative":[],
         "scoreDelta":0.0,
-        "volumeDelta":0.07692783973927703,
-        "liquidityDelta":0.02685268286224587
-      }
-    },
-    {
-      "chainId":"arc",
-      "tokenAddress":"0x29316DB42fF99f640FD4D1bb169635B6318Cd430",
-      "name":"Arcanus",
-      "symbol":"ARCANUS",
-      "priceUsd":8.232e-05,
-      "liquidityUsd":26100.01,
-      "volume24h":89592.97,
-      "marketCap":80576.0,
-      "priceChange5m":-6.81,
-      "priceChange1h":30.52,
-      "priceChange24h":2534.0,
-      "buys1h":91,
-      "sells1h":77,
-      "buys24h":875,
-      "sells24h":513,
-      "pairAgeMinutes":9992.8,
-      "pairAddress":"0xd71e15a5c45a204f5228d68165925741efa79995d2671a9e291e6e5cffcc89fc",
-      "dexId":"uniswap",
-      "dexUrl":"https://dexscreener.com/arc/0xd71e15a5c45a204f5228d68165925741efa79995d2671a9e291e6e5cffcc89fc",
-      "opportunityScore":69,
-      "opportunityReasons":[
-        "1h momentum",
-        "strong 1h momentum",
-        "24h momentum",
-        "strong 24h momentum",
-        "volume accelerating"
-      ],
-      "fomoScore":69,
-      "dataStatus":"OK",
-      "marketCapSource":"DEX Screener",
-      "securityStatus":"UNKNOWN",
-      "securityVerified":false,
-      "securityBlocked":false,
-      "securityRisk":null,
-      "securityReasons":[
-        "Not selected for security scan yet"
-      ],
-      "securitySource":"GoPlus",
-      "securityScanned":false,
-      "securityGate":"UNKNOWN",
-      "tradeSignal":"WAIT",
-      "tradePoints":69,
-      "tradeReason":"Security gate not passed",
-      "acceleration":{
-        "aboutToMove":false,
-        "aboutToDrop":false,
-        "positive":[
-          "1h price +30.5%"
-        ],
-        "negative":[],
-        "scoreDelta":-7.0,
-        "volumeDelta":0.04674320486512083,
-        "liquidityDelta":-0.03681576580682527
+        "volumeDelta":0.030077517066252352,
+        "liquidityDelta":0.1614293981624971
       }
     },
     {
@@ -1470,18 +1521,18 @@
       "tokenAddress":"3HSYyCe1xsueTUv9PGcAAsk4yav5H1jSGh3fT9uVZaCY",
       "name":"THE EMBER GUY",
       "symbol":"UNIPCS",
-      "priceUsd":1.857e-05,
-      "liquidityUsd":9353.97,
-      "volume24h":13480.62,
-      "marketCap":18579.0,
-      "priceChange5m":-0.06,
-      "priceChange1h":23.31,
-      "priceChange24h":104.0,
+      "priceUsd":1.671e-05,
+      "liquidityUsd":8842.57,
+      "volume24h":13770.2,
+      "marketCap":16716.0,
+      "priceChange5m":-10.03,
+      "priceChange1h":11.58,
+      "priceChange24h":86.37,
       "buys1h":27,
       "sells1h":16,
-      "buys24h":306,
-      "sells24h":186,
-      "pairAgeMinutes":14439.0,
+      "buys24h":307,
+      "sells24h":187,
+      "pairAgeMinutes":14445.1,
       "pairAddress":"GjJRUAJfwQeEa5uP2rhYb6KDyrcbSjWRBDqAVH7YwMJi",
       "dexId":"meteora",
       "dexUrl":"https://dexscreener.com/solana/gjjruajfwqeea5up2rhyb6kdyrcbsjwrbdqavh7ywmji",
@@ -1497,32 +1548,31 @@
       "fomoScore":68,
       "dataStatus":"OK",
       "marketCapSource":"DEX Screener",
-      "securityStatus":"UNKNOWN",
-      "securityVerified":false,
+      "securityStatus":"VERIFIED",
+      "securityVerified":true,
       "securityBlocked":false,
-      "securityRisk":null,
+      "securityRisk":0,
       "securityReasons":[
-        "Not selected for security scan yet",
+        "No configured hard security blockers detected",
         "liquidity below $25,000 BUY threshold"
       ],
       "securitySource":"GoPlus",
-      "securityScanned":false,
+      "securityScanned":true,
       "securityGate":"BLOCKED",
       "tradeSignal":"WAIT",
       "tradePoints":68,
-      "tradeReason":"Security gate not passed",
+      "tradeReason":"Liquidity below BUY threshold",
       "acceleration":{
         "aboutToMove":true,
         "aboutToDrop":false,
         "positive":[
-          "Snipe score +12",
           "buy pressure 63%",
-          "1h price +23.3%"
+          "1h price +11.6%"
         ],
         "negative":[],
-        "scoreDelta":12.0,
-        "volumeDelta":0.02849282376960386,
-        "liquidityDelta":0.0759852301746152
+        "scoreDelta":0.0,
+        "volumeDelta":0.021481207837621707,
+        "liquidityDelta":-0.05467197350429814
       }
     },
     {
@@ -1530,18 +1580,18 @@
       "tokenAddress":"0xa2508b15Ab16826c720631b9aFA0a90c453AE8A4",
       "name":"Muse Dog",
       "symbol":"Euler",
-      "priceUsd":4.699e-06,
-      "liquidityUsd":4415.11,
-      "volume24h":15267134.44,
-      "marketCap":4699.0,
-      "priceChange5m":0.16,
-      "priceChange1h":-81.29,
-      "priceChange24h":70.5,
-      "buys1h":406,
-      "sells1h":66,
-      "buys24h":14315,
+      "priceUsd":4.924e-06,
+      "liquidityUsd":4582.72,
+      "volume24h":15267218.67,
+      "marketCap":4924.0,
+      "priceChange5m":4.79,
+      "priceChange1h":-75.0,
+      "priceChange24h":78.66,
+      "buys1h":360,
+      "sells1h":61,
+      "buys24h":14317,
       "sells24h":3650,
-      "pairAgeMinutes":763.7,
+      "pairAgeMinutes":769.8,
       "pairAddress":"0xaF69d9D9d0DbEAAA2e03EdDBD7971d5B536627Ba",
       "dexId":"uniswap",
       "dexUrl":"https://dexscreener.com/robinhood/0xaf69d9d9d0dbeaaa2e03eddbd7971d5b536627ba",
@@ -1577,11 +1627,11 @@
           "buy pressure 86%"
         ],
         "negative":[
-          "1h price -81.3%"
+          "1h price -75.0%"
         ],
         "scoreDelta":0.0,
-        "volumeDelta":4.577173282023307e-06,
-        "liquidityDelta":-0.09612561800743144
+        "volumeDelta":5.517079864035509e-06,
+        "liquidityDelta":0.0379628140635229
       }
     },
     {
@@ -1589,18 +1639,18 @@
       "tokenAddress":"EeC6rcJD43SvUBCFsKnnNpu3psjbiWTqoREDYSfLsbmy",
       "name":"Periwinkle The Raccoon",
       "symbol":"PERIWINKLE",
-      "priceUsd":5.448e-06,
+      "priceUsd":5.394e-06,
       "liquidityUsd":0.0,
-      "volume24h":104939.46,
-      "marketCap":5448.28,
-      "priceChange5m":-14.56,
-      "priceChange1h":19.19,
-      "priceChange24h":19.19,
-      "buys1h":1688,
-      "sells1h":1409,
-      "buys24h":1688,
-      "sells24h":1409,
-      "pairAgeMinutes":41.5,
+      "volume24h":105011.41,
+      "marketCap":5394.39,
+      "priceChange5m":0.0,
+      "priceChange1h":18.01,
+      "priceChange24h":18.01,
+      "buys1h":1692,
+      "sells1h":1416,
+      "buys24h":1692,
+      "sells24h":1416,
+      "pairAgeMinutes":47.6,
       "pairAddress":"E2FsBQAjprAeAYVKykKpGqUdFpBsW6QqD4Ma58E8cyax",
       "dexId":"pumpfun",
       "dexUrl":"https://dexscreener.com/solana/e2fsbqajpraeayvkykkpgqudfpbsw6qqd4ma58e8cyax",
@@ -1633,11 +1683,11 @@
         "aboutToMove":false,
         "aboutToDrop":false,
         "positive":[
-          "1h price +19.2%"
+          "1h price +18.0%"
         ],
         "negative":[],
-        "scoreDelta":-6.0,
-        "volumeDelta":0.013527483985719851,
+        "scoreDelta":0.0,
+        "volumeDelta":0.0006856334118738278,
         "liquidityDelta":0
       }
     },
@@ -1650,14 +1700,14 @@
       "liquidityUsd":2411413.67,
       "volume24h":140975.64,
       "marketCap":2106782449.0,
-      "priceChange5m":0.17,
-      "priceChange1h":-1.42,
+      "priceChange5m":0.0,
+      "priceChange1h":-0.63,
       "priceChange24h":-1.94,
-      "buys1h":18,
-      "sells1h":11,
+      "buys1h":13,
+      "sells1h":7,
       "buys24h":59,
       "sells24h":42,
-      "pairAgeMinutes":2377798.8,
+      "pairAgeMinutes":2377804.9,
       "pairAddress":"TTQpjqQUjMJjF3MAvWWVURn3YrRxg2quTM",
       "dexId":"sunswap",
       "dexUrl":"https://dexscreener.com/tron/ttqpjqqujmjjf3mavwwvurn3yrrxg2qutm",
@@ -1686,67 +1736,12 @@
         "aboutToMove":false,
         "aboutToDrop":false,
         "positive":[
-          "buy pressure 62%"
+          "buy pressure 65%"
         ],
         "negative":[],
         "scoreDelta":0.0,
         "volumeDelta":0.0,
-        "liquidityDelta":0.000830077468598408
-      }
-    },
-    {
-      "chainId":"solana",
-      "tokenAddress":"77xuWiXF7PKZRW2jDD4Tkyw3M3qQkZADYNnG7h3xrndj",
-      "name":"XRP Cat",
-      "symbol":"XCAT",
-      "priceUsd":0.0002488,
-      "liquidityUsd":49813.16,
-      "volume24h":229090.06,
-      "marketCap":248876.0,
-      "priceChange5m":0.4,
-      "priceChange1h":3.64,
-      "priceChange24h":-35.34,
-      "buys1h":67,
-      "sells1h":35,
-      "buys24h":1166,
-      "sells24h":940,
-      "pairAgeMinutes":3014.0,
-      "pairAddress":"7bsKU8gNH4L2r2HwcXjxJcWgKip1n7fham7ZPMGsTBAK",
-      "dexId":"raydium",
-      "dexUrl":"https://dexscreener.com/solana/7bsku8gnh4l2r2hwcxjxjcwgkip1n7fham7zpmgstbak",
-      "opportunityScore":63,
-      "opportunityReasons":[
-        "1h momentum",
-        "buyers leading",
-        "strong buy pressure"
-      ],
-      "fomoScore":63,
-      "dataStatus":"OK",
-      "marketCapSource":"DEX Screener",
-      "securityStatus":"UNKNOWN",
-      "securityVerified":false,
-      "securityBlocked":false,
-      "securityRisk":null,
-      "securityReasons":[
-        "Not selected for security scan yet"
-      ],
-      "securitySource":"GoPlus",
-      "securityScanned":false,
-      "securityGate":"UNKNOWN",
-      "tradeSignal":"WAIT",
-      "tradePoints":63,
-      "tradeReason":"Security gate not passed",
-      "acceleration":{
-        "aboutToMove":false,
-        "aboutToDrop":false,
-        "positive":[
-          "Snipe score +8",
-          "buy pressure 66%"
-        ],
-        "negative":[],
-        "scoreDelta":8.0,
-        "volumeDelta":-0.021741928337501455,
-        "liquidityDelta":0.013779278371706444
+        "liquidityDelta":0.0
       }
     },
     {
@@ -1754,25 +1749,25 @@
       "tokenAddress":"0x10c56F005a379f8eAfc88ff5c3f40d30F0031AC9",
       "name":"Strike Robot",
       "symbol":"SR",
-      "priceUsd":0.001205,
-      "liquidityUsd":112288.52,
-      "volume24h":182666.56,
-      "marketCap":1205194.0,
-      "priceChange5m":3.61,
-      "priceChange1h":5.14,
-      "priceChange24h":-6.51,
-      "buys1h":15,
-      "sells1h":7,
-      "buys24h":1050,
-      "sells24h":683,
-      "pairAgeMinutes":245036.7,
+      "priceUsd":0.00121,
+      "liquidityUsd":112544.92,
+      "volume24h":182593.79,
+      "marketCap":1210008.0,
+      "priceChange5m":0.0,
+      "priceChange1h":11.13,
+      "priceChange24h":-6.5,
+      "buys1h":12,
+      "sells1h":5,
+      "buys24h":1049,
+      "sells24h":682,
+      "pairAgeMinutes":245042.8,
       "pairAddress":"0x93e7c445d77E6506b77C869C469e4305c15c075B",
       "dexId":"uniswap",
       "dexUrl":"https://dexscreener.com/base/0x93e7c445d77e6506b77c869c469e4305c15c075b",
       "opportunityScore":62,
       "opportunityReasons":[
         "1h momentum",
-        "buyers leading"
+        "strong 1h momentum"
       ],
       "fomoScore":62,
       "dataStatus":"OK",
@@ -1794,13 +1789,69 @@
         "aboutToMove":false,
         "aboutToDrop":false,
         "positive":[
-          "buy pressure 68%",
-          "1h price +5.1%"
+          "1h price +11.1%"
         ],
         "negative":[],
-        "scoreDelta":0,
-        "volumeDelta":0,
-        "liquidityDelta":0
+        "scoreDelta":0.0,
+        "volumeDelta":-0.00039837614503710763,
+        "liquidityDelta":0.002283403503759727
+      }
+    },
+    {
+      "chainId":"solana",
+      "tokenAddress":"7ghKoBZBAjGSgbxix5K5kFhQzu9mxVmbdPxRT8j27eEo",
+      "name":"ETAC",
+      "symbol":"ETAC",
+      "priceUsd":0.000283,
+      "liquidityUsd":55317.75,
+      "volume24h":72632.26,
+      "marketCap":283089.0,
+      "priceChange5m":2.6,
+      "priceChange1h":-8.88,
+      "priceChange24h":110.0,
+      "buys1h":38,
+      "sells1h":15,
+      "buys24h":453,
+      "sells24h":383,
+      "pairAgeMinutes":13701.8,
+      "pairAddress":"Dj3LKxwR5NEajJBG9qcZgi5MeXnigVBAcJinYY6AuvKw",
+      "dexId":"raydium",
+      "dexUrl":"https://dexscreener.com/solana/dj3lkxwr5neajjbg9qczgi5mexnigvbacjinyy6auvkw",
+      "opportunityScore":62,
+      "opportunityReasons":[
+        "24h momentum",
+        "strong 24h momentum",
+        "buyers leading",
+        "strong buy pressure"
+      ],
+      "fomoScore":62,
+      "dataStatus":"OK",
+      "marketCapSource":"DEX Screener",
+      "securityStatus":"UNKNOWN",
+      "securityVerified":false,
+      "securityBlocked":false,
+      "securityRisk":null,
+      "securityReasons":[
+        "Not selected for security scan yet"
+      ],
+      "securitySource":"GoPlus",
+      "securityScanned":false,
+      "securityGate":"UNKNOWN",
+      "tradeSignal":"WAIT",
+      "tradePoints":62,
+      "tradeReason":"Security gate not passed",
+      "acceleration":{
+        "aboutToMove":false,
+        "aboutToDrop":false,
+        "positive":[
+          "buy pressure 72%"
+        ],
+        "negative":[
+          "1h price -8.9%"
+        ],
+        "scoreDelta":6.0,
+        "volumeDelta":0.007362686438820891,
+        "liquidityDelta":0.007780373644487547
       }
     },
     {
@@ -1819,7 +1870,7 @@
       "sells1h":0,
       "buys24h":2,
       "sells24h":0,
-      "pairAgeMinutes":38.5,
+      "pairAgeMinutes":44.6,
       "pairAddress":"0x5bf4ef7ca60b60d8d82ea6551e03b89f7483c74a751832e08b709a31a4a5c9bc",
       "dexId":"uniswap",
       "dexUrl":"https://dexscreener.com/robinhood/0x5bf4ef7ca60b60d8d82ea6551e03b89f7483c74a751832e08b709a31a4a5c9bc",
@@ -1877,7 +1928,7 @@
       "sells1h":0,
       "buys24h":2,
       "sells24h":0,
-      "pairAgeMinutes":13.3,
+      "pairAgeMinutes":19.4,
       "pairAddress":"0xe76bf824bdbf16029cdc632ba1b348df60e910ef96ece48b1eb899f0e67e7688",
       "dexId":"uniswap",
       "dexUrl":"https://dexscreener.com/robinhood/0xe76bf824bdbf16029cdc632ba1b348df60e910ef96ece48b1eb899f0e67e7688",
@@ -1914,9 +1965,9 @@
           "1h price +49.4%"
         ],
         "negative":[],
-        "scoreDelta":0,
-        "volumeDelta":0,
-        "liquidityDelta":0
+        "scoreDelta":0.0,
+        "volumeDelta":0.0,
+        "liquidityDelta":0.0
       }
     },
     {
@@ -1924,18 +1975,18 @@
       "tokenAddress":"8HuqgVyrcaBSKb6WNwhcLPqNTuVqYfWQcSPiTVF7pump",
       "name":"PEPCAT",
       "symbol":"PEPCAT",
-      "priceUsd":2.97e-05,
+      "priceUsd":3.322e-05,
       "liquidityUsd":0.0,
-      "volume24h":89657.03,
-      "marketCap":29701.5,
-      "priceChange5m":12.73,
-      "priceChange1h":-10.52,
-      "priceChange24h":84.61,
-      "buys1h":435,
+      "volume24h":90719.23,
+      "marketCap":33227.18,
+      "priceChange5m":5.72,
+      "priceChange1h":-0.53,
+      "priceChange24h":107.0,
+      "buys1h":436,
       "sells1h":216,
-      "buys24h":1132,
-      "sells24h":584,
-      "pairAgeMinutes":144.8,
+      "buys24h":1162,
+      "sells24h":593,
+      "pairAgeMinutes":150.9,
       "pairAddress":"HTvcHCHqSFebLa2wH8BJRx2NqJr5HzF4FcMWfxfHRSzX",
       "dexId":"pumpfun",
       "dexUrl":"https://dexscreener.com/solana/htvchchqsfebla2wh8bjrx2nqjr5hzf4fcmwfxfhrszx",
@@ -1971,12 +2022,62 @@
         "positive":[
           "buy pressure 67%"
         ],
-        "negative":[
-          "1h price -10.5%"
-        ],
+        "negative":[],
         "scoreDelta":0.0,
-        "volumeDelta":0.037053629108142486,
+        "volumeDelta":0.01184736991622405,
         "liquidityDelta":0
+      }
+    },
+    {
+      "chainId":"bsc",
+      "tokenAddress":"0x108876C3df3d893350e9B780563B3697aa3E7777",
+      "name":"\u4e2d\u56fd\u4eba\u80fd\u98de\u706b\u7bad",
+      "symbol":"\u4e2d\u56fd\u4eba\u80fd\u98de",
+      "priceUsd":0.001498,
+      "liquidityUsd":143702.9,
+      "volume24h":1809295.53,
+      "marketCap":1498605.0,
+      "priceChange5m":-1.95,
+      "priceChange1h":7.53,
+      "priceChange24h":-23.78,
+      "buys1h":170,
+      "sells1h":143,
+      "buys24h":7143,
+      "sells24h":4455,
+      "pairAgeMinutes":3335.0,
+      "pairAddress":"0x8650B97Cc260125119D8c6FBE7cCe69A2676eE49",
+      "dexId":"pancakeswap",
+      "dexUrl":"https://dexscreener.com/bsc/0x8650b97cc260125119d8c6fbe7cce69a2676ee49",
+      "opportunityScore":60,
+      "opportunityReasons":[
+        "1h momentum"
+      ],
+      "fomoScore":60,
+      "dataStatus":"OK",
+      "marketCapSource":"DEX Screener",
+      "securityStatus":"UNKNOWN",
+      "securityVerified":false,
+      "securityBlocked":false,
+      "securityRisk":null,
+      "securityReasons":[
+        "Not selected for security scan yet"
+      ],
+      "securitySource":"GoPlus",
+      "securityScanned":false,
+      "securityGate":"UNKNOWN",
+      "tradeSignal":"WAIT",
+      "tradePoints":60,
+      "tradeReason":"Security gate not passed",
+      "acceleration":{
+        "aboutToMove":false,
+        "aboutToDrop":false,
+        "positive":[
+          "1h price +7.5%"
+        ],
+        "negative":[],
+        "scoreDelta":1.0,
+        "volumeDelta":-0.030111564302202173,
+        "liquidityDelta":-0.011927655861828953
       }
     },
     {
@@ -1984,18 +2085,18 @@
       "tokenAddress":"0x1EeDbA33935B185b7884a2dd87FE2D8c2106A5DF",
       "name":"Orchard",
       "symbol":"ORCHARD",
-      "priceUsd":7.159e-05,
-      "liquidityUsd":23956.65,
-      "volume24h":132372.45,
-      "marketCap":65165.0,
-      "priceChange5m":0.0,
-      "priceChange1h":-0.76,
-      "priceChange24h":84.67,
-      "buys1h":41,
-      "sells1h":15,
-      "buys24h":903,
-      "sells24h":582,
-      "pairAgeMinutes":1564.9,
+      "priceUsd":6.714e-05,
+      "liquidityUsd":23131.66,
+      "volume24h":130902.47,
+      "marketCap":61111.0,
+      "priceChange5m":-3.58,
+      "priceChange1h":-9.76,
+      "priceChange24h":80.76,
+      "buys1h":37,
+      "sells1h":18,
+      "buys24h":897,
+      "sells24h":575,
+      "pairAgeMinutes":1570.9,
       "pairAddress":"0xbf1d60e44081e2322bf34724570de25b1f6b84ed1ef8695bf677478ecf30bd9a",
       "dexId":"uniswap",
       "dexUrl":"https://dexscreener.com/robinhood/0xbf1d60e44081e2322bf34724570de25b1f6b84ed1ef8695bf677478ecf30bd9a",
@@ -2027,12 +2128,14 @@
         "aboutToMove":false,
         "aboutToDrop":false,
         "positive":[
-          "buy pressure 73%"
+          "buy pressure 67%"
         ],
-        "negative":[],
+        "negative":[
+          "1h price -9.8%"
+        ],
         "scoreDelta":0.0,
-        "volumeDelta":-0.004784045443018366,
-        "liquidityDelta":-0.004509835372101885
+        "volumeDelta":-0.01110487869643578,
+        "liquidityDelta":-0.03443678477583475
       }
     },
     {
@@ -2040,18 +2143,18 @@
       "tokenAddress":"0xb902ec380baFc472BB07010Ff90b09d7D6DF67Af",
       "name":"Grail",
       "symbol":"GRAIL",
-      "priceUsd":0.0001567,
-      "liquidityUsd":4.08,
-      "volume24h":27.79,
-      "marketCap":145841.0,
-      "priceChange5m":0.0,
-      "priceChange1h":2504.0,
-      "priceChange24h":3843.0,
-      "buys1h":2,
-      "sells1h":2,
+      "priceUsd":0.0001181,
+      "liquidityUsd":3.55,
+      "volume24h":28.07,
+      "marketCap":109476.0,
+      "priceChange5m":-24.59,
+      "priceChange1h":415.0,
+      "priceChange24h":2873.0,
+      "buys1h":1,
+      "sells1h":3,
       "buys24h":9,
-      "sells24h":2,
-      "pairAgeMinutes":186.8,
+      "sells24h":3,
+      "pairAgeMinutes":192.9,
       "pairAddress":"0x1c28cd74e4caccb2c1967d6ae6e49d2224ca61b69cf8f0bb73057d8eff854459",
       "dexId":"uniswap",
       "dexUrl":"https://dexscreener.com/robinhood/0x1c28cd74e4caccb2c1967d6ae6e49d2224ca61b69cf8f0bb73057d8eff854459",
@@ -2085,62 +2188,12 @@
         "aboutToMove":false,
         "aboutToDrop":false,
         "positive":[
-          "1h price +2504.0%"
+          "1h price +415.0%"
         ],
         "negative":[],
         "scoreDelta":0.0,
-        "volumeDelta":0.0,
-        "liquidityDelta":0.0
-      }
-    },
-    {
-      "chainId":"bsc",
-      "tokenAddress":"0x108876C3df3d893350e9B780563B3697aa3E7777",
-      "name":"\u4e2d\u56fd\u4eba\u80fd\u98de\u706b\u7bad",
-      "symbol":"\u4e2d\u56fd\u4eba\u80fd\u98de",
-      "priceUsd":0.001534,
-      "liquidityUsd":145437.63,
-      "volume24h":1865467.68,
-      "marketCap":1534267.0,
-      "priceChange5m":-3.93,
-      "priceChange1h":0.78,
-      "priceChange24h":-27.61,
-      "buys1h":206,
-      "sells1h":158,
-      "buys24h":7359,
-      "sells24h":4544,
-      "pairAgeMinutes":3328.9,
-      "pairAddress":"0x8650B97Cc260125119D8c6FBE7cCe69A2676eE49",
-      "dexId":"pancakeswap",
-      "dexUrl":"https://dexscreener.com/bsc/0x8650b97cc260125119d8c6fbe7cce69a2676ee49",
-      "opportunityScore":59,
-      "opportunityReasons":[
-        "buyers leading"
-      ],
-      "fomoScore":59,
-      "dataStatus":"OK",
-      "marketCapSource":"DEX Screener",
-      "securityStatus":"UNKNOWN",
-      "securityVerified":false,
-      "securityBlocked":false,
-      "securityRisk":null,
-      "securityReasons":[
-        "Not selected for security scan yet"
-      ],
-      "securitySource":"GoPlus",
-      "securityScanned":false,
-      "securityGate":"UNKNOWN",
-      "tradeSignal":"WAIT",
-      "tradePoints":59,
-      "tradeReason":"Security gate not passed",
-      "acceleration":{
-        "aboutToMove":false,
-        "aboutToDrop":false,
-        "positive":[],
-        "negative":[],
-        "scoreDelta":-1.0,
-        "volumeDelta":-0.03053888171338387,
-        "liquidityDelta":-0.02345518385951373
+        "volumeDelta":0.010075566750629764,
+        "liquidityDelta":-0.1299019607843138
       }
     },
     {
@@ -2148,18 +2201,18 @@
       "tokenAddress":"0x80210081479359b512F464058B2699CEBE998579",
       "name":"Spike on Base",
       "symbol":"SPIKE",
-      "priceUsd":8.189e-05,
-      "liquidityUsd":13230.38,
-      "volume24h":320766.94,
-      "marketCap":79437.0,
-      "priceChange5m":18.43,
-      "priceChange1h":147.0,
-      "priceChange24h":10454.0,
-      "buys1h":281,
-      "sells1h":310,
-      "buys24h":1507,
-      "sells24h":1396,
-      "pairAgeMinutes":1192572.8,
+      "priceUsd":5.544e-05,
+      "liquidityUsd":10914.47,
+      "volume24h":331195.69,
+      "marketCap":53779.0,
+      "priceChange5m":-46.38,
+      "priceChange1h":109.0,
+      "priceChange24h":7045.0,
+      "buys1h":315,
+      "sells1h":340,
+      "buys24h":1563,
+      "sells24h":1437,
+      "pairAgeMinutes":1192578.9,
       "pairAddress":"0x7BBd445f2a1948c8FCe783Efa5959800D17D947C",
       "dexId":"uniswap",
       "dexUrl":"https://dexscreener.com/base/0x7bbd445f2a1948c8fce783efa5959800d17d947c",
@@ -2193,15 +2246,14 @@
         "aboutToMove":false,
         "aboutToDrop":false,
         "positive":[
-          "liquidity +12%",
-          "1h price +147.0%"
+          "1h price +109.0%"
         ],
         "negative":[
-          "Snipe score -13"
+          "liquidity -18%"
         ],
-        "scoreDelta":-13.0,
-        "volumeDelta":0.07888472586759862,
-        "liquidityDelta":0.12344649559295542
+        "scoreDelta":0.0,
+        "volumeDelta":0.0325119228309501,
+        "liquidityDelta":-0.17504485887782512
       }
     },
     {
@@ -2209,18 +2261,18 @@
       "tokenAddress":"2wEWNDwCgYuW1P119NFfqXAaA2s3jephcJyVzTFCpump",
       "name":"PIKA30",
       "symbol":"PIKA",
-      "priceUsd":4.246e-06,
+      "priceUsd":4.105e-06,
       "liquidityUsd":0.0,
-      "volume24h":2880.5,
-      "marketCap":4246.04,
-      "priceChange5m":29.03,
-      "priceChange1h":25.37,
-      "priceChange24h":25.37,
-      "buys1h":28,
-      "sells1h":20,
-      "buys24h":29,
-      "sells24h":20,
-      "pairAgeMinutes":11245.5,
+      "volume24h":2958.84,
+      "marketCap":4105.11,
+      "priceChange5m":-3.32,
+      "priceChange1h":21.21,
+      "priceChange24h":21.21,
+      "buys1h":33,
+      "sells1h":21,
+      "buys24h":34,
+      "sells24h":21,
+      "pairAgeMinutes":11251.6,
       "pairAddress":"9t59ovqktp31jT9Yfy2Br3U7JzqJQE4ikGV5DeBYTr97",
       "dexId":"pumpfun",
       "dexUrl":"https://dexscreener.com/solana/9t59ovqktp31jt9yfy2br3u7jzqjqe4ikgv5debytr97",
@@ -2253,74 +2305,12 @@
         "aboutToMove":false,
         "aboutToDrop":false,
         "positive":[
-          "1h price +25.4%"
+          "1h price +21.2%"
         ],
         "negative":[],
-        "scoreDelta":0,
-        "volumeDelta":0,
+        "scoreDelta":0.0,
+        "volumeDelta":0.02719666724526997,
         "liquidityDelta":0
-      }
-    },
-    {
-      "chainId":"robinhood",
-      "tokenAddress":"0xbDCE38bb1759AeaF798568d4a238691dFD2F63Bd",
-      "name":"Robinhood\u2019s Official Mascot",
-      "symbol":"FEATHER",
-      "priceUsd":1.106e-05,
-      "liquidityUsd":7906.38,
-      "volume24h":650444.42,
-      "marketCap":11061.0,
-      "priceChange5m":-91.85,
-      "priceChange1h":356.0,
-      "priceChange24h":356.0,
-      "buys1h":928,
-      "sells1h":545,
-      "buys24h":928,
-      "sells24h":545,
-      "pairAgeMinutes":27.1,
-      "pairAddress":"0x349881cfabeeb190109bbd3d3743083e03c859f86759f969f59dfaf8bb6fa23f",
-      "dexId":"uniswap",
-      "dexUrl":"https://dexscreener.com/robinhood/0x349881cfabeeb190109bbd3d3743083e03c859f86759f969f59dfaf8bb6fa23f",
-      "opportunityScore":58,
-      "opportunityReasons":[
-        "1h momentum",
-        "strong 1h momentum",
-        "24h momentum",
-        "strong 24h momentum",
-        "volume accelerating",
-        "buyers leading"
-      ],
-      "fomoScore":58,
-      "dataStatus":"OK",
-      "marketCapSource":"DEX Screener",
-      "securityStatus":"UNKNOWN",
-      "securityVerified":false,
-      "securityBlocked":false,
-      "securityRisk":null,
-      "securityReasons":[
-        "Not selected for security scan yet",
-        "liquidity below $25,000 BUY threshold"
-      ],
-      "securitySource":"GoPlus",
-      "securityScanned":false,
-      "securityGate":"BLOCKED",
-      "tradeSignal":"WAIT",
-      "tradePoints":58,
-      "tradeReason":"Security gate not passed",
-      "acceleration":{
-        "aboutToMove":false,
-        "aboutToDrop":true,
-        "positive":[
-          "buy pressure 63%",
-          "1h price +356.0%"
-        ],
-        "negative":[
-          "Snipe score -34",
-          "liquidity -79%"
-        ],
-        "scoreDelta":-34.0,
-        "volumeDelta":0.22556359356981814,
-        "liquidityDelta":-0.78581987683474
       }
     },
     {
@@ -2328,18 +2318,18 @@
       "tokenAddress":"0xB447930E28c0e69B66153C3224bb46Ec6D941111",
       "name":"Marie Rose",
       "symbol":"MARIE",
-      "priceUsd":1.244e-05,
-      "liquidityUsd":9510.63,
-      "volume24h":8176.43,
-      "marketCap":12218.0,
+      "priceUsd":1.087e-05,
+      "liquidityUsd":8676.4,
+      "volume24h":8593.54,
+      "marketCap":10678.0,
       "priceChange5m":0.0,
-      "priceChange1h":60.59,
-      "priceChange24h":75.28,
+      "priceChange1h":40.34,
+      "priceChange24h":53.19,
       "buys1h":7,
-      "sells1h":0,
+      "sells1h":1,
       "buys24h":26,
-      "sells24h":14,
-      "pairAgeMinutes":16253.0,
+      "sells24h":15,
+      "pairAgeMinutes":16259.1,
       "pairAddress":"0x55a3ee6721c8cd3cc4ebb991ad89324149b63e5c37b8753d655016a44ce67050",
       "dexId":"uniswap",
       "dexUrl":"https://dexscreener.com/ethereum/0x55a3ee6721c8cd3cc4ebb991ad89324149b63e5c37b8753d655016a44ce67050",
@@ -2372,12 +2362,12 @@
         "aboutToMove":false,
         "aboutToDrop":false,
         "positive":[
-          "1h price +60.6%"
+          "1h price +40.3%"
         ],
         "negative":[],
-        "scoreDelta":0,
-        "volumeDelta":0,
-        "liquidityDelta":0
+        "scoreDelta":0.0,
+        "volumeDelta":0.05101370647091708,
+        "liquidityDelta":-0.08771553514330803
       }
     },
     {
@@ -2385,18 +2375,18 @@
       "tokenAddress":"0x14bcDdad013D7446AB6860CbF9A04e98bEeBFFFF",
       "name":"Artificial Pepe",
       "symbol":"AP",
-      "priceUsd":4.481e-05,
-      "liquidityUsd":12006.7,
-      "volume24h":74609.58,
-      "marketCap":43868.0,
-      "priceChange5m":0.0,
-      "priceChange1h":18.03,
-      "priceChange24h":543.0,
-      "buys1h":5,
-      "sells1h":3,
-      "buys24h":179,
-      "sells24h":155,
-      "pairAgeMinutes":12965.6,
+      "priceUsd":4.445e-05,
+      "liquidityUsd":11935.35,
+      "volume24h":75420.98,
+      "marketCap":43520.0,
+      "priceChange5m":-0.79,
+      "priceChange1h":17.09,
+      "priceChange24h":538.0,
+      "buys1h":7,
+      "sells1h":4,
+      "buys24h":181,
+      "sells24h":156,
+      "pairAgeMinutes":12971.7,
       "pairAddress":"0x7fd28de78e3526ac8a6ca1739214143f33e7d6bafe7f028479b85bb7203baf00",
       "dexId":"uniswap",
       "dexUrl":"https://dexscreener.com/ethereum/0x7fd28de78e3526ac8a6ca1739214143f33e7d6bafe7f028479b85bb7203baf00",
@@ -2428,123 +2418,12 @@
         "aboutToMove":false,
         "aboutToDrop":false,
         "positive":[
-          "1h price +18.0%"
+          "1h price +17.1%"
         ],
         "negative":[],
         "scoreDelta":0.0,
-        "volumeDelta":0.0,
-        "liquidityDelta":0.0
-      }
-    },
-    {
-      "chainId":"solana",
-      "tokenAddress":"7ghKoBZBAjGSgbxix5K5kFhQzu9mxVmbdPxRT8j27eEo",
-      "name":"ETAC",
-      "symbol":"ETAC",
-      "priceUsd":0.0002727,
-      "liquidityUsd":54890.68,
-      "volume24h":72101.4,
-      "marketCap":272763.0,
-      "priceChange5m":2.04,
-      "priceChange1h":-15.25,
-      "priceChange24h":105.0,
-      "buys1h":30,
-      "sells1h":16,
-      "buys24h":448,
-      "sells24h":383,
-      "pairAgeMinutes":13695.7,
-      "pairAddress":"Dj3LKxwR5NEajJBG9qcZgi5MeXnigVBAcJinYY6AuvKw",
-      "dexId":"raydium",
-      "dexUrl":"https://dexscreener.com/solana/dj3lkxwr5neajjbg9qczgi5mexnigvbacjinyy6auvkw",
-      "opportunityScore":56,
-      "opportunityReasons":[
-        "24h momentum",
-        "strong 24h momentum",
-        "buyers leading"
-      ],
-      "fomoScore":56,
-      "dataStatus":"OK",
-      "marketCapSource":"DEX Screener",
-      "securityStatus":"UNKNOWN",
-      "securityVerified":false,
-      "securityBlocked":false,
-      "securityRisk":null,
-      "securityReasons":[
-        "Not selected for security scan yet"
-      ],
-      "securitySource":"GoPlus",
-      "securityScanned":false,
-      "securityGate":"UNKNOWN",
-      "tradeSignal":"WAIT",
-      "tradePoints":56,
-      "tradeReason":"Security gate not passed",
-      "acceleration":{
-        "aboutToMove":false,
-        "aboutToDrop":false,
-        "positive":[
-          "buy pressure 65%"
-        ],
-        "negative":[
-          "1h price -15.2%"
-        ],
-        "scoreDelta":0.0,
-        "volumeDelta":-0.0006945107593728889,
-        "liquidityDelta":0.018581222449333714
-      }
-    },
-    {
-      "chainId":"solana",
-      "tokenAddress":"6LrDt7nBiHraUuk9PZoUL8Qy9WX6pnSpDz1RkWWRR7hN",
-      "name":"INU",
-      "symbol":"INU",
-      "priceUsd":0.0004114,
-      "liquidityUsd":78831.69,
-      "volume24h":358625.27,
-      "marketCap":411410.0,
-      "priceChange5m":0.03,
-      "priceChange1h":-8.16,
-      "priceChange24h":-55.16,
-      "buys1h":40,
-      "sells1h":15,
-      "buys24h":1238,
-      "sells24h":1056,
-      "pairAgeMinutes":18875.9,
-      "pairAddress":"EqnkEMJN4mBWkjTWF5dqED31ax8SZm51suYHbe8PiWqJ",
-      "dexId":"raydium",
-      "dexUrl":"https://dexscreener.com/solana/eqnkemjn4mbwkjtwf5dqed31ax8szm51suyhbe8piwqj",
-      "opportunityScore":55,
-      "opportunityReasons":[
-        "buyers leading",
-        "strong buy pressure"
-      ],
-      "fomoScore":55,
-      "dataStatus":"OK",
-      "marketCapSource":"DEX Screener",
-      "securityStatus":"UNKNOWN",
-      "securityVerified":false,
-      "securityBlocked":false,
-      "securityRisk":null,
-      "securityReasons":[
-        "Not selected for security scan yet"
-      ],
-      "securitySource":"GoPlus",
-      "securityScanned":false,
-      "securityGate":"UNKNOWN",
-      "tradeSignal":"WAIT",
-      "tradePoints":55,
-      "tradeReason":"Security gate not passed",
-      "acceleration":{
-        "aboutToMove":false,
-        "aboutToDrop":false,
-        "positive":[
-          "buy pressure 73%"
-        ],
-        "negative":[
-          "1h price -8.2%"
-        ],
-        "scoreDelta":0.0,
-        "volumeDelta":-0.0023562595702789914,
-        "liquidityDelta":0.0001519924394544959
+        "volumeDelta":0.010875279019128565,
+        "liquidityDelta":-0.005942515428885569
       }
     },
     {
@@ -2563,7 +2442,7 @@
       "sells1h":2,
       "buys24h":9752,
       "sells24h":2270,
-      "pairAgeMinutes":863.6,
+      "pairAgeMinutes":869.7,
       "pairAddress":"0xb6fe1035f6edFaEb7a9f7d4c19E11D35b3BD7C57",
       "dexId":"uniswap",
       "dexUrl":"https://dexscreener.com/robinhood/0xb6fe1035f6edfaeb7a9f7d4c19e11d35b3bd7c57",
@@ -2616,7 +2495,7 @@
       "sells1h":0,
       "buys24h":3019,
       "sells24h":2638,
-      "pairAgeMinutes":1284.9,
+      "pairAgeMinutes":1291.0,
       "pairAddress":"0x85513696664EB7fed854dCe3817252225A01ac2B",
       "dexId":"uniswap",
       "dexUrl":"https://dexscreener.com/robinhood/0x85513696664eb7fed854dce3817252225a01ac2b",
@@ -2655,120 +2534,6 @@
     },
     {
       "chainId":"solana",
-      "tokenAddress":"E4Ap4icMLwKot8rkkTbq5JkS5kZxt5XCE3yfxbzYBjHx",
-      "name":"Buy The Cat",
-      "symbol":"BTC",
-      "priceUsd":0.003,
-      "liquidityUsd":239158.2,
-      "volume24h":505516.12,
-      "marketCap":3000764.0,
-      "priceChange5m":0.53,
-      "priceChange1h":14.52,
-      "priceChange24h":-24.09,
-      "buys1h":45,
-      "sells1h":74,
-      "buys24h":1180,
-      "sells24h":779,
-      "pairAgeMinutes":33671.0,
-      "pairAddress":"2RmBs1KYzkDuaRR4F8zU9rPR6KT16eCgJ9YS1c8XXZgQ",
-      "dexId":"raydium",
-      "dexUrl":"https://dexscreener.com/solana/2rmbs1kyzkduarr4f8zu9rpr6kt16ecgj9ys1c8xxzgq",
-      "opportunityScore":54,
-      "opportunityReasons":[
-        "1h momentum",
-        "strong 1h momentum",
-        "sell pressure"
-      ],
-      "fomoScore":54,
-      "dataStatus":"OK",
-      "marketCapSource":"DEX Screener",
-      "securityStatus":"UNKNOWN",
-      "securityVerified":false,
-      "securityBlocked":false,
-      "securityRisk":null,
-      "securityReasons":[
-        "Not selected for security scan yet"
-      ],
-      "securitySource":"GoPlus",
-      "securityScanned":false,
-      "securityGate":"UNKNOWN",
-      "tradeSignal":"WAIT",
-      "tradePoints":54,
-      "tradeReason":"Security gate not passed",
-      "acceleration":{
-        "aboutToMove":false,
-        "aboutToDrop":false,
-        "positive":[
-          "1h price +14.5%"
-        ],
-        "negative":[
-          "sell pressure 62%"
-        ],
-        "scoreDelta":-8.0,
-        "volumeDelta":-0.002172155561354836,
-        "liquidityDelta":0.004363782661701668
-      }
-    },
-    {
-      "chainId":"bsc",
-      "tokenAddress":"0x5E8378E97C418586257fee28331ED600aD837777",
-      "name":"A MEME CAT",
-      "symbol":"AMC",
-      "priceUsd":4.12e-05,
-      "liquidityUsd":18575.73,
-      "volume24h":263398.96,
-      "marketCap":41203.0,
-      "priceChange5m":-6.77,
-      "priceChange1h":-32.51,
-      "priceChange24h":31.41,
-      "buys1h":629,
-      "sells1h":530,
-      "buys24h":2326,
-      "sells24h":2126,
-      "pairAgeMinutes":90.0,
-      "pairAddress":"0x683a98572cfEF2D8923cd7a165B488aAB12cecD6",
-      "dexId":"pancakeswap",
-      "dexUrl":"https://dexscreener.com/bsc/0x683a98572cfef2d8923cd7a165b488aab12cecd6",
-      "opportunityScore":54,
-      "opportunityReasons":[
-        "24h momentum",
-        "strong 24h momentum",
-        "volume accelerating",
-        "emerging token"
-      ],
-      "fomoScore":54,
-      "dataStatus":"OK",
-      "marketCapSource":"DEX Screener",
-      "securityStatus":"UNKNOWN",
-      "securityVerified":false,
-      "securityBlocked":false,
-      "securityRisk":null,
-      "securityReasons":[
-        "Not selected for security scan yet",
-        "liquidity below $25,000 BUY threshold"
-      ],
-      "securitySource":"GoPlus",
-      "securityScanned":false,
-      "securityGate":"BLOCKED",
-      "tradeSignal":"WAIT",
-      "tradePoints":54,
-      "tradeReason":"Security gate not passed",
-      "acceleration":{
-        "aboutToMove":false,
-        "aboutToDrop":false,
-        "positive":[
-          "liquidity +12%"
-        ],
-        "negative":[
-          "1h price -32.5%"
-        ],
-        "scoreDelta":-2.0,
-        "volumeDelta":0.033109566565681293,
-        "liquidityDelta":0.11871122304809863
-      }
-    },
-    {
-      "chainId":"solana",
       "tokenAddress":"6NX2MWBuJM2Fn63K4hUgMPivLXHV8pwsU1yTdmjKpump",
       "name":"SoQuBit",
       "symbol":"pSOQ",
@@ -2777,13 +2542,13 @@
       "volume24h":43777.08,
       "marketCap":790588.0,
       "priceChange5m":0.0,
-      "priceChange1h":-0.02,
+      "priceChange1h":1.54,
       "priceChange24h":34.67,
-      "buys1h":10,
+      "buys1h":9,
       "sells1h":2,
       "buys24h":163,
       "sells24h":141,
-      "pairAgeMinutes":403123.9,
+      "pairAgeMinutes":403130.0,
       "pairAddress":"EM9NyPqcByrz8zBxZUi2LazBTCY2zbVJa49nTXHi3Pq8",
       "dexId":"pumpswap",
       "dexUrl":"https://dexscreener.com/solana/em9nypqcbyrz8zbxzui2lazbtcy2zbvja49ntxhi3pq8",
@@ -2814,8 +2579,8 @@
         "positive":[],
         "negative":[],
         "scoreDelta":0.0,
-        "volumeDelta":0.000753701469752183,
-        "liquidityDelta":0.005979279060403321
+        "volumeDelta":0.0,
+        "liquidityDelta":0.0
       }
     },
     {
@@ -2823,18 +2588,18 @@
       "tokenAddress":"2RmsrB6XTWTkUZBCB5eoK5mExWQG52uTY2X3hqUbpump",
       "name":"fric",
       "symbol":"FRIC",
-      "priceUsd":2.728e-06,
-      "liquidityUsd":3002.47,
-      "volume24h":1411038.05,
-      "marketCap":2644.0,
-      "priceChange5m":-38.5,
-      "priceChange1h":-99.31,
-      "priceChange24h":-94.52,
-      "buys1h":10133,
-      "sells1h":8039,
+      "priceUsd":2.719e-06,
+      "liquidityUsd":2996.21,
+      "volume24h":1411056.67,
+      "marketCap":2635.0,
+      "priceChange5m":-0.27,
+      "priceChange1h":-99.02,
+      "priceChange24h":-94.54,
+      "buys1h":9586,
+      "sells1h":7697,
       "buys24h":21724,
-      "sells24h":15216,
-      "pairAgeMinutes":154.1,
+      "sells24h":15218,
+      "pairAgeMinutes":160.2,
       "pairAddress":"BzBjcSm7YKBjt4xqXsJwVMp94rq1pHkm79MeyGBpCLES",
       "dexId":"pumpswap",
       "dexUrl":"https://dexscreener.com/solana/bzbjcsm7ykbjt4xqxsjwvmp94rq1phkm79meygbpcles",
@@ -2866,11 +2631,11 @@
         "aboutToDrop":false,
         "positive":[],
         "negative":[
-          "1h price -99.3%"
+          "1h price -99.0%"
         ],
-        "scoreDelta":0,
-        "volumeDelta":0,
-        "liquidityDelta":0
+        "scoreDelta":0.0,
+        "volumeDelta":1.3195958819026125e-05,
+        "liquidityDelta":-0.0020849500577856776
       }
     },
     {
@@ -2878,18 +2643,18 @@
       "tokenAddress":"0x298348d5b2e45C774E3ee4f1a0924071DfbDC8C7",
       "name":"swappy",
       "symbol":"swappy",
-      "priceUsd":0.0007231,
-      "liquidityUsd":164050.28,
-      "volume24h":123966.57,
-      "marketCap":723135.0,
-      "priceChange5m":0.18,
-      "priceChange1h":-9.85,
-      "priceChange24h":32.59,
+      "priceUsd":0.0007232,
+      "liquidityUsd":164082.69,
+      "volume24h":123975.15,
+      "marketCap":723210.0,
+      "priceChange5m":0.01,
+      "priceChange1h":-9.06,
+      "priceChange24h":32.6,
       "buys1h":17,
-      "sells1h":21,
+      "sells1h":20,
       "buys24h":394,
-      "sells24h":445,
-      "pairAgeMinutes":71839.0,
+      "sells24h":446,
+      "pairAgeMinutes":71845.1,
       "pairAddress":"0xaff8e2d7015c76fa6d9b2bedb72da7d6b305fd7b2140df3fca5c3c57e877ecfa",
       "dexId":"uniswap",
       "dexUrl":"https://dexscreener.com/robinhood/0xaff8e2d7015c76fa6d9b2bedb72da7d6b305fd7b2140df3fca5c3c57e877ecfa",
@@ -2920,11 +2685,11 @@
         "aboutToDrop":false,
         "positive":[],
         "negative":[
-          "1h price -9.8%"
+          "1h price -9.1%"
         ],
         "scoreDelta":0.0,
-        "volumeDelta":-0.003508115038071016,
-        "liquidityDelta":0.0019847264928402443
+        "volumeDelta":6.921220777494444e-05,
+        "liquidityDelta":0.00019756138179101855
       }
     },
     {
@@ -2934,16 +2699,16 @@
       "symbol":"NEKO",
       "priceUsd":5.094e-05,
       "liquidityUsd":31049.23,
-      "volume24h":34702.62,
+      "volume24h":33067.96,
       "marketCap":50946.0,
       "priceChange5m":0.0,
       "priceChange1h":14.1,
-      "priceChange24h":-10.36,
+      "priceChange24h":-24.76,
       "buys1h":6,
       "sells1h":8,
-      "buys24h":293,
-      "sells24h":282,
-      "pairAgeMinutes":24878.4,
+      "buys24h":282,
+      "sells24h":277,
+      "pairAgeMinutes":24884.5,
       "pairAddress":"GWoTdfCSbp5fsptTR4nTGW6as7ZrX9q6pUfs7SE3bTCc",
       "dexId":"raydium",
       "dexUrl":"https://dexscreener.com/solana/gwotdfcsbp5fspttr4ntgw6as7zrx9q6pufs7se3btcc",
@@ -2976,8 +2741,66 @@
         ],
         "negative":[],
         "scoreDelta":0.0,
-        "volumeDelta":-0.0630371773358514,
-        "liquidityDelta":0.014397284418896037
+        "volumeDelta":-0.047104800732624894,
+        "liquidityDelta":0.0
+      }
+    },
+    {
+      "chainId":"solana",
+      "tokenAddress":"6UTbkm2gv6sG6doQKERtgpnUupwhKN3DyVHyYzWfSTNK",
+      "name":"Offensive Cat Caricature Loans",
+      "symbol":"OCC",
+      "priceUsd":5.612e-05,
+      "liquidityUsd":21555.24,
+      "volume24h":32816.12,
+      "marketCap":56122.0,
+      "priceChange5m":24.61,
+      "priceChange1h":17.92,
+      "priceChange24h":17.92,
+      "buys1h":163,
+      "sells1h":207,
+      "buys24h":163,
+      "sells24h":207,
+      "pairAgeMinutes":7.9,
+      "pairAddress":"4zmty9M5x1c9VEpJurq8k5uH6UeTQsQ7wf4AmrU245nf",
+      "dexId":"raydium",
+      "dexUrl":"https://dexscreener.com/solana/4zmty9m5x1c9vepjurq8k5uh6uetqsq7wf4amru245nf",
+      "opportunityScore":51,
+      "opportunityReasons":[
+        "1h momentum",
+        "strong 1h momentum",
+        "24h momentum",
+        "volume accelerating",
+        "sell pressure",
+        "new token"
+      ],
+      "fomoScore":51,
+      "dataStatus":"OK",
+      "marketCapSource":"DEX Screener",
+      "securityStatus":"UNKNOWN",
+      "securityVerified":false,
+      "securityBlocked":false,
+      "securityRisk":null,
+      "securityReasons":[
+        "Not selected for security scan yet",
+        "liquidity below $25,000 BUY threshold"
+      ],
+      "securitySource":"GoPlus",
+      "securityScanned":false,
+      "securityGate":"BLOCKED",
+      "tradeSignal":"WAIT",
+      "tradePoints":51,
+      "tradeReason":"Security gate not passed",
+      "acceleration":{
+        "aboutToMove":false,
+        "aboutToDrop":false,
+        "positive":[
+          "1h price +17.9%"
+        ],
+        "negative":[],
+        "scoreDelta":0,
+        "volumeDelta":0,
+        "liquidityDelta":0
       }
     },
     {
@@ -2985,18 +2808,18 @@
       "tokenAddress":"8wSDUcRyKwZnKp1udWXn7ueiYHYXxJ5Hee4UUG9ppump",
       "name":"All Meme Days",
       "symbol":"AMD",
-      "priceUsd":2.187e-06,
-      "liquidityUsd":2289.99,
-      "volume24h":396594.91,
-      "marketCap":2188.0,
+      "priceUsd":2.179e-06,
+      "liquidityUsd":2281.3,
+      "volume24h":396594.95,
+      "marketCap":2180.0,
       "priceChange5m":0.0,
-      "priceChange1h":-97.34,
-      "priceChange24h":-97.34,
+      "priceChange1h":-97.35,
+      "priceChange24h":-97.35,
       "buys1h":5534,
-      "sells1h":4525,
+      "sells1h":4526,
       "buys24h":5534,
-      "sells24h":4525,
-      "pairAgeMinutes":42.0,
+      "sells24h":4526,
+      "pairAgeMinutes":48.1,
       "pairAddress":"HN6VeGxuwZFj8Doru9M3jEE2Yesqs7oJS5C2Q9P2kFZm",
       "dexId":"pumpswap",
       "dexUrl":"https://dexscreener.com/solana/hn6vegxuwzfj8doru9m3jee2yesqs7ojs5c2q9p2kfzm",
@@ -3031,8 +2854,8 @@
           "1h price -97.3%"
         ],
         "scoreDelta":0.0,
-        "volumeDelta":2.0928199431471353e-06,
-        "liquidityDelta":-0.00746355988401587
+        "volumeDelta":1.0085858146099986e-07,
+        "liquidityDelta":-0.0037947763964033035
       }
     },
     {
@@ -3040,18 +2863,18 @@
       "tokenAddress":"0xA97452d175679B2bF5F25a9a382D22aff39b7777",
       "name":"BNB AGENT CHAIN",
       "symbol":"BAC",
-      "priceUsd":6.425e-06,
-      "liquidityUsd":11570.14,
-      "volume24h":69094.29,
-      "marketCap":6361.0,
-      "priceChange5m":-0.9,
-      "priceChange1h":-36.02,
-      "priceChange24h":43.25,
-      "buys1h":108,
-      "sells1h":86,
-      "buys24h":668,
-      "sells24h":442,
-      "pairAgeMinutes":134.1,
+      "priceUsd":6.264e-06,
+      "liquidityUsd":11438.42,
+      "volume24h":69185.57,
+      "marketCap":6202.0,
+      "priceChange5m":-2.51,
+      "priceChange1h":-0.56,
+      "priceChange24h":39.65,
+      "buys1h":86,
+      "sells1h":58,
+      "buys24h":669,
+      "sells24h":445,
+      "pairAgeMinutes":140.2,
       "pairAddress":"0x6baaCCcdf8AF8a450E0e3385F427CB6203C7ccb3",
       "dexId":"flapsh",
       "dexUrl":"https://dexscreener.com/bsc/0x6baacccdf8af8a450e0e3385f427cb6203c7ccb3",
@@ -3083,12 +2906,10 @@
         "aboutToMove":false,
         "aboutToDrop":false,
         "positive":[],
-        "negative":[
-          "1h price -36.0%"
-        ],
-        "scoreDelta":-5.0,
-        "volumeDelta":0.003966212219380123,
-        "liquidityDelta":-0.01662537449801335
+        "negative":[],
+        "scoreDelta":0.0,
+        "volumeDelta":0.0013210932480819094,
+        "liquidityDelta":-0.011384477629484116
       }
     },
     {
@@ -3101,13 +2922,13 @@
       "volume24h":1971036.05,
       "marketCap":4263.0,
       "priceChange5m":0.0,
-      "priceChange1h":4.65,
+      "priceChange1h":5.01,
       "priceChange24h":-92.66,
       "buys1h":2,
-      "sells1h":5,
+      "sells1h":4,
       "buys24h":13897,
       "sells24h":9927,
-      "pairAgeMinutes":680.5,
+      "pairAgeMinutes":686.6,
       "pairAddress":"0x1e3ba04aa20ecccfb9a174a5b2cb15c81f2c9c2c20cf40e895fadfdf33367c4f",
       "dexId":"uniswap",
       "dexUrl":"https://dexscreener.com/robinhood/0x1e3ba04aa20ecccfb9a174a5b2cb15c81f2c9c2c20cf40e895fadfdf33367c4f",
@@ -3136,11 +2957,67 @@
       "acceleration":{
         "aboutToMove":false,
         "aboutToDrop":false,
-        "positive":[],
+        "positive":[
+          "1h price +5.0%"
+        ],
         "negative":[],
         "scoreDelta":0.0,
-        "volumeDelta":1.724981431634331e-07,
-        "liquidityDelta":0.008813550571840216
+        "volumeDelta":0.0,
+        "liquidityDelta":0.0
+      }
+    },
+    {
+      "chainId":"solana",
+      "tokenAddress":"6LrDt7nBiHraUuk9PZoUL8Qy9WX6pnSpDz1RkWWRR7hN",
+      "name":"INU",
+      "symbol":"INU",
+      "priceUsd":0.0004167,
+      "liquidityUsd":79738.48,
+      "volume24h":358288.32,
+      "marketCap":416752.0,
+      "priceChange5m":1.3,
+      "priceChange1h":-8.27,
+      "priceChange24h":-53.96,
+      "buys1h":35,
+      "sells1h":14,
+      "buys24h":1239,
+      "sells24h":1051,
+      "pairAgeMinutes":18882.0,
+      "pairAddress":"EqnkEMJN4mBWkjTWF5dqED31ax8SZm51suYHbe8PiWqJ",
+      "dexId":"raydium",
+      "dexUrl":"https://dexscreener.com/solana/eqnkemjn4mbwkjtwf5dqed31ax8szm51suyhbe8piwqj",
+      "opportunityScore":49,
+      "opportunityReasons":[
+        "buyers leading"
+      ],
+      "fomoScore":49,
+      "dataStatus":"OK",
+      "marketCapSource":"DEX Screener",
+      "securityStatus":"UNKNOWN",
+      "securityVerified":false,
+      "securityBlocked":false,
+      "securityRisk":null,
+      "securityReasons":[
+        "Not selected for security scan yet"
+      ],
+      "securitySource":"GoPlus",
+      "securityScanned":false,
+      "securityGate":"UNKNOWN",
+      "tradeSignal":"WAIT",
+      "tradePoints":49,
+      "tradeReason":"Security gate not passed",
+      "acceleration":{
+        "aboutToMove":false,
+        "aboutToDrop":false,
+        "positive":[
+          "buy pressure 71%"
+        ],
+        "negative":[
+          "1h price -8.3%"
+        ],
+        "scoreDelta":-6.0,
+        "volumeDelta":-0.0009395601152144455,
+        "liquidityDelta":0.011502861349287241
       }
     },
     {
@@ -3148,18 +3025,18 @@
       "tokenAddress":"0x4F7DC89dc44aD08c20d9680d2Ee9cfad69BFDa55",
       "name":"Malachite",
       "symbol":"MALA",
-      "priceUsd":0.0003881,
-      "liquidityUsd":76575.9,
-      "volume24h":206838.27,
-      "marketCap":366059.0,
-      "priceChange5m":5.27,
-      "priceChange1h":-6.98,
-      "priceChange24h":-47.75,
-      "buys1h":29,
-      "sells1h":21,
-      "buys24h":974,
-      "sells24h":556,
-      "pairAgeMinutes":62810.9,
+      "priceUsd":0.0003973,
+      "liquidityUsd":77624.61,
+      "volume24h":205952.7,
+      "marketCap":374702.0,
+      "priceChange5m":1.48,
+      "priceChange1h":-7.28,
+      "priceChange24h":-43.65,
+      "buys1h":34,
+      "sells1h":20,
+      "buys24h":977,
+      "sells24h":557,
+      "pairAgeMinutes":62817.0,
       "pairAddress":"0x085c2b626c6440E84e000267aF157537be469b11",
       "dexId":"uniswap",
       "dexUrl":"https://dexscreener.com/arc/0x085c2b626c6440e84e000267af157537be469b11",
@@ -3186,11 +3063,13 @@
       "acceleration":{
         "aboutToMove":false,
         "aboutToDrop":false,
-        "positive":[],
+        "positive":[
+          "buy pressure 63%"
+        ],
         "negative":[],
         "scoreDelta":0.0,
-        "volumeDelta":0.0027045714529210616,
-        "liquidityDelta":0.021996386919881223
+        "volumeDelta":-0.0042814610661749295,
+        "liquidityDelta":0.013695039823234287
       }
     },
     {
@@ -3198,18 +3077,18 @@
       "tokenAddress":"FFaArmXLDhPxr6HboqLz1MxH9G47XKmc664RkHv9jjTZ",
       "name":"Skyrim Gold",
       "symbol":"SEPTIM",
-      "priceUsd":8.404e-05,
-      "liquidityUsd":25756.44,
-      "volume24h":161524.37,
-      "marketCap":84037.0,
-      "priceChange5m":0.24,
-      "priceChange1h":-23.34,
-      "priceChange24h":77.05,
+      "priceUsd":8.386e-05,
+      "liquidityUsd":25729.9,
+      "volume24h":161538.89,
+      "marketCap":83854.0,
+      "priceChange5m":-0.22,
+      "priceChange1h":-11.63,
+      "priceChange24h":76.67,
       "buys1h":29,
-      "sells1h":32,
+      "sells1h":30,
       "buys24h":1512,
-      "sells24h":1134,
-      "pairAgeMinutes":1319.4,
+      "sells24h":1135,
+      "pairAgeMinutes":1325.5,
       "pairAddress":"W987YJNrGMHdbWV2Ga6MJmwwJeHc4eExkKrRdm6YCsD",
       "dexId":"raydium",
       "dexUrl":"https://dexscreener.com/solana/w987yjnrgmhdbwv2ga6mjmwwjehc4eexkkrrdm6ycsd",
@@ -3241,11 +3120,11 @@
         "aboutToDrop":false,
         "positive":[],
         "negative":[
-          "1h price -23.3%"
+          "1h price -11.6%"
         ],
         "scoreDelta":0.0,
-        "volumeDelta":0.0014304965775462774,
-        "liquidityDelta":0.01588165551645553
+        "volumeDelta":8.989355600036469e-05,
+        "liquidityDelta":-0.001030421906132883
       }
     },
     {
@@ -3253,18 +3132,18 @@
       "tokenAddress":"9ekRaDZHa5VTFiR37CakbnnN7HoqwqC83SaMmAc8pump",
       "name":"PUMPPO The Hippo",
       "symbol":"PUMPPO",
-      "priceUsd":0.0001084,
-      "liquidityUsd":27978.28,
-      "volume24h":147576.0,
-      "marketCap":104560.0,
-      "priceChange5m":-7.63,
-      "priceChange1h":2.01,
-      "priceChange24h":120.0,
-      "buys1h":44,
-      "sells1h":60,
-      "buys24h":5290,
-      "sells24h":2378,
-      "pairAgeMinutes":814.4,
+      "priceUsd":0.0001053,
+      "liquidityUsd":27554.19,
+      "volume24h":147902.37,
+      "marketCap":101533.0,
+      "priceChange5m":-2.37,
+      "priceChange1h":-0.95,
+      "priceChange24h":113.0,
+      "buys1h":43,
+      "sells1h":62,
+      "buys24h":5293,
+      "sells24h":2384,
+      "pairAgeMinutes":820.4,
       "pairAddress":"8hb4EZhSMt6sbjt7VJdi4e9njfnvjTSBrpwtX5Rrg4bJ",
       "dexId":"pumpswap",
       "dexUrl":"https://dexscreener.com/solana/8hb4ezhsmt6sbjt7vjdi4e9njfnvjtsbrpwtx5rrg4bj",
@@ -3295,12 +3174,62 @@
         "aboutToMove":false,
         "aboutToDrop":false,
         "positive":[],
-        "negative":[
-          "Snipe score -15"
-        ],
-        "scoreDelta":-15.0,
-        "volumeDelta":0.005451509904388182,
-        "liquidityDelta":-0.04779394872950279
+        "negative":[],
+        "scoreDelta":0.0,
+        "volumeDelta":0.00221153846153843,
+        "liquidityDelta":-0.01515782957351203
+      }
+    },
+    {
+      "chainId":"robinhood",
+      "tokenAddress":"0x10F5bA270B0B5dA5A4d21369F2C74a300BB16A8B",
+      "name":"Agrippa",
+      "symbol":"Agrippa",
+      "priceUsd":3.544e-06,
+      "liquidityUsd":3490.38,
+      "volume24h":9289203.17,
+      "marketCap":3545.0,
+      "priceChange5m":0.0,
+      "priceChange1h":0.0,
+      "priceChange24h":28.58,
+      "buys1h":0,
+      "sells1h":0,
+      "buys24h":12976,
+      "sells24h":4965,
+      "pairAgeMinutes":1072.5,
+      "pairAddress":"0x270B58F90B2EF79924f9d7c85D2F2cc15bb31153",
+      "dexId":"uniswap",
+      "dexUrl":"https://dexscreener.com/robinhood/0x270b58f90b2ef79924f9d7c85d2f2cc15bb31153",
+      "opportunityScore":48,
+      "opportunityReasons":[
+        "24h momentum",
+        "emerging token"
+      ],
+      "fomoScore":48,
+      "dataStatus":"OK",
+      "marketCapSource":"DEX Screener",
+      "securityStatus":"UNKNOWN",
+      "securityVerified":false,
+      "securityBlocked":false,
+      "securityRisk":null,
+      "securityReasons":[
+        "Not selected for security scan yet",
+        "liquidity below $25,000 BUY threshold"
+      ],
+      "securitySource":"GoPlus",
+      "securityScanned":false,
+      "securityGate":"BLOCKED",
+      "tradeSignal":"WAIT",
+      "tradePoints":48,
+      "tradeReason":"Security gate not passed",
+      "acceleration":{
+        "aboutToMove":false,
+        "aboutToDrop":false,
+        "positive":[],
+        "negative":[],
+        "scoreDelta":0,
+        "volumeDelta":0,
+        "liquidityDelta":0
       }
     }
   ]
