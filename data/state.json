@@ -1,14 +1,44 @@
 {
-  "updatedAt":"2026-10-13T23:30:31.918402+00:00",
+  "updatedAt":"2026-10-13T23:55:49.307598+00:00",
   "pairs":{
+    "0xc2d9e54378bca28d894575675874e46a5b87d176f8290369d1a5c771680c57a5":{
+      "liquidityUsd":191802.95,
+      "priceUsd":4.324e-06,
+      "volume24h":473871.72,
+      "buys1h":255,
+      "sells1h":191,
+      "opportunityScore":91,
+      "priceChange1h":1367.0,
+      "riskScore":null,
+      "tradeSignal":"WAIT",
+      "securityStatus":"UNKNOWN",
+      "securityGate":"UNKNOWN",
+      "aboutToMove":false,
+      "aboutToDrop":false
+    },
+    "CEtJpR4jhHbP3hgZ6qWcCpK6Fp8pSh5rcSeQH3ag6Hh7":{
+      "liquidityUsd":43083.57,
+      "priceUsd":0.0001543,
+      "volume24h":511601.98,
+      "buys1h":4601,
+      "sells1h":3241,
+      "opportunityScore":86,
+      "priceChange1h":202.0,
+      "riskScore":0,
+      "tradeSignal":"BUY SETUP",
+      "securityStatus":"VERIFIED",
+      "securityGate":"PASSED",
+      "aboutToMove":false,
+      "aboutToDrop":false
+    },
     "283CtCTYZWZ6pYxCCNrRpueyZBQWujA5LGCJxtEX5o8T":{
-      "liquidityUsd":73743.9,
-      "priceUsd":0.0007456,
-      "volume24h":329051.12,
-      "buys1h":201,
-      "sells1h":92,
-      "opportunityScore":90,
-      "priceChange1h":222.0,
+      "liquidityUsd":74536.1,
+      "priceUsd":0.0007607,
+      "volume24h":330707.59,
+      "buys1h":153,
+      "sells1h":78,
+      "opportunityScore":83,
+      "priceChange1h":8.77,
       "riskScore":0,
       "tradeSignal":"BUY SETUP",
       "securityStatus":"VERIFIED",
@@ -16,134 +46,29 @@
       "aboutToMove":true,
       "aboutToDrop":false
     },
-    "0x54442AC653e32Cfa27f33d8c69320E858c2a7a76":{
-      "liquidityUsd":78789.64,
-      "priceUsd":0.0006594,
-      "volume24h":1000572.43,
-      "buys1h":262,
-      "sells1h":178,
-      "opportunityScore":89,
-      "priceChange1h":48.91,
-      "riskScore":null,
-      "tradeSignal":"WAIT",
-      "securityStatus":"UNKNOWN",
-      "securityGate":"UNKNOWN",
-      "aboutToMove":true,
-      "aboutToDrop":false
-    },
-    "7uNBbHWBpAMyAaupvAJQKBVuY3ayzVWeRviQJrUdh5om":{
-      "liquidityUsd":20776.99,
-      "priceUsd":6.458e-05,
-      "volume24h":409846.86,
-      "buys1h":4723,
-      "sells1h":3758,
-      "opportunityScore":83,
-      "priceChange1h":45.67,
+    "6iep3EgqksbZwgzMBCyAJtiVtVYkCgL9BnPBEwLR8AGQ":{
+      "liquidityUsd":149508.98,
+      "priceUsd":0.001631,
+      "volume24h":851930.24,
+      "buys1h":285,
+      "sells1h":237,
+      "opportunityScore":75,
+      "priceChange1h":11.64,
       "riskScore":0,
-      "tradeSignal":"WAIT",
+      "tradeSignal":"BUY SETUP",
       "securityStatus":"VERIFIED",
-      "securityGate":"BLOCKED",
+      "securityGate":"PASSED",
       "aboutToMove":true,
       "aboutToDrop":false
     },
-    "5K5Vb2eYoqPHkctjtEiL7wR7q4qbACTpGku8EizS9SXF":{
-      "liquidityUsd":23115.3,
-      "priceUsd":7.977e-05,
-      "volume24h":311663.89,
-      "buys1h":4127,
-      "sells1h":3051,
-      "opportunityScore":78,
-      "priceChange1h":78.94,
-      "riskScore":0,
-      "tradeSignal":"WAIT",
-      "securityStatus":"VERIFIED",
-      "securityGate":"BLOCKED",
-      "aboutToMove":true,
-      "aboutToDrop":false
-    },
-    "0x2aE99f7Bc011325e03Aae5406127B8398c7C697A":{
-      "liquidityUsd":61047.04,
-      "priceUsd":0.000126,
-      "volume24h":479701.8,
-      "buys1h":783,
-      "sells1h":693,
-      "opportunityScore":77,
-      "priceChange1h":153.0,
-      "riskScore":null,
-      "tradeSignal":"WAIT",
-      "securityStatus":"UNKNOWN",
-      "securityGate":"UNKNOWN",
-      "aboutToMove":false,
-      "aboutToDrop":false
-    },
-    "0x8E70Fd1E08B644366f5D360c661C340c62c8c6F0":{
-      "liquidityUsd":19169.14,
-      "priceUsd":3.835e-05,
-      "volume24h":48640.29,
-      "buys1h":403,
-      "sells1h":197,
-      "opportunityScore":76,
-      "priceChange1h":162.0,
-      "riskScore":8,
-      "tradeSignal":"WAIT",
-      "securityStatus":"CAUTION",
-      "securityGate":"BLOCKED",
-      "aboutToMove":true,
-      "aboutToDrop":false
-    },
-    "0x737a26bcf49b2199f7be788769993ccd8f2e4eded0ad7444ddfa12436f8d6bdb":{
-      "liquidityUsd":10487.67,
-      "priceUsd":1.42e-05,
-      "volume24h":41208.59,
-      "buys1h":677,
-      "sells1h":270,
-      "opportunityScore":76,
-      "priceChange1h":37.11,
-      "riskScore":8,
-      "tradeSignal":"WAIT",
-      "securityStatus":"CAUTION",
-      "securityGate":"BLOCKED",
-      "aboutToMove":true,
-      "aboutToDrop":false
-    },
-    "9ahdabn9nHLrpiMWJ1MBvVED6pyuu3vsEA7S6QECdriM":{
-      "liquidityUsd":22387.1,
-      "priceUsd":7.525e-05,
-      "volume24h":5140.22,
-      "buys1h":41,
-      "sells1h":11,
+    "9pQRnaHbKjD61KyS2K4FEnLCpvAi5hu5jbMbEsunHLJz":{
+      "liquidityUsd":142246.49,
+      "priceUsd":0.002243,
+      "volume24h":3761744.96,
+      "buys1h":4721,
+      "sells1h":3396,
       "opportunityScore":74,
-      "priceChange1h":29.63,
-      "riskScore":8,
-      "tradeSignal":"WAIT",
-      "securityStatus":"CAUTION",
-      "securityGate":"BLOCKED",
-      "aboutToMove":true,
-      "aboutToDrop":false
-    },
-    "0x338fce553e60c8b0acccde1956bc378586ef6f2935339ebae5804d429d461e44":{
-      "liquidityUsd":166557.91,
-      "priceUsd":0.004199,
-      "volume24h":2010170.95,
-      "buys1h":360,
-      "sells1h":251,
-      "opportunityScore":72,
-      "priceChange1h":-3.02,
-      "riskScore":null,
-      "tradeSignal":"WAIT",
-      "securityStatus":"UNKNOWN",
-      "securityGate":"UNKNOWN",
-      "aboutToMove":false,
-      "aboutToDrop":false
-    },
-    "8KUSA63myw4NQjQQojk41YdEE5FgrgPPNxaoYuDSPYU2":{
-      "liquidityUsd":49639.86,
-      "priceUsd":0.0003322,
-      "volume24h":379283.03,
-      "buys1h":50,
-      "sells1h":38,
-      "opportunityScore":72,
-      "priceChange1h":7.54,
+      "priceChange1h":15.9,
       "riskScore":0,
       "tradeSignal":"WAIT",
       "securityStatus":"VERIFIED",
@@ -151,44 +76,164 @@
       "aboutToMove":true,
       "aboutToDrop":false
     },
-    "8ewuF2o8ACro7fqWepZ3tKhkbBjndZU4Ldk9scRPw83d":{
-      "liquidityUsd":273614.63,
-      "priceUsd":0.004262,
-      "volume24h":285290.83,
-      "buys1h":290,
-      "sells1h":293,
+    "0x338fce553e60c8b0acccde1956bc378586ef6f2935339ebae5804d429d461e44":{
+      "liquidityUsd":165636.63,
+      "priceUsd":0.004154,
+      "volume24h":2017419.86,
+      "buys1h":235,
+      "sells1h":169,
       "opportunityScore":72,
-      "priceChange1h":12.58,
+      "priceChange1h":1.24,
       "riskScore":null,
       "tradeSignal":"WAIT",
       "securityStatus":"UNKNOWN",
       "securityGate":"UNKNOWN",
       "aboutToMove":false,
-      "aboutToDrop":false
-    },
-    "2ShDfeGc8wy68ubCZXhxLo1hUTGqDessqLs53nfRFKJN":{
-      "liquidityUsd":0.0,
-      "priceUsd":9.014e-06,
-      "volume24h":93399.69,
-      "buys1h":1324,
-      "sells1h":996,
-      "opportunityScore":72,
-      "priceChange1h":123.0,
-      "riskScore":null,
-      "tradeSignal":"WAIT",
-      "securityStatus":"UNKNOWN",
-      "securityGate":"BLOCKED",
-      "aboutToMove":true,
       "aboutToDrop":false
     },
     "8FUsiEcLH1pUwaSjrh3zTVNKJ3BFMJZKbMomDnCajDRh":{
       "liquidityUsd":0.0,
-      "priceUsd":2.041e-05,
-      "volume24h":69756.44,
-      "buys1h":623,
-      "sells1h":408,
+      "priceUsd":1.169e-05,
+      "volume24h":84588.16,
+      "buys1h":767,
+      "sells1h":509,
       "opportunityScore":72,
-      "priceChange1h":500.0,
+      "priceChange1h":244.0,
+      "riskScore":0,
+      "tradeSignal":"WAIT",
+      "securityStatus":"VERIFIED",
+      "securityGate":"BLOCKED",
+      "aboutToMove":false,
+      "aboutToDrop":false
+    },
+    "51u2JpWz84UMQePoTn2ZnHUGPGXas21x8e2kJMBD6uNs":{
+      "liquidityUsd":0.0,
+      "priceUsd":1.39e-05,
+      "volume24h":45915.42,
+      "buys1h":447,
+      "sells1h":352,
+      "opportunityScore":72,
+      "priceChange1h":229.0,
+      "riskScore":0,
+      "tradeSignal":"WAIT",
+      "securityStatus":"VERIFIED",
+      "securityGate":"BLOCKED",
+      "aboutToMove":false,
+      "aboutToDrop":false
+    },
+    "6A9ZRcAWPs4chf8g9LAD7tQYABwo8z2Ls2EzNj6SdZWN":{
+      "liquidityUsd":21494.62,
+      "priceUsd":7.181e-05,
+      "volume24h":35182.25,
+      "buys1h":594,
+      "sells1h":388,
+      "opportunityScore":72,
+      "priceChange1h":61.08,
+      "riskScore":0,
+      "tradeSignal":"WAIT",
+      "securityStatus":"VERIFIED",
+      "securityGate":"BLOCKED",
+      "aboutToMove":false,
+      "aboutToDrop":false
+    },
+    "3CiK1XMtxaG9Lxv8BDFiRoCzRTdseFe97E1GKMi8a2cV":{
+      "liquidityUsd":0.0,
+      "priceUsd":6.384e-06,
+      "volume24h":20149.04,
+      "buys1h":179,
+      "sells1h":105,
+      "opportunityScore":72,
+      "priceChange1h":42.68,
+      "riskScore":0,
+      "tradeSignal":"WAIT",
+      "securityStatus":"VERIFIED",
+      "securityGate":"BLOCKED",
+      "aboutToMove":true,
+      "aboutToDrop":false
+    },
+    "Hsrukybccom7xGwE7iZbBzzc2V8ECFk1VG7jQZf9GueN":{
+      "liquidityUsd":0.0,
+      "priceUsd":9.208e-06,
+      "volume24h":103546.04,
+      "buys1h":884,
+      "sells1h":741,
+      "opportunityScore":71,
+      "priceChange1h":191.0,
+      "riskScore":0,
+      "tradeSignal":"WAIT",
+      "securityStatus":"VERIFIED",
+      "securityGate":"BLOCKED",
+      "aboutToMove":false,
+      "aboutToDrop":false
+    },
+    "0x8E70Fd1E08B644366f5D360c661C340c62c8c6F0":{
+      "liquidityUsd":21859.3,
+      "priceUsd":4.806e-05,
+      "volume24h":51177.66,
+      "buys1h":198,
+      "sells1h":108,
+      "opportunityScore":70,
+      "priceChange1h":51.05,
+      "riskScore":8,
+      "tradeSignal":"WAIT",
+      "securityStatus":"CAUTION",
+      "securityGate":"BLOCKED",
+      "aboutToMove":true,
+      "aboutToDrop":false
+    },
+    "0x2aE99f7Bc011325e03Aae5406127B8398c7C697A":{
+      "liquidityUsd":47812.17,
+      "priceUsd":8.332e-05,
+      "volume24h":742484.87,
+      "buys1h":1003,
+      "sells1h":1034,
+      "opportunityScore":69,
+      "priceChange1h":30.1,
+      "riskScore":null,
+      "tradeSignal":"WAIT",
+      "securityStatus":"UNKNOWN",
+      "securityGate":"UNKNOWN",
+      "aboutToMove":true,
+      "aboutToDrop":false
+    },
+    "12jc1DzJpzbCDaKuM4brAKh9jcFry2TLG1FfGsL4ftCG":{
+      "liquidityUsd":94332.28,
+      "priceUsd":0.0009355,
+      "volume24h":279272.79,
+      "buys1h":1327,
+      "sells1h":738,
+      "opportunityScore":69,
+      "priceChange1h":7.47,
+      "riskScore":0,
+      "tradeSignal":"WAIT",
+      "securityStatus":"VERIFIED",
+      "securityGate":"PASSED",
+      "aboutToMove":true,
+      "aboutToDrop":false
+    },
+    "EJ9Gsj527vzH9Vs1gSZo4c3wgqfRf953MfPgGtsGTqtK":{
+      "liquidityUsd":0.0,
+      "priceUsd":1.783e-05,
+      "volume24h":162048.32,
+      "buys1h":1425,
+      "sells1h":1392,
+      "opportunityScore":69,
+      "priceChange1h":50.87,
+      "riskScore":0,
+      "tradeSignal":"WAIT",
+      "securityStatus":"VERIFIED",
+      "securityGate":"BLOCKED",
+      "aboutToMove":false,
+      "aboutToDrop":false
+    },
+    "AzmoXjevL72cSKw2ZDgHUYQeMrPwjvBwTx81E2S7kaZg":{
+      "liquidityUsd":0.0,
+      "priceUsd":1.095e-05,
+      "volume24h":8485.31,
+      "buys1h":44,
+      "sells1h":29,
+      "opportunityScore":68,
+      "priceChange1h":63.42,
       "riskScore":null,
       "tradeSignal":"WAIT",
       "securityStatus":"UNKNOWN",
@@ -196,14 +241,14 @@
       "aboutToMove":false,
       "aboutToDrop":false
     },
-    "eVPcAJYVZzTkHgxYemSfK6SSYbQn3HYG9SNL83oqeQ5":{
-      "liquidityUsd":0.0,
-      "priceUsd":1.459e-05,
-      "volume24h":60291.95,
-      "buys1h":610,
-      "sells1h":413,
-      "opportunityScore":72,
-      "priceChange1h":360.0,
+    "9ahdabn9nHLrpiMWJ1MBvVED6pyuu3vsEA7S6QECdriM":{
+      "liquidityUsd":22362.44,
+      "priceUsd":7.505e-05,
+      "volume24h":5171.34,
+      "buys1h":28,
+      "sells1h":10,
+      "opportunityScore":68,
+      "priceChange1h":11.38,
       "riskScore":null,
       "tradeSignal":"WAIT",
       "securityStatus":"UNKNOWN",
@@ -211,14 +256,14 @@
       "aboutToMove":true,
       "aboutToDrop":false
     },
-    "BbbkeySZnz7bUsTLqCgrPKnHfBNtiHDepUVZLZyw1gLs":{
-      "liquidityUsd":0.0,
-      "priceUsd":1.36e-05,
-      "volume24h":14659.17,
-      "buys1h":96,
-      "sells1h":73,
-      "opportunityScore":72,
-      "priceChange1h":180.0,
+    "23KoFnBAQA4PS8fGGoALEdsoiRLaNo39qy8UbJ11V4ef":{
+      "liquidityUsd":24598.77,
+      "priceUsd":5.809e-05,
+      "volume24h":86414.92,
+      "buys1h":968,
+      "sells1h":734,
+      "opportunityScore":66,
+      "priceChange1h":19.35,
       "riskScore":null,
       "tradeSignal":"WAIT",
       "securityStatus":"UNKNOWN",
@@ -226,29 +271,14 @@
       "aboutToMove":false,
       "aboutToDrop":false
     },
-    "EJ9Gsj527vzH9Vs1gSZo4c3wgqfRf953MfPgGtsGTqtK":{
-      "liquidityUsd":0.0,
-      "priceUsd":1.066e-05,
-      "volume24h":151348.52,
-      "buys1h":1480,
-      "sells1h":1402,
-      "opportunityScore":71,
-      "priceChange1h":250.0,
-      "riskScore":null,
-      "tradeSignal":"WAIT",
-      "securityStatus":"UNKNOWN",
-      "securityGate":"BLOCKED",
-      "aboutToMove":false,
-      "aboutToDrop":false
-    },
-    "0xe892C3b0f041505323AF23fF914A81E8d62c6E32":{
-      "liquidityUsd":68457.71,
-      "priceUsd":0.0007347,
-      "volume24h":276509.96,
-      "buys1h":972,
-      "sells1h":519,
-      "opportunityScore":70,
-      "priceChange1h":-7.35,
+    "8ewuF2o8ACro7fqWepZ3tKhkbBjndZU4Ldk9scRPw83d":{
+      "liquidityUsd":266318.67,
+      "priceUsd":0.004034,
+      "volume24h":294754.62,
+      "buys1h":282,
+      "sells1h":275,
+      "opportunityScore":65,
+      "priceChange1h":1.32,
       "riskScore":null,
       "tradeSignal":"WAIT",
       "securityStatus":"UNKNOWN",
@@ -256,44 +286,29 @@
       "aboutToMove":false,
       "aboutToDrop":false
     },
-    "f7Wshe88bGLGKKiJ6xD5tXQTZB66Nq5GoKXp7VYQutG":{
-      "liquidityUsd":0.0,
-      "priceUsd":7.702e-06,
-      "volume24h":76445.5,
-      "buys1h":420,
-      "sells1h":316,
-      "opportunityScore":70,
-      "priceChange1h":64.17,
+    "0x00b9edc1583bf6ef09ff3a09f6c23ecb57fd7d0bb75625717ec81eed181e22d7":{
+      "liquidityUsd":1490265.0,
+      "priceUsd":2497.45,
+      "volume24h":2732783.24,
+      "buys1h":134,
+      "sells1h":105,
+      "opportunityScore":64,
+      "priceChange1h":-0.49,
       "riskScore":null,
       "tradeSignal":"WAIT",
       "securityStatus":"UNKNOWN",
-      "securityGate":"BLOCKED",
-      "aboutToMove":true,
+      "securityGate":"UNKNOWN",
+      "aboutToMove":false,
       "aboutToDrop":false
     },
-    "AqUyAEPq5gqMztjk1pRJ6zUuxLuRTHwgc3NJD2bwaKWT":{
-      "liquidityUsd":0.0,
-      "priceUsd":1.113e-05,
-      "volume24h":56503.93,
-      "buys1h":158,
-      "sells1h":91,
-      "opportunityScore":70,
-      "priceChange1h":83.86,
-      "riskScore":null,
-      "tradeSignal":"WAIT",
-      "securityStatus":"UNKNOWN",
-      "securityGate":"BLOCKED",
-      "aboutToMove":true,
-      "aboutToDrop":false
-    },
-    "6iep3EgqksbZwgzMBCyAJtiVtVYkCgL9BnPBEwLR8AGQ":{
-      "liquidityUsd":142179.9,
-      "priceUsd":0.00148,
-      "volume24h":838259.0,
-      "buys1h":272,
-      "sells1h":197,
-      "opportunityScore":67,
-      "priceChange1h":-0.48,
+    "0xe892C3b0f041505323AF23fF914A81E8d62c6E32":{
+      "liquidityUsd":62174.3,
+      "priceUsd":0.0006056,
+      "volume24h":283169.75,
+      "buys1h":516,
+      "sells1h":354,
+      "opportunityScore":64,
+      "priceChange1h":-23.49,
       "riskScore":null,
       "tradeSignal":"WAIT",
       "securityStatus":"UNKNOWN",
@@ -302,12 +317,12 @@
       "aboutToDrop":false
     },
     "8NVFB1unNk9aDtL5hooF8Hahf2rt4GLPWx9ctEadikHg":{
-      "liquidityUsd":91524.09,
-      "priceUsd":0.001008,
-      "volume24h":159272.65,
-      "buys1h":2150,
-      "sells1h":859,
-      "opportunityScore":67,
+      "liquidityUsd":91777.22,
+      "priceUsd":0.001013,
+      "volume24h":161459.72,
+      "buys1h":2023,
+      "sells1h":820,
+      "opportunityScore":62,
       "priceChange1h":0.66,
       "riskScore":null,
       "tradeSignal":"WAIT",
@@ -316,119 +331,29 @@
       "aboutToMove":false,
       "aboutToDrop":false
     },
-    "0x24c65014991e23383da21f9081f99c6e4bc128bbd4075c1b7d67a7e44efa4f2e":{
-      "liquidityUsd":107775.22,
-      "priceUsd":0.001386,
-      "volume24h":77495.85,
-      "buys1h":72,
-      "sells1h":89,
-      "opportunityScore":66,
-      "priceChange1h":18.23,
-      "riskScore":null,
-      "tradeSignal":"WAIT",
-      "securityStatus":"UNKNOWN",
-      "securityGate":"UNKNOWN",
-      "aboutToMove":false,
-      "aboutToDrop":false
-    },
-    "9pQRnaHbKjD61KyS2K4FEnLCpvAi5hu5jbMbEsunHLJz":{
-      "liquidityUsd":142644.53,
-      "priceUsd":0.00226,
-      "volume24h":3829769.01,
-      "buys1h":4466,
-      "sells1h":2222,
-      "opportunityScore":65,
-      "priceChange1h":-25.01,
-      "riskScore":null,
-      "tradeSignal":"WAIT",
-      "securityStatus":"UNKNOWN",
-      "securityGate":"UNKNOWN",
-      "aboutToMove":false,
-      "aboutToDrop":false
-    },
-    "Hsrukybccom7xGwE7iZbBzzc2V8ECFk1VG7jQZf9GueN":{
+    "9MKgd1KiXwCp1dwBWK6UQupX4y4ujWjhzgGctpn5NU47":{
       "liquidityUsd":0.0,
-      "priceUsd":7.94e-06,
-      "volume24h":89715.63,
-      "buys1h":712,
-      "sells1h":621,
-      "opportunityScore":65,
-      "priceChange1h":151.0,
+      "priceUsd":3.439e-06,
+      "volume24h":3434.51,
+      "buys1h":58,
+      "sells1h":48,
+      "opportunityScore":59,
+      "priceChange1h":11.54,
       "riskScore":null,
       "tradeSignal":"WAIT",
       "securityStatus":"UNKNOWN",
       "securityGate":"BLOCKED",
-      "aboutToMove":false,
-      "aboutToDrop":false
-    },
-    "9pju7scVfBaH7y6xD9jEvaAXzggu7CQyW5Pq5bxcHaMy":{
-      "liquidityUsd":60206.26,
-      "priceUsd":0.0003422,
-      "volume24h":110286.02,
-      "buys1h":74,
-      "sells1h":66,
-      "opportunityScore":63,
-      "priceChange1h":3.6,
-      "riskScore":null,
-      "tradeSignal":"WAIT",
-      "securityStatus":"UNKNOWN",
-      "securityGate":"UNKNOWN",
       "aboutToMove":false,
       "aboutToDrop":false
     },
     "AnMHSR8BWa41tcwge9NRxbfvmXkd8nG7fV52zm2gsNdw":{
       "liquidityUsd":0.0,
-      "priceUsd":1.537e-05,
-      "volume24h":56338.36,
-      "buys1h":116,
-      "sells1h":101,
-      "opportunityScore":63,
-      "priceChange1h":10.19,
-      "riskScore":null,
-      "tradeSignal":"WAIT",
-      "securityStatus":"UNKNOWN",
-      "securityGate":"BLOCKED",
-      "aboutToMove":false,
-      "aboutToDrop":false
-    },
-    "0xdfdc0bd6f6198b6e039a43641537ce53b213ddb9ed07d3f2f7ecf79eacb1f60b":{
-      "liquidityUsd":0.0,
-      "priceUsd":0.0004262,
-      "volume24h":221473.58,
-      "buys1h":309,
-      "sells1h":88,
-      "opportunityScore":62,
-      "priceChange1h":326.0,
-      "riskScore":null,
-      "tradeSignal":"WAIT",
-      "securityStatus":"UNKNOWN",
-      "securityGate":"BLOCKED",
-      "aboutToMove":false,
-      "aboutToDrop":true
-    },
-    "4k3MgyawuztfCtPiy3US8hXR6xP6T9sLRo7eM6eSzXuE":{
-      "liquidityUsd":20488.0,
-      "priceUsd":6.318e-05,
-      "volume24h":151101.37,
-      "buys1h":105,
-      "sells1h":61,
-      "opportunityScore":62,
-      "priceChange1h":7.84,
-      "riskScore":null,
-      "tradeSignal":"WAIT",
-      "securityStatus":"UNKNOWN",
-      "securityGate":"BLOCKED",
-      "aboutToMove":false,
-      "aboutToDrop":false
-    },
-    "D4zYVY6JQSdg3gEB7eUjFevehGCgracuoNZaynWGYJ35":{
-      "liquidityUsd":4482.19,
-      "priceUsd":5.188e-06,
-      "volume24h":1238.3,
-      "buys1h":13,
-      "sells1h":6,
+      "priceUsd":1.792e-05,
+      "volume24h":57640.83,
+      "buys1h":83,
+      "sells1h":57,
       "opportunityScore":58,
-      "priceChange1h":42.33,
+      "priceChange1h":6.35,
       "riskScore":null,
       "tradeSignal":"WAIT",
       "securityStatus":"UNKNOWN",
@@ -436,14 +361,14 @@
       "aboutToMove":false,
       "aboutToDrop":false
     },
-    "0x00b9edc1583bf6ef09ff3a09f6c23ecb57fd7d0bb75625717ec81eed181e22d7":{
-      "liquidityUsd":1489523.52,
-      "priceUsd":2495.93,
-      "volume24h":2844382.48,
-      "buys1h":142,
-      "sells1h":129,
+    "8KUSA63myw4NQjQQojk41YdEE5FgrgPPNxaoYuDSPYU2":{
+      "liquidityUsd":48168.82,
+      "priceUsd":0.0003132,
+      "volume24h":380290.88,
+      "buys1h":35,
+      "sells1h":29,
       "opportunityScore":57,
-      "priceChange1h":-0.52,
+      "priceChange1h":-7.52,
       "riskScore":null,
       "tradeSignal":"WAIT",
       "securityStatus":"UNKNOWN",
@@ -451,14 +376,44 @@
       "aboutToMove":false,
       "aboutToDrop":false
     },
-    "CzcFVsc2hQvf1ZwU6ya2vRF7g29aNu4nNrHw7JVVD3Vw":{
-      "liquidityUsd":36160.21,
-      "priceUsd":0.0001747,
-      "volume24h":34742.67,
-      "buys1h":24,
-      "sells1h":18,
+    "EvsKE568hxRdfPBFRoBNV5FWDuF6du7fnUQKpoqDdgb7":{
+      "liquidityUsd":0.0,
+      "priceUsd":1.444e-05,
+      "volume24h":54816.49,
+      "buys1h":572,
+      "sells1h":579,
+      "opportunityScore":57,
+      "priceChange1h":120.0,
+      "riskScore":null,
+      "tradeSignal":"WAIT",
+      "securityStatus":"UNKNOWN",
+      "securityGate":"BLOCKED",
+      "aboutToMove":false,
+      "aboutToDrop":false
+    },
+    "DCq2PocyZaw1Zgqy3jKdsg8c31MsB7GCVW3GFf2SaD9M":{
+      "liquidityUsd":2358.61,
+      "priceUsd":2.23e-06,
+      "volume24h":977363.68,
+      "buys1h":15974,
+      "sells1h":3930,
       "opportunityScore":56,
-      "priceChange1h":-4.24,
+      "priceChange1h":-96.64,
+      "riskScore":null,
+      "tradeSignal":"WAIT",
+      "securityStatus":"UNKNOWN",
+      "securityGate":"BLOCKED",
+      "aboutToMove":false,
+      "aboutToDrop":false
+    },
+    "CzcFVsc2hQvf1ZwU6ya2vRF7g29aNu4nNrHw7JVVD3Vw":{
+      "liquidityUsd":36567.59,
+      "priceUsd":0.0001783,
+      "volume24h":35342.71,
+      "buys1h":15,
+      "sells1h":11,
+      "opportunityScore":56,
+      "priceChange1h":-1.19,
       "riskScore":null,
       "tradeSignal":"WAIT",
       "securityStatus":"UNKNOWN",
@@ -467,13 +422,13 @@
       "aboutToDrop":false
     },
     "2jEKQ8vicyouWwTGpfFLq61Zu3nnxkJdjsWfqebk1C9a":{
-      "liquidityUsd":25080.66,
-      "priceUsd":8.908e-05,
-      "volume24h":316592.17,
-      "buys1h":252,
-      "sells1h":95,
+      "liquidityUsd":25127.79,
+      "priceUsd":8.926e-05,
+      "volume24h":314280.93,
+      "buys1h":256,
+      "sells1h":83,
       "opportunityScore":55,
-      "priceChange1h":2.38,
+      "priceChange1h":-0.41,
       "riskScore":null,
       "tradeSignal":"WAIT",
       "securityStatus":"UNKNOWN",
@@ -482,13 +437,13 @@
       "aboutToDrop":false
     },
     "9SaEUvFKSNDEQnQE7GJHhLHb6rDGoWRdJU9LsUGesCEw":{
-      "liquidityUsd":37352.83,
-      "priceUsd":0.0001368,
-      "volume24h":139715.86,
-      "buys1h":11,
+      "liquidityUsd":37152.47,
+      "priceUsd":0.000134,
+      "volume24h":140119.15,
+      "buys1h":5,
       "sells1h":10,
       "opportunityScore":55,
-      "priceChange1h":-7.01,
+      "priceChange1h":-7.6,
       "riskScore":null,
       "tradeSignal":"WAIT",
       "securityStatus":"UNKNOWN",
@@ -496,14 +451,59 @@
       "aboutToMove":false,
       "aboutToDrop":false
     },
-    "7mHBauscKNJT63JUkg7oEJqjQR9Vm7x6gYsVu7GwdoWz":{
-      "liquidityUsd":17713.18,
-      "priceUsd":3.985e-05,
-      "volume24h":38706.57,
-      "buys1h":42,
-      "sells1h":21,
+    "9pju7scVfBaH7y6xD9jEvaAXzggu7CQyW5Pq5bxcHaMy":{
+      "liquidityUsd":60341.64,
+      "priceUsd":0.0003434,
+      "volume24h":110782.26,
+      "buys1h":45,
+      "sells1h":44,
+      "opportunityScore":55,
+      "priceChange1h":1.04,
+      "riskScore":null,
+      "tradeSignal":"WAIT",
+      "securityStatus":"UNKNOWN",
+      "securityGate":"UNKNOWN",
+      "aboutToMove":false,
+      "aboutToDrop":false
+    },
+    "AqUyAEPq5gqMztjk1pRJ6zUuxLuRTHwgc3NJD2bwaKWT":{
+      "liquidityUsd":0.0,
+      "priceUsd":7.988e-06,
+      "volume24h":59678.5,
+      "buys1h":114,
+      "sells1h":92,
+      "opportunityScore":55,
+      "priceChange1h":-43.03,
+      "riskScore":null,
+      "tradeSignal":"WAIT",
+      "securityStatus":"UNKNOWN",
+      "securityGate":"BLOCKED",
+      "aboutToMove":false,
+      "aboutToDrop":true
+    },
+    "0x30000a407FabeBe29439F8E437050512fF6661bE":{
+      "liquidityUsd":645647.71,
+      "priceUsd":0.001422,
+      "volume24h":339879.52,
+      "buys1h":61,
+      "sells1h":61,
       "opportunityScore":54,
-      "priceChange1h":-2.95,
+      "priceChange1h":-3.6,
+      "riskScore":null,
+      "tradeSignal":"WAIT",
+      "securityStatus":"UNKNOWN",
+      "securityGate":"UNKNOWN",
+      "aboutToMove":false,
+      "aboutToDrop":false
+    },
+    "4k3MgyawuztfCtPiy3US8hXR6xP6T9sLRo7eM6eSzXuE":{
+      "liquidityUsd":18801.47,
+      "priceUsd":5.39e-05,
+      "volume24h":152278.5,
+      "buys1h":97,
+      "sells1h":69,
+      "opportunityScore":54,
+      "priceChange1h":-11.95,
       "riskScore":null,
       "tradeSignal":"WAIT",
       "securityStatus":"UNKNOWN",
@@ -511,20 +511,50 @@
       "aboutToMove":false,
       "aboutToDrop":false
     },
-    "0xe6a654620f7c17ceab36fbbb15787069bb313d5973ba05c710f5a789b190317d":{
-      "liquidityUsd":33704.64,
-      "priceUsd":3.957e-05,
-      "volume24h":14130.08,
-      "buys1h":1,
-      "sells1h":1,
+    "7mHBauscKNJT63JUkg7oEJqjQR9Vm7x6gYsVu7GwdoWz":{
+      "liquidityUsd":14715.38,
+      "priceUsd":2.748e-05,
+      "volume24h":41930.61,
+      "buys1h":90,
+      "sells1h":35,
+      "opportunityScore":54,
+      "priceChange1h":-30.67,
+      "riskScore":null,
+      "tradeSignal":"WAIT",
+      "securityStatus":"UNKNOWN",
+      "securityGate":"BLOCKED",
+      "aboutToMove":false,
+      "aboutToDrop":true
+    },
+    "0xa63a8f90c255c1334e84edf60e362e09dcb34adbbcc00d445692734723d1ae2c":{
+      "liquidityUsd":5057.81,
+      "priceUsd":2.985e-06,
+      "volume24h":350537.84,
+      "buys1h":14,
+      "sells1h":10,
       "opportunityScore":51,
-      "priceChange1h":0.03,
+      "priceChange1h":3.55,
+      "riskScore":null,
+      "tradeSignal":"WAIT",
+      "securityStatus":"UNKNOWN",
+      "securityGate":"BLOCKED",
+      "aboutToMove":false,
+      "aboutToDrop":false
+    },
+    "0x24c65014991e23383da21f9081f99c6e4bc128bbd4075c1b7d67a7e44efa4f2e":{
+      "liquidityUsd":101269.26,
+      "priceUsd":0.001218,
+      "volume24h":99612.54,
+      "buys1h":73,
+      "sells1h":90,
+      "opportunityScore":51,
+      "priceChange1h":-20.82,
       "riskScore":null,
       "tradeSignal":"WAIT",
       "securityStatus":"UNKNOWN",
       "securityGate":"UNKNOWN",
       "aboutToMove":false,
-      "aboutToDrop":false
+      "aboutToDrop":true
     },
     "H1w3oRvrNZ1zMBx5D6RBijwfGryLBXoWunNxNvpwginL":{
       "liquidityUsd":386108.77,
@@ -541,29 +571,14 @@
       "aboutToMove":false,
       "aboutToDrop":false
     },
-    "9Bo8borJpbQoAQxEnEBhooGxmTJSRgcZXLGpvj9mWw4n":{
-      "liquidityUsd":0.0,
-      "priceUsd":1.494e-05,
-      "volume24h":18770.0,
-      "buys1h":27,
-      "sells1h":21,
+    "0x78D2411B63d8188b536f43a03E1677b9b6a2660D":{
+      "liquidityUsd":89968.13,
+      "priceUsd":0.0006828,
+      "volume24h":877735.63,
+      "buys1h":67,
+      "sells1h":59,
       "opportunityScore":50,
-      "priceChange1h":2.11,
-      "riskScore":null,
-      "tradeSignal":"WAIT",
-      "securityStatus":"UNKNOWN",
-      "securityGate":"BLOCKED",
-      "aboutToMove":false,
-      "aboutToDrop":false
-    },
-    "0x62Fcb3C1794FB95BD8B1A97f6Ad5D8a7e4943a1e":{
-      "liquidityUsd":1048130.19,
-      "priceUsd":2497.032,
-      "volume24h":3388691.9,
-      "buys1h":151,
-      "sells1h":159,
-      "opportunityScore":49,
-      "priceChange1h":-0.56,
+      "priceChange1h":8.27,
       "riskScore":null,
       "tradeSignal":"WAIT",
       "securityStatus":"UNKNOWN",
@@ -571,29 +586,14 @@
       "aboutToMove":false,
       "aboutToDrop":false
     },
-    "AZyH8ZL9RgEJgKqBQwzK6FgqRPHcWMq24HS8RZWY7MQy":{
-      "liquidityUsd":17877.84,
-      "priceUsd":4.909e-05,
-      "volume24h":356202.07,
-      "buys1h":288,
-      "sells1h":250,
+    "0x62Fcb3C1794FB95BD8B1A97f6Ad5D8a7e4943a1e":{
+      "liquidityUsd":1048409.82,
+      "priceUsd":2497.92,
+      "volume24h":3333429.37,
+      "buys1h":175,
+      "sells1h":177,
       "opportunityScore":49,
-      "priceChange1h":4.09,
-      "riskScore":null,
-      "tradeSignal":"WAIT",
-      "securityStatus":"UNKNOWN",
-      "securityGate":"BLOCKED",
-      "aboutToMove":false,
-      "aboutToDrop":false
-    },
-    "12jc1DzJpzbCDaKuM4brAKh9jcFry2TLG1FfGsL4ftCG":{
-      "liquidityUsd":88665.63,
-      "priceUsd":0.000831,
-      "volume24h":257481.48,
-      "buys1h":850,
-      "sells1h":537,
-      "opportunityScore":49,
-      "priceChange1h":-9.73,
+      "priceChange1h":-0.55,
       "riskScore":null,
       "tradeSignal":"WAIT",
       "securityStatus":"UNKNOWN",
@@ -602,13 +602,13 @@
       "aboutToDrop":false
     },
     "4L3zetW8uZydZrgB4zTPpz4DnJqesAqWSQxw6J9ykZK3":{
-      "liquidityUsd":17592.28,
-      "priceUsd":4.911e-05,
-      "volume24h":59473.94,
-      "buys1h":253,
-      "sells1h":119,
+      "liquidityUsd":17560.51,
+      "priceUsd":4.889e-05,
+      "volume24h":61643.83,
+      "buys1h":245,
+      "sells1h":114,
       "opportunityScore":48,
-      "priceChange1h":-1.5,
+      "priceChange1h":-1.48,
       "riskScore":null,
       "tradeSignal":"WAIT",
       "securityStatus":"UNKNOWN",
@@ -616,63 +616,18 @@
       "aboutToMove":false,
       "aboutToDrop":false
     },
-    "8Nm7gTnDvSom7C7uGmZ8FGgjRaW6ydHMCLLmw8JpUZsn":{
-      "liquidityUsd":10185.36,
-      "priceUsd":1.688e-05,
-      "volume24h":39138.16,
-      "buys1h":76,
-      "sells1h":68,
+    "4qxSqMh6iEdbdvtMp8r5MK2psAGKNk57PfGeVo2VhczQ":{
+      "liquidityUsd":205475.45,
+      "priceUsd":0.001202,
+      "volume24h":15517.89,
+      "buys1h":14,
+      "sells1h":14,
       "opportunityScore":48,
-      "priceChange1h":60.82,
-      "riskScore":null,
-      "tradeSignal":"WAIT",
-      "securityStatus":"UNKNOWN",
-      "securityGate":"BLOCKED",
-      "aboutToMove":false,
-      "aboutToDrop":false
-    },
-    "2RmBs1KYzkDuaRR4F8zU9rPR6KT16eCgJ9YS1c8XXZgQ":{
-      "liquidityUsd":119435.07,
-      "priceUsd":0.0006528,
-      "volume24h":27825.99,
-      "buys1h":12,
-      "sells1h":8,
-      "opportunityScore":48,
-      "priceChange1h":-1.17,
+      "priceChange1h":-0.14,
       "riskScore":null,
       "tradeSignal":"WAIT",
       "securityStatus":"UNKNOWN",
       "securityGate":"UNKNOWN",
-      "aboutToMove":false,
-      "aboutToDrop":false
-    },
-    "0x30000a407FabeBe29439F8E437050512fF6661bE":{
-      "liquidityUsd":651975.24,
-      "priceUsd":0.001451,
-      "volume24h":340217.13,
-      "buys1h":63,
-      "sells1h":66,
-      "opportunityScore":46,
-      "priceChange1h":-1.11,
-      "riskScore":null,
-      "tradeSignal":"WAIT",
-      "securityStatus":"UNKNOWN",
-      "securityGate":"UNKNOWN",
-      "aboutToMove":false,
-      "aboutToDrop":false
-    },
-    "ApfKQ3qh9hv6x1n6np3aoqE7nrYr7rhdZuQavMsHsjrR":{
-      "liquidityUsd":0.0,
-      "priceUsd":3.27e-06,
-      "volume24h":33925.96,
-      "buys1h":432,
-      "sells1h":386,
-      "opportunityScore":45,
-      "priceChange1h":3.4,
-      "riskScore":null,
-      "tradeSignal":"WAIT",
-      "securityStatus":"UNKNOWN",
-      "securityGate":"BLOCKED",
       "aboutToMove":false,
       "aboutToDrop":false
     },
@@ -684,36 +639,6 @@
       "sells1h":0,
       "opportunityScore":45,
       "priceChange1h":0.0,
-      "riskScore":0,
-      "tradeSignal":"WAIT",
-      "securityStatus":"VERIFIED",
-      "securityGate":"PASSED",
-      "aboutToMove":false,
-      "aboutToDrop":false
-    },
-    "0x1131DB5977242a03eBeaD1aCD18F80A9A29e5922":{
-      "liquidityUsd":666350.39,
-      "priceUsd":106.63,
-      "volume24h":7287689.43,
-      "buys1h":117,
-      "sells1h":141,
-      "opportunityScore":44,
-      "priceChange1h":-0.23,
-      "riskScore":0,
-      "tradeSignal":"WAIT",
-      "securityStatus":"CAUTION",
-      "securityGate":"UNKNOWN",
-      "aboutToMove":false,
-      "aboutToDrop":false
-    },
-    "0x033068f6539f8e6e6b131e6b2b814e6c34a5224bc66947c47dab9dfee93b35fb-0x049d36570d4e46f48e99674bd3fcc84644ddd6b96f7c741b1562b82f9e004dc7-170141183460469235273462165868118016-1000-0x0":{
-      "liquidityUsd":987175.95,
-      "priceUsd":2497.042,
-      "volume24h":3507663.76,
-      "buys1h":61,
-      "sells1h":68,
-      "opportunityScore":44,
-      "priceChange1h":-0.51,
       "riskScore":null,
       "tradeSignal":"WAIT",
       "securityStatus":"UNKNOWN",
@@ -721,33 +646,108 @@
       "aboutToMove":false,
       "aboutToDrop":false
     },
-    "7oJjgYMyiWgfHLZLuzRQZx7TXUkqKauPUvMPnDhWUawY":{
-      "liquidityUsd":0.0,
-      "priceUsd":3.188e-06,
-      "volume24h":67243.42,
-      "buys1h":760,
-      "sells1h":588,
+    "0x1131DB5977242a03eBeaD1aCD18F80A9A29e5922":{
+      "liquidityUsd":651496.63,
+      "priceUsd":106.71,
+      "volume24h":7186275.61,
+      "buys1h":78,
+      "sells1h":108,
       "opportunityScore":44,
-      "priceChange1h":2.78,
-      "riskScore":0,
+      "priceChange1h":-0.18,
+      "riskScore":null,
       "tradeSignal":"WAIT",
-      "securityStatus":"VERIFIED",
+      "securityStatus":"UNKNOWN",
+      "securityGate":"UNKNOWN",
+      "aboutToMove":false,
+      "aboutToDrop":false
+    },
+    "0x033068f6539f8e6e6b131e6b2b814e6c34a5224bc66947c47dab9dfee93b35fb-0x049d36570d4e46f48e99674bd3fcc84644ddd6b96f7c741b1562b82f9e004dc7-170141183460469235273462165868118016-1000-0x0":{
+      "liquidityUsd":987225.26,
+      "priceUsd":2497.44,
+      "volume24h":3394710.89,
+      "buys1h":55,
+      "sells1h":64,
+      "opportunityScore":44,
+      "priceChange1h":-0.52,
+      "riskScore":null,
+      "tradeSignal":"WAIT",
+      "securityStatus":"UNKNOWN",
+      "securityGate":"UNKNOWN",
+      "aboutToMove":false,
+      "aboutToDrop":false
+    },
+    "5EWYAhuagGFR4yKkajUvVnGRcmoFHC9wTDTsQcmya7D2":{
+      "liquidityUsd":14502.53,
+      "priceUsd":3.458e-05,
+      "volume24h":18142.19,
+      "buys1h":317,
+      "sells1h":225,
+      "opportunityScore":44,
+      "priceChange1h":-25.64,
+      "riskScore":null,
+      "tradeSignal":"WAIT",
+      "securityStatus":"UNKNOWN",
       "securityGate":"BLOCKED",
       "aboutToMove":false,
       "aboutToDrop":false
     },
-    "5a7QurJLARt146JajJYPe5nh6vLyFpN2QrHUSLqbsCZy":{
-      "liquidityUsd":93002.04,
-      "priceUsd":0.000853,
-      "volume24h":37056.5,
-      "buys1h":24,
-      "sells1h":15,
+    "4VJtD7du4mrvpHNnpJ6yrE8RVtZcnVYWujDu6rU2MEqk":{
+      "liquidityUsd":6151.79,
+      "priceUsd":8.123e-06,
+      "volume24h":130978.28,
+      "buys1h":1322,
+      "sells1h":1207,
       "opportunityScore":43,
-      "priceChange1h":-5.99,
-      "riskScore":0,
+      "priceChange1h":-82.23,
+      "riskScore":null,
       "tradeSignal":"WAIT",
-      "securityStatus":"VERIFIED",
-      "securityGate":"PASSED",
+      "securityStatus":"UNKNOWN",
+      "securityGate":"BLOCKED",
+      "aboutToMove":false,
+      "aboutToDrop":false
+    },
+    "TTQpjqQUjMJjF3MAvWWVURn3YrRxg2quTM":{
+      "liquidityUsd":2398724.31,
+      "priceUsd":83372.29,
+      "volume24h":33448.2,
+      "buys1h":0,
+      "sells1h":0,
+      "opportunityScore":43,
+      "priceChange1h":0.0,
+      "riskScore":null,
+      "tradeSignal":"WAIT",
+      "securityStatus":"UNKNOWN",
+      "securityGate":"UNKNOWN",
+      "aboutToMove":false,
+      "aboutToDrop":false
+    },
+    "kbjANyYG3fGRhda5MszxqGqWDWB9a7WQYqLKaBxJvux":{
+      "liquidityUsd":346.6,
+      "priceUsd":2.819e-06,
+      "volume24h":2861.42,
+      "buys1h":1,
+      "sells1h":3,
+      "opportunityScore":43,
+      "priceChange1h":-9.72,
+      "riskScore":null,
+      "tradeSignal":"WAIT",
+      "securityStatus":"UNKNOWN",
+      "securityGate":"BLOCKED",
+      "aboutToMove":false,
+      "aboutToDrop":false
+    },
+    "D4zYVY6JQSdg3gEB7eUjFevehGCgracuoNZaynWGYJ35":{
+      "liquidityUsd":4512.47,
+      "priceUsd":5.232e-06,
+      "volume24h":1395.1,
+      "buys1h":2,
+      "sells1h":6,
+      "opportunityScore":43,
+      "priceChange1h":-5.44,
+      "riskScore":null,
+      "tradeSignal":"WAIT",
+      "securityStatus":"UNKNOWN",
+      "securityGate":"BLOCKED",
       "aboutToMove":false,
       "aboutToDrop":false
     }
@@ -43560,79 +43560,61 @@
     "Hsrukybccom7xGwE7iZbBzzc2V8ECFk1VG7jQZf9GueN":{
       "buy":"fomo-buy-uf6dZKYvtdKjStqZrVKdXDk",
       "sell":"fomo-sell-fD2GHwroti5fBagG8Cc5EOo"
+    },
+    "0xc2d9e54378bca28d894575675874e46a5b87d176f8290369d1a5c771680c57a5":{
+      "buy":"fomo-buy-JEZ4d7ed5n5cVbFz4DEZnOLP",
+      "sell":"fomo-sell-TBsTgj2VNHnsflyk8wXs3bE"
+    },
+    "CEtJpR4jhHbP3hgZ6qWcCpK6Fp8pSh5rcSeQH3ag6Hh7":{
+      "buy":"fomo-buy-lkImjtwmglty3oUdIffv2A2",
+      "sell":"fomo-sell-JSiBfLrZkBw7vMyTeBCe0Gf"
+    },
+    "51u2JpWz84UMQePoTn2ZnHUGPGXas21x8e2kJMBD6uNs":{
+      "buy":"fomo-buy-VCOj98twV1FBEf3scVCSdZV",
+      "sell":"fomo-sell-kvhim0m0XKwJyLHILRgQot2"
+    },
+    "6A9ZRcAWPs4chf8g9LAD7tQYABwo8z2Ls2EzNj6SdZWN":{
+      "buy":"fomo-buy-nGIlRyEvHIB3VG7Sd56Ce2kb",
+      "sell":"fomo-sell-6h4AYJxoi2YSfEZFZGjP7pHL"
+    },
+    "3CiK1XMtxaG9Lxv8BDFiRoCzRTdseFe97E1GKMi8a2cV":{
+      "buy":"fomo-buy-OFxC9w6oR1TUzDmD8EgBWrE",
+      "sell":"fomo-sell-uuzkr4arjvHjRubUTDid3MBO"
+    },
+    "AzmoXjevL72cSKw2ZDgHUYQeMrPwjvBwTx81E2S7kaZg":{
+      "buy":"fomo-buy-CB8nNWYOotjwFhuKrynzgaqO",
+      "sell":"fomo-sell-mOk5zTWZVT3cfzsIidSR1ANB"
+    },
+    "23KoFnBAQA4PS8fGGoALEdsoiRLaNo39qy8UbJ11V4ef":{
+      "buy":"fomo-buy-nKPFCSQcgq4T2yWxPbJlPqJb",
+      "sell":"fomo-sell-L7CfNnyjFPOrrUHTcNRTBXp"
+    },
+    "9MKgd1KiXwCp1dwBWK6UQupX4y4ujWjhzgGctpn5NU47":{
+      "buy":"fomo-buy-3mmqp7tUxh8yK1EjvZHw480n",
+      "sell":"fomo-sell-QLdlcwglWAxCHpoobCfqfPrj"
+    },
+    "EvsKE568hxRdfPBFRoBNV5FWDuF6du7fnUQKpoqDdgb7":{
+      "buy":"fomo-buy-aVmS9BobGkYIkXMW6gofk2OB",
+      "sell":"fomo-sell-KQt8jX8ZnixsKU28sDeLaFx"
+    },
+    "DCq2PocyZaw1Zgqy3jKdsg8c31MsB7GCVW3GFf2SaD9M":{
+      "buy":"fomo-buy-bF9WGsZ9veEjEV8JSvWGbQk",
+      "sell":"fomo-sell-020D8wcVF4trZr6fqAGyBZ8U"
+    },
+    "4qxSqMh6iEdbdvtMp8r5MK2psAGKNk57PfGeVo2VhczQ":{
+      "buy":"fomo-buy-UlFAqJJrZ2zia4aGIqbor7uh",
+      "sell":"fomo-sell-DzvyIfqBV8jDlwBqz7rPprt"
+    },
+    "5EWYAhuagGFR4yKkajUvVnGRcmoFHC9wTDTsQcmya7D2":{
+      "buy":"fomo-buy-oL4mlZLa5WMOy5vNSRpdwwv8",
+      "sell":"fomo-sell-8vWrv46oFSH3c9pTKeGIagLv"
+    },
+    "4VJtD7du4mrvpHNnpJ6yrE8RVtZcnVYWujDu6rU2MEqk":{
+      "buy":"fomo-buy-uosGE8H2boYYOSrbbTT1e67",
+      "sell":"fomo-sell-S1ho1ut1G04zqZ5qTp2lTlIs"
     }
   },
   "knownTokens":{
-    "solana:6CV9QRGWBkDUvVwesQRv493ERzJQCt9igaPXagmVpump":{
-      "firstSeenAt":"2026-10-02T20:21:43.568728+00:00",
-      "name":"RBX Trade",
-      "symbol":"RBX"
-    },
-    "solana:B3Hewcs6iX53XkaYq7ipEuq3EmzMw1UWYr2eX17Y7VMh":{
-      "firstSeenAt":"2026-10-02T20:21:43.568728+00:00",
-      "name":"Nest Model Assessment",
-      "symbol":"NEST"
-    },
-    "solana:DQbR3K6DsYKAVxk1Nop8z1tBgC4haSVjr2kUZxj9pump":{
-      "firstSeenAt":"2026-10-02T20:21:43.568728+00:00",
-      "name":"trench mode",
-      "symbol":"trenchmode"
-    },
-    "solana:cdS3jkAX1N8s1jiejhribCiZ8T6eMAeJEkbVEhPeM1v":{
-      "firstSeenAt":"2026-10-02T20:21:43.568728+00:00",
-      "name":"clout",
-      "symbol":"clout"
-    },
-    "robinhood:0x47AbA163aA665D6C37683a8DA5c41Fc8dA37BDA4":{
-      "firstSeenAt":"2026-10-02T20:38:07.118799+00:00",
-      "name":"Backlit",
-      "symbol":"BACKLIT"
-    },
-    "solana:EteNMKKY4ypgo3kwK7qBTRiBWsRm5eM1ofX1zEyyL19M":{
-      "firstSeenAt":"2026-10-02T20:38:07.118799+00:00",
-      "name":"E2E Framework",
-      "symbol":"E2E"
-    },
-    "solana:DioisRY2M15WKza2te7pCvEAe7B1EVp4N1ZrM6tn52Sp":{
-      "firstSeenAt":"2026-10-02T20:38:07.118799+00:00",
-      "name":"Hamster",
-      "symbol":"HAMSTER"
-    },
-    "solana:2bHz7Uq8arFttDotBgGFsVKXxN2n7hM39Cktna69pump":{
-      "firstSeenAt":"2026-10-02T20:38:07.118799+00:00",
-      "name":"Human Interaction Model",
-      "symbol":"HIM"
-    },
-    "solana:13uAEB5kTR2kLyTZTdQZ49mGurdU4xznbyBp3J9opump":{
-      "firstSeenAt":"2026-10-02T20:38:07.118799+00:00",
-      "name":"Nest",
-      "symbol":"Nest"
-    },
-    "solana:C5A8hS2PXNPBPKANKXAd8YLBncYBXBMNgRxW11Q5jbot":{
-      "firstSeenAt":"2026-10-02T20:38:07.118799+00:00",
-      "name":"Bot Social",
-      "symbol":"BotSocial"
-    },
-    "solana:ADH4cDsEYKFVv4NsNN4ep5pwpMwGUCmzWrGPHZoupump":{
-      "firstSeenAt":"2026-10-02T20:38:07.118799+00:00",
-      "name":"FOMO MICRO",
-      "symbol":"FOMOMICRO"
-    },
-    "robinhood:0xdE7fdc32EbCa4795a1634c91d4f1D42c641703b9":{
-      "firstSeenAt":"2026-10-02T20:54:02.949571+00:00",
-      "name":"Anyroute",
-      "symbol":"ANYR"
-    },
-    "solana:PFCy4bbBV65EkEbxWyqHjq5Sx6XCGG9AThczD8Dpump":{
-      "firstSeenAt":"2026-10-02T20:54:02.949571+00:00",
-      "name":"PUMPFUN ARMY",
-      "symbol":"ARMY"
-    },
-    "solana:5tzjoTepg3tEupgKBjedF2SapniNaDrt1cVqdU4UfkjG":{
-      "firstSeenAt":"2026-10-02T20:54:02.949571+00:00",
-      "name":"The Black Rock",
-      "symbol":"BLACKROCK"
-    },
     "solana:AxgKqv3QxYFrcTDq1ric8XZVJLJetvZEYyRgrmGXpump":{
       "firstSeenAt":"2026-10-02T20:54:02.949571+00:00",
       "name":"cute extra terrestrial",
@@ -68562,6 +68544,76 @@
       "firstSeenAt":"2026-10-13T23:30:31.918402+00:00",
       "name":"Ether",
       "symbol":"ETH"
+    },
+    "robinhood:0x2f8A8d8cda53cF078a39769A19294B4E4E57a7a7":{
+      "firstSeenAt":"2026-10-13T23:55:49.307598+00:00",
+      "name":"NibbleMochi",
+      "symbol":"NIBBLEMOCHI"
+    },
+    "solana:3ZWo461YsQopTrdis9F7ykkapMowyQnKVGmEecsEpump":{
+      "firstSeenAt":"2026-10-13T23:55:49.307598+00:00",
+      "name":"Shh",
+      "symbol":"SHH"
+    },
+    "solana:HhmvRUzKwRcKLgZrHvygdaeUcfT1EkZxVBnxczzhpump":{
+      "firstSeenAt":"2026-10-13T23:55:49.307598+00:00",
+      "name":"tail",
+      "symbol":"tail"
+    },
+    "solana:2qeh9wDQ9Y44BB8FrC7YwgqP3RYc7u5TJoA1FHvkpump":{
+      "firstSeenAt":"2026-10-13T23:55:49.307598+00:00",
+      "name":"Doge Cate",
+      "symbol":"DOCA"
+    },
+    "solana:7qQzAgBc7V8vyJ5evpPPZQWypLgRH6pKJwpR8azm1H73":{
+      "firstSeenAt":"2026-10-13T23:55:49.307598+00:00",
+      "name":"Sliver",
+      "symbol":"SLIVER"
+    },
+    "solana:EypK6NVBBVEaDCnhuzXdEZv74XA1TURPigbTGXi8pump":{
+      "firstSeenAt":"2026-10-13T23:55:49.307598+00:00",
+      "name":"Justice For Buster",
+      "symbol":"Buster"
+    },
+    "solana:FdZLTu8t1K7GkiDFJ1uerTQVEHUDWsqqQSN9kz9PJhbA":{
+      "firstSeenAt":"2026-10-13T23:55:49.307598+00:00",
+      "name":"Shh",
+      "symbol":"SHH"
+    },
+    "solana:EiFUKFnHcz2YWbRsHwFjyk3snxvpVPGfGmVrTAyvpump":{
+      "firstSeenAt":"2026-10-13T23:55:49.307598+00:00",
+      "name":"BAKD",
+      "symbol":"BAKD"
+    },
+    "solana:CLERKK7V3ttSrHFPsA4iyVaiz2c32MSHctzUv8z2CPib":{
+      "firstSeenAt":"2026-10-13T23:55:49.307598+00:00",
+      "name":"clerk & co",
+      "symbol":"clerk"
+    },
+    "solana:i5jmCdUFLQXSD4qStuU4ZHPND1C1spXHG9RhpCyfomo":{
+      "firstSeenAt":"2026-10-13T23:55:49.307598+00:00",
+      "name":"fomoPad",
+      "symbol":"FOMOPAD"
+    },
+    "solana:a3W4qutoEJA4232T2gwZUfgYJTetr96pU4SJMwppump":{
+      "firstSeenAt":"2026-10-13T23:55:49.307598+00:00",
+      "name":"The White Whale",
+      "symbol":"WhiteWhale"
+    },
+    "base:0x311935Cd80B76769bF2ecC9D8Ab7635b2139cf82":{
+      "firstSeenAt":"2026-10-13T23:55:49.307598+00:00",
+      "name":"Solana",
+      "symbol":"SOL"
+    },
+    "solana:CWHcqZaBND2GoUgfvuHynZMjCBsaCBtUPEgcAKg8pump":{
+      "firstSeenAt":"2026-10-13T23:55:49.307598+00:00",
+      "name":"tailed",
+      "symbol":"tailed"
+    },
+    "solana:4yPqXDFbmPM47bJHomqaumX34TXFCWSAPXpuCLTapump":{
+      "firstSeenAt":"2026-10-13T23:55:49.307598+00:00",
+      "name":"John Utah",
+      "symbol":"John"
     }
   },
   "securityCache":{
@@ -123282,7 +123334,7 @@
       }
     },
     "robinhood:0x94641b97010608C3827fB058074889f19868FF33":{
-      "checkedAt":1791934231.2395208,
+      "checkedAt":1791935747.9685526,
       "result":{
         "status":"UNKNOWN",
         "verified":false,
@@ -163735,7 +163787,7 @@
       }
     },
     "solana:HMYd9tosnUXuNHmq7pXmoePRVBLBBjA3JBfydq6upump":{
-      "checkedAt":1791932656.2048318,
+      "checkedAt":1791935749.0985553,
       "result":{
         "status":"VERIFIED",
         "verified":true,
@@ -199303,7 +199355,7 @@
       }
     },
     "solana:33jENUQnjoitkMFpvNJcSHyLAHFWJuHwT6E3E8CNpump":{
-      "checkedAt":1791920613.3009293,
+      "checkedAt":1791935748.5263388,
       "result":{
         "status":"VERIFIED",
         "verified":true,
@@ -209880,7 +209932,7 @@
       }
     },
     "solana:7jNwX4Me9zGEjmWY7zARDG2LYjVs1WXD6DZ1JvSfpump":{
-      "checkedAt":1791924280.3816483,
+      "checkedAt":1791935748.7326405,
       "result":{
         "status":"VERIFIED",
         "verified":true,
@@ -215283,7 +215335,7 @@
       }
     },
     "cronos:0x17bfcF8c8d2234879901a5d498879D7DC7C8eFE7":{
-      "checkedAt":1791934231.2397292,
+      "checkedAt":1791935748.5263484,
       "result":{
         "status":"CAUTION",
         "verified":true,
@@ -215307,7 +215359,7 @@
       }
     },
     "robinhood:0x954Ad8DBB270191191b5639d3113a8F9793A908D":{
-      "checkedAt":1791934231.2395031,
+      "checkedAt":1791935748.5263538,
       "result":{
         "status":"UNKNOWN",
         "verified":false,
@@ -215344,7 +215396,188 @@
       }
     },
     "solana:2Luv5g5MxSUpFhDDqJodvtYGVSvSzwUtTrud1VuXpump":{
-      "checkedAt":1791934231.8571856,
+      "checkedAt":1791935747.968537,
+      "result":{
+        "status":"VERIFIED",
+        "verified":true,
+        "blocked":false,
+        "risk":0,
+        "reasons":[
+          "No configured hard security blockers detected"
+        ],
+        "source":"GoPlus",
+        "raw":{
+          "is_open_source":null,
+          "is_honeypot":null,
+          "is_mintable":null,
+          "sell_tax":null,
+          "buy_tax":null,
+          "is_blacklisted":null,
+          "slippage_modifiable":null,
+          "holder_count":null,
+          "top_holder_percent":0
+        }
+      }
+    },
+    "robinhood:0x2f8A8d8cda53cF078a39769A19294B4E4E57a7a7":{
+      "checkedAt":1791935747.9685462,
+      "result":{
+        "status":"UNKNOWN",
+        "verified":false,
+        "blocked":false,
+        "risk":null,
+        "reasons":[
+          "Unsupported security chain: robinhood"
+        ],
+        "source":"GoPlus"
+      }
+    },
+    "solana:7qQzAgBc7V8vyJ5evpPPZQWypLgRH6pKJwpR8azm1H73":{
+      "checkedAt":1791935748.5424638,
+      "result":{
+        "status":"VERIFIED",
+        "verified":true,
+        "blocked":false,
+        "risk":0,
+        "reasons":[
+          "No configured hard security blockers detected"
+        ],
+        "source":"GoPlus",
+        "raw":{
+          "is_open_source":null,
+          "is_honeypot":null,
+          "is_mintable":null,
+          "sell_tax":null,
+          "buy_tax":null,
+          "is_blacklisted":null,
+          "slippage_modifiable":null,
+          "holder_count":null,
+          "top_holder_percent":0
+        }
+      }
+    },
+    "solana:2YJernTKNYLyi9RqhnUztW1dP3J8h7eJjBano7vTpump":{
+      "checkedAt":1791935748.5443518,
+      "result":{
+        "status":"VERIFIED",
+        "verified":true,
+        "blocked":false,
+        "risk":0,
+        "reasons":[
+          "No configured hard security blockers detected"
+        ],
+        "source":"GoPlus",
+        "raw":{
+          "is_open_source":null,
+          "is_honeypot":null,
+          "is_mintable":null,
+          "sell_tax":null,
+          "buy_tax":null,
+          "is_blacklisted":null,
+          "slippage_modifiable":null,
+          "holder_count":null,
+          "top_holder_percent":0
+        }
+      }
+    },
+    "solana:8j6FEcsrCtH9CevGYKD3Jg5wj2Jvw9tQ4MUFDNZMpump":{
+      "checkedAt":1791935748.5634632,
+      "result":{
+        "status":"VERIFIED",
+        "verified":true,
+        "blocked":false,
+        "risk":0,
+        "reasons":[
+          "No configured hard security blockers detected"
+        ],
+        "source":"GoPlus",
+        "raw":{
+          "is_open_source":null,
+          "is_honeypot":null,
+          "is_mintable":null,
+          "sell_tax":null,
+          "buy_tax":null,
+          "is_blacklisted":null,
+          "slippage_modifiable":null,
+          "holder_count":null,
+          "top_holder_percent":0
+        }
+      }
+    },
+    "solana:2qeh9wDQ9Y44BB8FrC7YwgqP3RYc7u5TJoA1FHvkpump":{
+      "checkedAt":1791935748.6890311,
+      "result":{
+        "status":"VERIFIED",
+        "verified":true,
+        "blocked":false,
+        "risk":0,
+        "reasons":[
+          "No configured hard security blockers detected"
+        ],
+        "source":"GoPlus",
+        "raw":{
+          "is_open_source":null,
+          "is_honeypot":null,
+          "is_mintable":null,
+          "sell_tax":null,
+          "buy_tax":null,
+          "is_blacklisted":null,
+          "slippage_modifiable":null,
+          "holder_count":null,
+          "top_holder_percent":0
+        }
+      }
+    },
+    "solana:3ZWo461YsQopTrdis9F7ykkapMowyQnKVGmEecsEpump":{
+      "checkedAt":1791935748.7649617,
+      "result":{
+        "status":"VERIFIED",
+        "verified":true,
+        "blocked":false,
+        "risk":0,
+        "reasons":[
+          "No configured hard security blockers detected"
+        ],
+        "source":"GoPlus",
+        "raw":{
+          "is_open_source":null,
+          "is_honeypot":null,
+          "is_mintable":null,
+          "sell_tax":null,
+          "buy_tax":null,
+          "is_blacklisted":null,
+          "slippage_modifiable":null,
+          "holder_count":null,
+          "top_holder_percent":0
+        }
+      }
+    },
+    "solana:HhmvRUzKwRcKLgZrHvygdaeUcfT1EkZxVBnxczzhpump":{
+      "checkedAt":1791935748.9926293,
+      "result":{
+        "status":"VERIFIED",
+        "verified":true,
+        "blocked":false,
+        "risk":0,
+        "reasons":[
+          "No configured hard security blockers detected"
+        ],
+        "source":"GoPlus",
+        "raw":{
+          "is_open_source":null,
+          "is_honeypot":null,
+          "is_mintable":null,
+          "sell_tax":null,
+          "buy_tax":null,
+          "is_blacklisted":null,
+          "slippage_modifiable":null,
+          "holder_count":null,
+          "top_holder_percent":0
+        }
+      }
+    },
+    "solana:4FhHaEvSngtqnAZrFjDXPyptXZCiLQD3VftsefaSpump":{
+      "checkedAt":1791935749.3069103,
       "result":{
         "status":"VERIFIED",
         "verified":true,
@@ -216114,5 +216347,5 @@
       "at":"2026-10-13T21:43:03.836770+00:00"
     }
   },
-  "securityCursor":0
+  "securityCursor":5
 }
